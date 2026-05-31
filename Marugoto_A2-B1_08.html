@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marugoto A2-B1 - Topic 8</title>
+<style>
+:root {
+  --rose-fg: #b34155;
+  --rose-bg: #f7d8de;
+  --rose-light: #fce8eb;
+  --green-fg: #2f7d3e;
+  --green-bg: #cce8d1;
+  --green-light: #e8f4eb;
+  --blue-fg: #2a4f7c;
+  --blue-bg: #d4dfee;
+  --blue-light: #ecf1f8;
+  --orange-fg: #b35900;
+  --orange-bg: #ffd9a8;
+  --orange-light: #fff1de;
+  --purple-fg: #6b3fa0;
+  --purple-bg: #e0d4ef;
+  --purple-light: #f3edfa;
+
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+}
+* { box-sizing: border-box; }
+body { font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0; background: #f4f4f6; }
+.deck-head { background: var(--rose-fg); color: white; padding: 18px 28px; }
+.deck-head h1 { margin: 0; font-size: 1.6rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.deck-head .subtitle { margin-top: 4px; font-size: 0.95rem; opacity: 0.92; }
+.deck { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+.slide { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); padding: 24px 28px; margin-bottom: 28px; position: relative; }
+.frametitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--rose-fg);
+  border-bottom: 2px solid var(--rose-bg);
+  padding-bottom: 8px;
+  margin: 0 0 16px;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.alertblock, .exampleblock, .block, .practiceblock { border-radius: 6px; margin: 12px 0; overflow: hidden; }
+.alertblock { background: var(--rose-light); border: 1px solid var(--rose-bg); }
+.alertblock > .block-title { background: var(--rose-fg); color: white; }
+.exampleblock { background: var(--green-light); border: 1px solid var(--green-bg); }
+.exampleblock > .block-title { background: var(--green-fg); color: white; }
+.block { background: var(--blue-light); border: 1px solid var(--blue-bg); }
+.block > .block-title { background: var(--blue-fg); color: white; }
+.practiceblock { background: var(--orange-light); border: 1px solid var(--orange-bg); }
+.practiceblock > .block-title { background: var(--orange-fg); color: white; }
+.block-title {
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.block-body { padding: 10px 14px; font-size: 0.92rem; line-height: 1.55; }
+.block-body p { margin: 0.4em 0; }
+ul.block-list, ol.block-list { margin: 0.4em 0; padding-left: 1.4em; }
+ul.block-list li, ol.block-list li { margin: 0.25em 0; }
+.item-label { display: inline-block; min-width: 1.5em; font-weight: 600; color: var(--ink-soft); margin-right: 0.35em; }
+.c-red { color: #d23047; font-weight: 600; }
+.c-blue { color: #2a59a8; font-weight: 600; }
+.c-brown { color: #8a5a2b; font-weight: 600; }
+.sc { font-variant: small-caps; font-size: 0.85em; letter-spacing: 0.05em; }
+s { text-decoration: line-through; text-decoration-color: #c33; }
+sub, sup { font-size: 0.72em; }
+.writing-line { height: 1px; background: #b88a4a; margin: 18px 0; }
+.practice-body { padding-top: 4px; padding-bottom: 4px; }
+.slide-counter { position: absolute; bottom: 8px; right: 14px; font-size: 0.78rem; color: var(--ink-soft); }
+.nav-bar { position: sticky; top: 0; background: rgba(255,255,255,0.96); border-bottom: 1px solid #ddd; padding: 8px 16px; z-index: 100; font-size: 0.85rem; }
+.nav-bar a { color: var(--rose-fg); margin-right: 14px; text-decoration: none; font-weight: 500; white-space: nowrap; }
+.nav-bar a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .frametitle { font-size: 1.05rem; }
+  .deck-head h1 { font-size: 1.2rem; }
+  .deck { padding: 12px 8px 32px; }
+  .slide { padding: 16px 14px; }
+}
+
+.kanjiblock { background: var(--purple-light); border: 1px solid var(--purple-bg); border-radius: 6px; overflow: hidden; margin: 12px 0; }
+.kanjiblock > .block-title { background: var(--purple-fg); color: white; padding: 6px 12px; font-weight: 600; font-size: 0.95rem; white-space: nowrap; overflow-x: auto; overflow-y: hidden; }
+.kanjiblock > .block-body { padding: 14px 14px; }
+.kanji-audio { display: flex; align-items: center; gap: 10px; margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); }
+.kanji-audio audio { max-width: 320px; height: 32px; }
+
+
+
+
+.kanji-list { display: flex; flex-wrap: wrap; gap: 18px 24px; margin: 8px 0 16px; padding: 0; list-style: none; }
+.kanji-list .kw { display: inline-flex; flex-direction: column; align-items: center; padding: 6px 10px; background: white; border: 1px solid var(--purple-bg); border-radius: 6px; }
+.kanji-list .kw ruby { display: inline-flex; flex-direction: column; align-items: center; font-size: 1.45rem; line-height: 1.05; }
+.kanji-list .kw ruby rt { font-size: 0.6rem; color: var(--ink-soft); font-weight: 400; margin-top: 4px; }
+.kanji-list a.k { color: var(--purple-fg); text-decoration: none; padding: 0 2px; border-radius: 3px; font-weight: 600; transition: background 0.15s; }
+.kanji-list a.k:hover { background: var(--purple-bg); }
+
+</style>
+</head>
+<body>
+<header class="deck-head">
+  <h1>Marugoto A2-B1 - Topic 8</h1>
+  
+</header>
+<nav class="nav-bar"><a href="#s1">Slide 8.1</a><a href="#s2">Slide 8.2</a><a href="#s3">Slide 8.3</a></nav>
+<main class="deck">
+<section class='slide' id='s1'>
+<h2 class='frametitle'>8.1: (人が) <strong>N</strong><span class="c-red">を</span><strong>V</strong>(他動詞) / <strong>N</strong><span class="c-red">が</span><strong>V</strong>(自動詞)</h2>
+<div class='alertblock'>
+<div class='block-title'>Grammatical Construction:</div>
+<div class='block-body'><ul class='block-list'>
+<li><strong>Transitive (他動詞)</strong>: (人が) N<span class="c-red">を</span>V (action denoted; an agent acts on N).</li>
+<li><strong>Intransitive (自動詞)</strong>: N<span class="c-red">が</span>V (change-of-state denoted; N changes by itself).</li>
+<li>Japanese encodes the Trs/Intr distinction <span class="c-red">phonetically</span> in verb pairs.</li>
+</ul></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><p>Verb pairs in the textbook:</p>
+<ul class='block-list'>
+<li><span class='item-label'>電気/エアコン:</span> <span class="c-red">つけます</span>(他, 2G) / <span class="c-red">つきます</span>(自, 1G) ; <span class="c-red">けします</span>(他, 1G) / <span class="c-red">きえます</span>(自, 2G)</li>
+<li><span class='item-label'>まど/ドア:</span> <span class="c-red">あけます</span>(他, 2G) / <span class="c-red">あきます</span>(自, 1G) ; <span class="c-red">しめます</span>(他, 2G) / <span class="c-red">しまります</span>(自, 1G)</li>
+<li><span class='item-label'>おゆ/水:</span> <span class="c-red">だします</span>(他, 1G) / <span class="c-red">でます</span>(自, 2G) ; <span class="c-red">とめます</span>(他, 2G) / <span class="c-red">とまります</span>(自, 1G)</li>
+</ul>
+<p>Sentences:</p>
+<ol class='block-list'>
+<li>ホテルの人が電気<span class="c-red">を</span>つけます。/ 電気<span class="c-red">が</span>つきます。</li>
+<li>ベッドのそばの電気が <span class="c-red">きえない</span>ので、受付に電話しました。</li>
+<li>ホテルの人は、へやのエアコンを <span class="c-red">つけました</span>。</li>
+<li>へやに入ったら、まどが <span class="c-red">あいた</span>ままでした。</li>
+<li>ホテルの人は、トイレの水を <span class="c-red">止めました</span>。</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li>Activity (他動詞) + ています = action in progress: 「電気を<span class="c-red">つけています</span>」(turning on).</li>
+<li>Change-of-state (自動詞) + ています = achieved state: 「電気が<span class="c-red">ついています</span>」(is on).</li>
+<li>Many other pairs: こわします/こわれます, よごします/よごれます, わかします/わきます, etc.</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: Compose your own sentence based on the example sentences.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>1 / 3</div>
+</section>
+<section class='slide' id='s2'>
+<h2 class='frametitle'>8.2: <strong>V1.stem</strong>+<span class="c-red">ながら</span> <strong>V2</strong>: doing V1 <em>while</em> doing V2</h2>
+<div class='alertblock'>
+<div class='block-title'>Grammatical Construction:</div>
+<div class='block-body'><ul class='block-list'>
+<li>[... V1.ま<s>す</s>+<span class="c-red">ながら</span>] V2: V1 and V2 are done at the same time <em>by the same subject</em>.</li>
+<li>V2 is the main action; V1 is the simultaneous accompanying action.</li>
+</ul></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><ol class='block-list'>
+<li>ホテルの人は、歩き<span class="c-red">ながら</span>、あべさんにホテルの歴史を 説明しました。</li>
+<li>パウロさんは、カフェでコーヒーを 飲み<span class="c-red">ながら</span>、メールをチェックしました。</li>
+<li>私は、マッサージを して<span class="c-red">もらいながら</span>、ねむってしまいました。</li>
+<li>子どもたちは、おかしを 食べ<span class="c-red">ながら</span>、ゲームをしていました。</li>
+<li>アリさんは、サインを 見<span class="c-red">ながら</span>、出発ゲートをさがしました。</li>
+<li>私のむすめは、空港で 泣き<span class="c-red">ながら</span>、友だちとわかれました。</li>
+<li>お酒を 飲み<span class="c-red">ながら</span>、ゆっくり映画を見ます。</li>
+<li>コンピューターで、ずっと 仕事をし<span class="c-red">ながら</span>、(すごします)。</li>
+<li>ガイドブックを 読み<span class="c-red">ながら</span>、旅行の計画をたてます。</li>
+<li>外国語の勉強を し<span class="c-red">ながら</span>、話し<span class="c-red">ながら</span>、(すごします)。</li>
+<li>となりに座った人と 話し<span class="c-red">ながら</span>、すごします。</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li>The subject of V1 and V2 must be the <span class="c-red">same person</span>: <span class="c-red">BAD</span> ボブがピアノを弾きながら、トムは歌いました。</li>
+<li>音楽を ききながら ご飯を食べます (V2 = main: eating; V1 = simultaneous: listening).</li>
+<li>Do not use to express ``while X happens'' between two different events; use 〜あいだ(に) instead.</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: Compose your own sentence based on the example sentences.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>2 / 3</div>
+</section>
+<section class='slide' id='s3'>
+<h2 class='frametitle'>8.3: Kanji / 漢字 (新しい漢字)</h2>
+<div class='kanjiblock'>
+<div class='block-title'>Click each kanji for details on Kanshudo</div>
+<div class='block-body'>
+<ul class='kanji-list'>
+<li class="kw"><ruby>お<a class="k" href="https://www.kanshudo.com/kanji/客" target="_blank" rel="noopener">客</a><a class="k" href="https://www.kanshudo.com/kanji/様" target="_blank" rel="noopener">様</a><rt>おきゃくさま</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/手" target="_blank" rel="noopener">手</a><a class="k" href="https://www.kanshudo.com/kanji/続" target="_blank" rel="noopener">続</a>き<rt>てつづき</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/飛" target="_blank" rel="noopener">飛</a><a class="k" href="https://www.kanshudo.com/kanji/行" target="_blank" rel="noopener">行</a><a class="k" href="https://www.kanshudo.com/kanji/機" target="_blank" rel="noopener">機</a><rt>ひこうき</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/変" target="_blank" rel="noopener">変</a><a class="k" href="https://www.kanshudo.com/kanji/更" target="_blank" rel="noopener">更</a><rt>へんこう</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/予" target="_blank" rel="noopener">予</a><a class="k" href="https://www.kanshudo.com/kanji/定" target="_blank" rel="noopener">定</a><rt>よてい</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/利" target="_blank" rel="noopener">利</a><a class="k" href="https://www.kanshudo.com/kanji/用" target="_blank" rel="noopener">用</a><rt>りよう</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/忘" target="_blank" rel="noopener">忘</a>れ<a class="k" href="https://www.kanshudo.com/kanji/物" target="_blank" rel="noopener">物</a><rt>わすれもの</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/助" target="_blank" rel="noopener">助</a>ける<rt>たすける</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/航" target="_blank" rel="noopener">航</a><a class="k" href="https://www.kanshudo.com/kanji/空" target="_blank" rel="noopener">空</a><rt>こうくう (JF航空)</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/便" target="_blank" rel="noopener">便</a><rt>びん (115便)</rt></ruby></li>
+</ul>
+<div class='kanji-audio'>
+<span>Listen (漢字のことば):</span>
+<audio controls preload="none">
+  <source src="item/8_1_kanji_no_kotoba.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class='slide-counter'>3 / 3</div>
+</section>
+</main>
+</body>
+</html>

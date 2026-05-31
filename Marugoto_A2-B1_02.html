@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marugoto A2-B1 - Topic 2</title>
+<style>
+:root {
+  --rose-fg: #b34155;
+  --rose-bg: #f7d8de;
+  --rose-light: #fce8eb;
+  --green-fg: #2f7d3e;
+  --green-bg: #cce8d1;
+  --green-light: #e8f4eb;
+  --blue-fg: #2a4f7c;
+  --blue-bg: #d4dfee;
+  --blue-light: #ecf1f8;
+  --orange-fg: #b35900;
+  --orange-bg: #ffd9a8;
+  --orange-light: #fff1de;
+  --purple-fg: #6b3fa0;
+  --purple-bg: #e0d4ef;
+  --purple-light: #f3edfa;
+
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+}
+* { box-sizing: border-box; }
+body { font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0; background: #f4f4f6; }
+.deck-head { background: var(--rose-fg); color: white; padding: 18px 28px; }
+.deck-head h1 { margin: 0; font-size: 1.6rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.deck-head .subtitle { margin-top: 4px; font-size: 0.95rem; opacity: 0.92; }
+.deck { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+.slide { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); padding: 24px 28px; margin-bottom: 28px; position: relative; }
+.frametitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--rose-fg);
+  border-bottom: 2px solid var(--rose-bg);
+  padding-bottom: 8px;
+  margin: 0 0 16px;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.alertblock, .exampleblock, .block, .practiceblock { border-radius: 6px; margin: 12px 0; overflow: hidden; }
+.alertblock { background: var(--rose-light); border: 1px solid var(--rose-bg); }
+.alertblock > .block-title { background: var(--rose-fg); color: white; }
+.exampleblock { background: var(--green-light); border: 1px solid var(--green-bg); }
+.exampleblock > .block-title { background: var(--green-fg); color: white; }
+.block { background: var(--blue-light); border: 1px solid var(--blue-bg); }
+.block > .block-title { background: var(--blue-fg); color: white; }
+.practiceblock { background: var(--orange-light); border: 1px solid var(--orange-bg); }
+.practiceblock > .block-title { background: var(--orange-fg); color: white; }
+.block-title {
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.block-body { padding: 10px 14px; font-size: 0.92rem; line-height: 1.55; }
+.block-body p { margin: 0.4em 0; }
+ul.block-list, ol.block-list { margin: 0.4em 0; padding-left: 1.4em; }
+ul.block-list li, ol.block-list li { margin: 0.25em 0; }
+.item-label { display: inline-block; min-width: 1.5em; font-weight: 600; color: var(--ink-soft); margin-right: 0.35em; }
+.c-red { color: #d23047; font-weight: 600; }
+.c-blue { color: #2a59a8; font-weight: 600; }
+.c-brown { color: #8a5a2b; font-weight: 600; }
+.sc { font-variant: small-caps; font-size: 0.85em; letter-spacing: 0.05em; }
+s { text-decoration: line-through; text-decoration-color: #c33; }
+sub, sup { font-size: 0.72em; }
+.writing-line { height: 1px; background: #b88a4a; margin: 18px 0; }
+.practice-body { padding-top: 4px; padding-bottom: 4px; }
+.slide-counter { position: absolute; bottom: 8px; right: 14px; font-size: 0.78rem; color: var(--ink-soft); }
+.nav-bar { position: sticky; top: 0; background: rgba(255,255,255,0.96); border-bottom: 1px solid #ddd; padding: 8px 16px; z-index: 100; font-size: 0.85rem; }
+.nav-bar a { color: var(--rose-fg); margin-right: 14px; text-decoration: none; font-weight: 500; white-space: nowrap; }
+.nav-bar a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .frametitle { font-size: 1.05rem; }
+  .deck-head h1 { font-size: 1.2rem; }
+  .deck { padding: 12px 8px 32px; }
+  .slide { padding: 16px 14px; }
+}
+
+.kanjiblock { background: var(--purple-light); border: 1px solid var(--purple-bg); border-radius: 6px; overflow: hidden; margin: 12px 0; }
+.kanjiblock > .block-title { background: var(--purple-fg); color: white; padding: 6px 12px; font-weight: 600; font-size: 0.95rem; white-space: nowrap; overflow-x: auto; overflow-y: hidden; }
+.kanjiblock > .block-body { padding: 14px 14px; }
+.kanji-audio { display: flex; align-items: center; gap: 10px; margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); }
+.kanji-audio audio { max-width: 320px; height: 32px; }
+
+
+
+
+.kanji-list { display: flex; flex-wrap: wrap; gap: 18px 24px; margin: 8px 0 16px; padding: 0; list-style: none; }
+.kanji-list .kw { display: inline-flex; flex-direction: column; align-items: center; padding: 6px 10px; background: white; border: 1px solid var(--purple-bg); border-radius: 6px; }
+.kanji-list .kw ruby { display: inline-flex; flex-direction: column; align-items: center; font-size: 1.45rem; line-height: 1.05; }
+.kanji-list .kw ruby rt { font-size: 0.6rem; color: var(--ink-soft); font-weight: 400; margin-top: 4px; }
+.kanji-list a.k { color: var(--purple-fg); text-decoration: none; padding: 0 2px; border-radius: 3px; font-weight: 600; transition: background 0.15s; }
+.kanji-list a.k:hover { background: var(--purple-bg); }
+
+</style>
+</head>
+<body>
+<header class="deck-head">
+  <h1>Marugoto A2-B1 - Topic 2</h1>
+  
+</header>
+<nav class="nav-bar"><a href="#s1">Slide 2.1</a><a href="#s2">Slide 2.2</a><a href="#s3">Slide 2.3</a></nav>
+<main class="deck">
+<section class='slide' id='s1'>
+<h2 class='frametitle'>2.1: <strong>イA-くても</strong> / <strong>ナA・N-でも</strong>: <em>even if/though</em> (譲歩)</h2>
+<div class='alertblock'>
+<div class='block-title'>Grammatical Construction:</div>
+<div class='block-body'><ul class='block-list'>
+<li><span class='item-label'>イA:</span> せま<s>い</s>+くて<span class="c-red">も</span></li>
+<li><span class='item-label'>ナA:</span> 不便<s>な</s>+<span class="c-red">でも</span> / 不便じゃな<s>い</s>+くて<span class="c-red">も</span></li>
+<li><span class='item-label'>N:</span> この家+<span class="c-red">でも</span> / 学生じゃな<s>い</s>+くて<span class="c-red">も</span></li>
+</ul></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><ol class='block-list'>
+<li>せま<span class="c-red">くても</span>、がまんしています。</li>
+<li>不便<span class="c-red">でも</span>、ここに住みたいです。</li>
+<li>この家<span class="c-red">でも</span>いいですか。</li>
+<li>シャワーしか使わないので、おふろが<span class="c-red">なくても</span>いいです。</li>
+<li>兄といっしょに住むから、やちんが少し<span class="c-red">高くても</span>だいじょうぶです。</li>
+<li>車があるから、交通が<span class="c-red">不便でも</span>問題ありません。</li>
+<li>昼は家にいないので、へやが<span class="c-red">明るくなくても</span>いいです。</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li>Compare with A たら B (<em>if A, then B</em>): あなたが<span class="c-red">来なくても</span>、私は日本に行きます。</li>
+<li>Wh-... <span class="c-red">ても</span> = ``no matter wh-'': 何を食べ<span class="c-red">ても</span>、この店はおいしい。</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: Compose your own sentence based on the example sentences.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>1 / 3</div>
+</section>
+<section class='slide' id='s2'>
+<h2 class='frametitle'>2.2: <strong>S1</strong><span class="c-red">ば</span> / <strong>S1</strong><span class="c-red">なければ</span>, <strong>S2</strong>: Conditional (仮定条件)</h2>
+<div class='alertblock'>
+<div class='block-title'>Conditional Form (じょうけんけい):</div>
+<div class='block-body'><ul class='block-list'>
+<li><span class='item-label'>る:</span> たべ<s>る</s>+<span class="c-red">れば</span> / たべ<s>る</s>+な<s>い</s>+<span class="c-red">ければ</span></li>
+<li><span class='item-label'>う:</span> ...<s>u</s>+<span class="c-red">eば</span> (きく→<span class="c-red">きけば</span> / かわ<s>ない</s>+<span class="c-red">なければ</span>)</li>
+<li><span class='item-label'>Irr.:</span> くる→<span class="c-red">くれば</span> / する→<span class="c-red">すれば</span></li>
+<li><span class='item-label'>イ:</span> ちか<s>い</s>+<span class="c-red">ければ</span> / ちか<s>い</s>+くな<s>い</s>+<span class="c-red">ければ</span></li>
+<li><span class='item-label'>ナA/N:</span> あんぜん/としん+<span class="c-red">ならば</span> (Neg: <span class="c-red">でなければ</span>)</li>
+</ul></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><ol class='block-list'>
+<li>もっと広いへやが<span class="c-red">あれば</span>、ひっこしたいです。</li>
+<li>お客さんがたくさん来るので、<span class="c-red">ひろければ</span>、その家を借りたいです。</li>
+<li>1人で住みますから、へやは1つ<span class="c-red">あれば</span>だいじょうぶです。</li>
+<li>料理ができないから、近くにレストランが<span class="c-red">なければ</span>こまります。</li>
+<li>きゅうりょうが安いので、やちんが<span class="c-red">高くなければ</span>、そのへやを借ります。</li>
+<li>ざんぎょうが多いから、夜も<span class="c-red">安全ならば</span>、そのマンションにします。</li>
+<li>週末スーパーでたくさん<span class="c-red">かえば</span>、だいじょうぶですよ。</li>
+<li>だれかといっしょに<span class="c-red">住めば</span>、借りられますよ。</li>
+<li>子どもの学校が<span class="c-red">ちかければ</span>、通勤に<span class="c-red">ふべんでも</span>いいです。</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li>[S1...]<span class="c-red">ば</span> [S2...]: S2 expresses a good/okay outcome.</li>
+<li>ナA/N use <span class="c-red">ならば</span> (or <span class="c-red">でなければ</span> for negative).</li>
+<li>Use [A...た]<span class="c-red">ら</span> (not 〜ば) for negative outcomes or requests: 日本に<span class="c-red">来たら</span>（*<s>くれば</s>）、電話してください。</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: Compose your own sentence based on the example sentences.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>2 / 3</div>
+</section>
+<section class='slide' id='s3'>
+<h2 class='frametitle'>2.3: Kanji / 漢字 (新しい漢字)</h2>
+<div class='kanjiblock'>
+<div class='block-title'>Click each kanji for details on Kanshudo</div>
+<div class='block-body'>
+<ul class='kanji-list'>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/庭" target="_blank" rel="noopener">庭</a><rt>にわ</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/公" target="_blank" rel="noopener">公</a><a class="k" href="https://www.kanshudo.com/kanji/園" target="_blank" rel="noopener">園</a><rt>こうえん</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/病" target="_blank" rel="noopener">病</a><a class="k" href="https://www.kanshudo.com/kanji/院" target="_blank" rel="noopener">院</a><rt>びょういん</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/交" target="_blank" rel="noopener">交</a><a class="k" href="https://www.kanshudo.com/kanji/通" target="_blank" rel="noopener">通</a><rt>こうつう</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/通" target="_blank" rel="noopener">通</a><a class="k" href="https://www.kanshudo.com/kanji/勤" target="_blank" rel="noopener">勤</a><rt>つうきん</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/安" target="_blank" rel="noopener">安</a><a class="k" href="https://www.kanshudo.com/kanji/全" target="_blank" rel="noopener">全</a><rt>あんぜん</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/危" target="_blank" rel="noopener">危</a>ない<rt>あぶない</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/遠" target="_blank" rel="noopener">遠</a>い<rt>とおい</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/勤" target="_blank" rel="noopener">勤</a>める<rt>つとめる</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/以" target="_blank" rel="noopener">以</a><a class="k" href="https://www.kanshudo.com/kanji/上" target="_blank" rel="noopener">上</a><rt>いじょう (2時間以上)</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/以" target="_blank" rel="noopener">以</a><a class="k" href="https://www.kanshudo.com/kanji/下" target="_blank" rel="noopener">下</a><rt>いか (6万円以下)</rt></ruby></li>
+</ul>
+<div class='kanji-audio'>
+<span>Listen (漢字のことば):</span>
+<audio controls preload="none">
+  <source src="item/2_1_kanji_no_kotoba.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class='slide-counter'>3 / 3</div>
+</section>
+</main>
+</body>
+</html>

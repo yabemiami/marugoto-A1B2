@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marugoto A2-B1 - Topic 1</title>
+<style>
+:root {
+  --rose-fg: #b34155;
+  --rose-bg: #f7d8de;
+  --rose-light: #fce8eb;
+  --green-fg: #2f7d3e;
+  --green-bg: #cce8d1;
+  --green-light: #e8f4eb;
+  --blue-fg: #2a4f7c;
+  --blue-bg: #d4dfee;
+  --blue-light: #ecf1f8;
+  --orange-fg: #b35900;
+  --orange-bg: #ffd9a8;
+  --orange-light: #fff1de;
+  --purple-fg: #6b3fa0;
+  --purple-bg: #e0d4ef;
+  --purple-light: #f3edfa;
+
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+}
+* { box-sizing: border-box; }
+body { font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0; background: #f4f4f6; }
+.deck-head { background: var(--rose-fg); color: white; padding: 18px 28px; }
+.deck-head h1 { margin: 0; font-size: 1.6rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.deck-head .subtitle { margin-top: 4px; font-size: 0.95rem; opacity: 0.92; }
+.deck { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+.slide { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); padding: 24px 28px; margin-bottom: 28px; position: relative; }
+.frametitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--rose-fg);
+  border-bottom: 2px solid var(--rose-bg);
+  padding-bottom: 8px;
+  margin: 0 0 16px;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.alertblock, .exampleblock, .block, .practiceblock { border-radius: 6px; margin: 12px 0; overflow: hidden; }
+.alertblock { background: var(--rose-light); border: 1px solid var(--rose-bg); }
+.alertblock > .block-title { background: var(--rose-fg); color: white; }
+.exampleblock { background: var(--green-light); border: 1px solid var(--green-bg); }
+.exampleblock > .block-title { background: var(--green-fg); color: white; }
+.block { background: var(--blue-light); border: 1px solid var(--blue-bg); }
+.block > .block-title { background: var(--blue-fg); color: white; }
+.practiceblock { background: var(--orange-light); border: 1px solid var(--orange-bg); }
+.practiceblock > .block-title { background: var(--orange-fg); color: white; }
+.block-title {
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.block-body { padding: 10px 14px; font-size: 0.92rem; line-height: 1.55; }
+.block-body p { margin: 0.4em 0; }
+ul.block-list, ol.block-list { margin: 0.4em 0; padding-left: 1.4em; }
+ul.block-list li, ol.block-list li { margin: 0.25em 0; }
+.item-label { display: inline-block; min-width: 1.5em; font-weight: 600; color: var(--ink-soft); margin-right: 0.35em; }
+.c-red { color: #d23047; font-weight: 600; }
+.c-blue { color: #2a59a8; font-weight: 600; }
+.c-brown { color: #8a5a2b; font-weight: 600; }
+.sc { font-variant: small-caps; font-size: 0.85em; letter-spacing: 0.05em; }
+s { text-decoration: line-through; text-decoration-color: #c33; }
+sub, sup { font-size: 0.72em; }
+.writing-line { height: 1px; background: #b88a4a; margin: 18px 0; }
+.practice-body { padding-top: 4px; padding-bottom: 4px; }
+.slide-counter { position: absolute; bottom: 8px; right: 14px; font-size: 0.78rem; color: var(--ink-soft); }
+.nav-bar { position: sticky; top: 0; background: rgba(255,255,255,0.96); border-bottom: 1px solid #ddd; padding: 8px 16px; z-index: 100; font-size: 0.85rem; }
+.nav-bar a { color: var(--rose-fg); margin-right: 14px; text-decoration: none; font-weight: 500; white-space: nowrap; }
+.nav-bar a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .frametitle { font-size: 1.05rem; }
+  .deck-head h1 { font-size: 1.2rem; }
+  .deck { padding: 12px 8px 32px; }
+  .slide { padding: 16px 14px; }
+}
+
+.kanjiblock { background: var(--purple-light); border: 1px solid var(--purple-bg); border-radius: 6px; overflow: hidden; margin: 12px 0; }
+.kanjiblock > .block-title { background: var(--purple-fg); color: white; padding: 6px 12px; font-weight: 600; font-size: 0.95rem; white-space: nowrap; overflow-x: auto; overflow-y: hidden; }
+.kanjiblock > .block-body { padding: 14px 14px; }
+.kanji-audio { display: flex; align-items: center; gap: 10px; margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); }
+.kanji-audio audio { max-width: 320px; height: 32px; }
+
+
+
+
+.kanji-list { display: flex; flex-wrap: wrap; gap: 18px 24px; margin: 8px 0 16px; padding: 0; list-style: none; }
+.kanji-list .kw { display: inline-flex; flex-direction: column; align-items: center; padding: 6px 10px; background: white; border: 1px solid var(--purple-bg); border-radius: 6px; }
+.kanji-list .kw ruby { display: inline-flex; flex-direction: column; align-items: center; font-size: 1.45rem; line-height: 1.05; }
+.kanji-list .kw ruby rt { font-size: 0.6rem; color: var(--ink-soft); font-weight: 400; margin-top: 4px; }
+.kanji-list a.k { color: var(--purple-fg); text-decoration: none; padding: 0 2px; border-radius: 3px; font-weight: 600; transition: background 0.15s; }
+.kanji-list a.k:hover { background: var(--purple-bg); }
+
+</style>
+</head>
+<body>
+<header class="deck-head">
+  <h1>Marugoto A2-B1 - Topic 1</h1>
+  <div class="subtitle">Grammar Review: 名詞化 / Particle+の / V-なければなりません</div>
+</header>
+<nav class="nav-bar"><a href="#s1">Slide 1.1</a><a href="#s2">Slide 1.2</a><a href="#s3">Slide 1.3</a><a href="#s4">Slide 1.4</a><a href="#s5">Slide 1.5</a></nav>
+<main class="deck">
+<section class='slide' id='s1'>
+<h2 class='frametitle'>1.1: <strong>イA/ナA</strong>+<span class="c-red">さ</span>: Forming Nouns from Adjectives (名詞化)</h2>
+<div class='alertblock'>
+<div class='block-title'>Grammatical Construction:</div>
+<div class='block-body'><ul class='block-list'>
+<li><span class='item-label'>イA:</span> すばらし<s>い</s>+<span class="c-red">さ</span> → すばらし<span class="c-red">さ</span></li>
+<li><span class='item-label'>ナA:</span> かんたん<s>な</s>+<span class="c-red">さ</span> → かんたん<span class="c-red">さ</span></li>
+</ul></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><ol class='block-list'>
+<li>長友選手のプレーの<span class="c-red">すばらしさ</span>にかんどうしました。</li>
+<li>ルールの<span class="c-red">かんたんさ</span>が、サッカー人気のりゆうの１つです。</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li>+<span class="c-red">さ</span> turns an adjective into an abstract noun (the <em>-ness</em> of <span class="sc">adj</span>).</li>
+<li>Compare with Pred_stem+すぎる (Genki L12.2): same stem-based morphology, different suffix.</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: Compose your own sentence based on the example sentences.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>1 / 5</div>
+</section>
+<section class='slide' id='s2'>
+<h2 class='frametitle'>1.2: <strong>V.ます</strong>: Forming Nouns from Verbs (名詞化)</h2>
+<div class='alertblock'>
+<div class='block-title'>Grammatical Construction:</div>
+<div class='block-body'><ul class='block-list'>
+<li><span class='item-label'>V:</span> さそい<s>ます</s> → <span class="c-red">さそい</span> (<em>an invitation</em>)</li>
+</ul>
+<p>The <strong>V.stem</strong> (= V.ます minus ます) can stand alone as a noun.</p></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><ol class='block-list'>
+<li>勉強が忙しいから、友だちの<span class="c-red">さそい</span>をことわりました。</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li>Cf. Genki L7.4 <strong>V.stem</strong>+に いく/くる, L11.1 <strong>V.stem</strong>+たい, L12.2 _stem+すぎる — same V.stem behavior.</li>
+<li>Not every verb has a productive stem-noun; common ones: さそい, 終わり, はじまり, 考え, etc.</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: Compose your own sentence based on the example sentences.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>2 / 5</div>
+</section>
+<section class='slide' id='s3'>
+<h2 class='frametitle'>1.3: <strong>と/で/へ/から/まで</strong>+<span class="c-red">の</span>: Particle+の as a Noun Modifier</h2>
+<div class='alertblock'>
+<div class='block-title'>Grammatical Construction:</div>
+<div class='block-body'><p>[NP+Particle]+<span class="c-red">の</span>+<strong>NOUN</strong><br>
+A PP (particle phrase) can modify a following NOUN by attaching <span class="c-red">の</span>.</p></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><ol class='block-list'>
+<li>来月の マリナーズ<span class="c-red">との</span>試合、いっしょに行きましょう。   (と+の)</li>
+<li>JFサッカー場<span class="c-red">での</span>試合は、年に15回ぐらいです。   (で+の)</li>
+<li>JFサッカー場<span class="c-red">への</span>行き方をサイトでしらべました。   (へ+の)</li>
+<li>ファン<span class="c-red">からの</span>プレゼントは、Tシャツでした。   (から+の)</li>
+<li>駅<span class="c-red">からの</span>道は、20分ぐらいです。   (から+の)</li>
+<li>ファン<span class="c-red">への</span>メッセージは、サイトで読めます。   (へ+の)</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li><span class="c-red">を/が/に</span>は［ふつう］<span class="c-red">の</span>でつなげません: *友だち<s>がの</s>本; *ご飯<s>をの</s>時間</li>
+<li>Compare with Genki L10.3 <strong>ADJ/NOUN+の</strong> (<em>the white one</em>, <em>Bob's</em>): same +の nominalizer/linker.</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: Compose your own sentence based on the example sentences.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>3 / 5</div>
+</section>
+<section class='slide' id='s4'>
+<h2 class='frametitle'>1.4: <strong>V.な</strong>ければなりません / <strong>V.な</strong>きゃいけません</h2>
+<div class='alertblock'>
+<div class='block-title'>Grammatical Construction:</div>
+<div class='block-body'><ol class='block-list'>
+<li>たべな<s>い</s>+ければなりません / いけません — <em>must eat</em></li>
+<li>おいしくな<s>い</s>+ければなりません / いけません — <em>must be delicious</em></li>
+<li>学生じゃな<s>い</s>+ければなりません / いけません — <em>must be a student</em></li>
+</ol></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><ol class='block-list'>
+<li>土曜日に父の知りあいをむかえに行か<span class="c-red">なければなりません</span>。</li>
+<li>土曜日に父の知りあいをむかえに行か<span class="c-red">なきゃいけない</span>んです。</li>
+<li>カーラさんはあさってまでに、レポートを 出さ<span class="c-red">なければなりません</span>。</li>
+<li>ホセさんは明日、大使館にしょるいをとりに行か<span class="c-red">なければなりません</span>。</li>
+<li>あさって、パクさんは出張し<span class="c-red">なければなりません</span>。</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li>〜な<span class="c-red">ければ</span>なりません is phonetically reduced as 〜な<span class="c-red">きゃ</span>いけません in spoken Japanese.</li>
+<li>Use 〜な<span class="c-red">きゃいけない</span>んです (〜んです) when declining an invitation because you must do something else.</li>
+<li>Past form: 〜な<s>い</s>+ければなりません<s>でした</s> / いけませんでした.</li>
+<li>Compare with Genki L6.4 <strong>V.て</strong>+はいけません (<em>must not</em>).</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: Compose your own sentence based on the example sentences.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>4 / 5</div>
+</section>
+<section class='slide' id='s5'>
+<h2 class='frametitle'>1.5: Kanji / 漢字 (新しい漢字)</h2>
+<div class='kanjiblock'>
+<div class='block-title'>Click each kanji for details on Kanshudo</div>
+<div class='block-body'>
+<ul class='kanji-list'>
+<li class="kw"><ruby>サッカー<a class="k" href="https://www.kanshudo.com/kanji/場" target="_blank" rel="noopener">場</a><rt>サッカーじょう</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/試" target="_blank" rel="noopener">試</a><a class="k" href="https://www.kanshudo.com/kanji/合" target="_blank" rel="noopener">合</a><rt>しあい</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/日" target="_blank" rel="noopener">日</a><a class="k" href="https://www.kanshudo.com/kanji/曜" target="_blank" rel="noopener">曜</a><a class="k" href="https://www.kanshudo.com/kanji/日" target="_blank" rel="noopener">日</a><rt>にちようび</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/強" target="_blank" rel="noopener">強</a>い<rt>つよい</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/弱" target="_blank" rel="noopener">弱</a>い<rt>よわい</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/勝" target="_blank" rel="noopener">勝</a>つ<rt>かつ</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/負" target="_blank" rel="noopener">負</a>ける<rt>まける</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/対" target="_blank" rel="noopener">対</a><rt>たい (2対1)</rt></ruby></li>
+</ul>
+<div class='kanji-audio'>
+<span>Listen (漢字のことば):</span>
+<audio controls preload="none">
+  <source src="item/1_1_kanji_no_kotoba.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class='slide-counter'>5 / 5</div>
+</section>
+</main>
+</body>
+</html>
