@@ -1,0 +1,18 @@
+このフォルダ（T5）に、下の mp3 ファイルを
+MarugotoPre-IntermediateMp3Topic5 フォルダからコピーしてください。
+Copy these mp3 files into this T5 folder so the audio plays online:
+
+085_5_1_2.mp3
+087_5_2_1[1]_nataariya_san.mp3
+088_5_2_1[2]_esutaa_san.mp3
+089_5_2_1[1]_edowaado_san.mp3
+090_5_2_1[1]_tairaa_san.mp3
+091_5_3_1_kaiwa.mp3
+092_5_3_3(1).mp3
+093_5_4_1_tan.mp3
+094_5_4_1_esutaa.mp3
+095_5_4_2(1)[1]_kawai_san.mp3
+096_5_4_2(1)[2]_ari_san.mp3
+097_5_4_2(1)[3]_yamada_san.mp3
+098_5_4_2(1)[4]_hose_san.mp3
+102_5_5_1.mp3

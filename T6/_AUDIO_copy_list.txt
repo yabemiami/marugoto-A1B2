@@ -1,0 +1,14 @@
+このフォルダ（T6）に、下の mp3 ファイルを
+MarugotoPre-IntermediateMp3Topic6 フォルダからコピーしてください。
+Copy these mp3 files into this T6 folder so the audio plays online:
+
+103_6_1_2.mp3
+105_6_2_1[1]_norika_san.mp3
+106_6_2_1[2]_yoshida_san.mp3
+107_6_2_1[3]_kawano_san.mp3
+108_6_2_1[4]_kimu_san.mp3
+109_6_2_kotoba_to_bunka.mp3
+110_6_3_1_kaiwa.mp3
+111_6_5_1_norika_san.mp3
+112_6_5_1_jooji_san.mp3
+125_6_6_1(2).mp3

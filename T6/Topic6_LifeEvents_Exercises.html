@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>まるごと トピック6 Marriage &amp; Life Events — エクスプレス練習</title>
+<style>
+:root{--navy:#1A2B49;--blue:#1F6FB2;--orange:#F08A24;--light:#F2F6FA;--ink:#23303F;--grey:#7A8794;--s:1;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0d1622;font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);}
+ruby rt{font-size:.5em;font-weight:400;line-height:1;}
+#stage{position:fixed;inset:0;overflow:hidden;}
+/* fixed 1280x720 stage scaled by JS -> works on every browser */
+.deck{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(var(--s));transform-origin:center center;background:#fff;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.5);}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .25s;display:flex;flex-direction:column;}
+.slide.active{opacity:1;visibility:visible;}
+.rail{position:absolute;left:0;top:0;width:20px;height:100%;background:var(--orange);}
+header{background:var(--navy);padding:16px 40px 16px 54px;}
+header .tag{color:var(--orange);font-weight:700;font-size:18px;letter-spacing:.12em;}
+header h2{color:#fff;font-size:40px;margin-top:4px;}
+.body{flex:1;padding:26px 52px 18px 54px;display:flex;flex-direction:column;gap:14px;overflow:hidden;}
+.body.two{flex-direction:row;gap:36px;}
+.col{flex:1;display:flex;flex-direction:column;gap:12px;}
+.note{color:var(--blue);font-size:21px;margin-top:auto;}
+.en{display:block;color:var(--grey);font-style:italic;font-size:16px;margin-top:2px;}
+.gl{color:var(--grey);font-size:.78em;}
+ol.big{list-style:none;display:flex;flex-direction:column;gap:22px;counter-reset:b;}
+ol.big li{counter-increment:b;font-size:33px;font-weight:700;color:var(--ink);padding-left:62px;position:relative;}
+ol.big li::before{content:counter(b);position:absolute;left:0;top:-2px;width:46px;height:46px;background:var(--blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:16px 10px;text-align:center;display:flex;flex-direction:column;gap:4px;}
+.card .jp{font-size:33px;font-weight:700;color:var(--navy);}
+.card .gl{font-size:16px;color:var(--grey);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;}
+.card.sm{display:block;font-size:24px;font-weight:700;color:var(--navy);text-align:left;border:none;padding:18px;white-space:nowrap;}
+.bank{background:var(--navy);color:#fff;border-radius:9px;padding:14px 22px;text-align:center;font-size:24px;}
+ol.drill{list-style:none;display:flex;flex-direction:column;gap:13px;font-size:27px;}
+ul.qs{list-style:none;display:flex;flex-direction:column;gap:16px;font-size:27px;}
+ul.qs.spaced{gap:30px;}
+ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24px;padding-left:42px;margin-top:4px;}
+.lead{color:var(--blue);font-weight:700;font-size:25px;}
+.exbox{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:20px 22px;font-size:27px;color:var(--navy);line-height:1.5;}
+.exbox .ex{color:var(--orange);font-weight:700;}
+.arr{color:var(--grey);padding:0 6px;}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:8px 0;}
+.slot{background:var(--light);border:1.5px solid var(--orange);border-radius:10px;height:64px;display:flex;align-items:center;padding-left:18px;font-size:38px;color:var(--orange);font-weight:700;}
+/* audio */
+.audio{background:var(--light);border-left:6px solid var(--orange);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:6px;}
+.audio .ahead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+.audio .alabel{font-weight:700;color:var(--navy);font-size:22px;}
+.audio .asub{color:var(--grey);font-size:16px;}
+.audio audio{width:100%;height:34px;}
+.audio.missing{color:#b23a2e;font-size:18px;}
+.audios{gap:12px;justify-content:center;}
+/* panels */
+.panel{flex:1;background:var(--light);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;}
+.panel h3{color:#fff;padding:14px 18px;font-size:24px;}
+.panel.blue h3{background:var(--blue);}
+.panel.orange h3{background:var(--orange);}
+.panel p,.panel ul{padding:0 18px;font-size:22px;margin:12px 0;line-height:1.55;}
+.panel ul{padding-left:40px;display:flex;flex-direction:column;gap:10px;}
+.panel .hl{color:var(--orange);font-weight:700;}
+.panel .hl2{color:var(--blue);}
+/* title + cando + index */
+.slide.title,.slide.cando{background:var(--navy);color:#fff;justify-content:center;padding:0 70px;}
+.slide.index{background:#fff;color:var(--ink);justify-content:flex-start;}
+.slide.title .kick{color:var(--orange);font-weight:700;font-size:26px;}
+.slide.title h1{font-size:88px;margin:14px 0;}
+.slide.title .sub{font-size:32px;color:#CADCFC;}
+.slide.title .meta{font-size:22px;color:#9FB0C4;margin-top:16px;}
+.slide.title .hint{position:absolute;bottom:34px;left:70px;color:#6b7d92;font-size:17px;}
+.slide.title::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:14px;background:var(--orange);}
+.slide.cando{padding-left:70px;}
+.slide.cando .kick{color:var(--orange);font-weight:700;font-size:20px;letter-spacing:.1em;}
+.slide.cando .cdh{font-size:52px;margin:16px 0 34px;}
+.cdlist{list-style:none;display:flex;flex-direction:column;gap:26px;}
+.cdlist li{display:flex;align-items:center;gap:22px;font-size:24px;white-space:nowrap;}
+.cdlist .box{width:38px;height:38px;border:2px solid var(--orange);border-radius:5px;background:#fff;flex:none;}
+.slide.cando .bye{position:absolute;bottom:40px;color:#CADCFC;font-style:italic;font-size:22px;}
+/* index */
+.idxbody{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;overflow-y:auto;}
+.idxgroup h4{color:var(--blue);font-size:21px;margin-bottom:8px;border-bottom:2px solid var(--light);padding-bottom:4px;}
+.idxrows{display:flex;flex-direction:column;gap:8px;}
+.idxrows .audio{padding:7px 12px;}
+.idxrows .alabel{font-size:17px;}
+.idxrows audio{height:30px;}
+/* nav */
+#nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;background:rgba(20,30,46,.85);color:#fff;padding:8px 16px;border-radius:30px;font-size:14px;z-index:10;}
+#nav button{background:var(--orange);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer;}
+#nav button:disabled{opacity:.35;cursor:default;}
+#count{min-width:54px;text-align:center;font-variant-numeric:tabular-nums;}
+#bar{position:fixed;top:0;left:0;height:4px;background:var(--orange);z-index:11;transition:width .25s;}
+</style></head>
+<body>
+<div id="bar"></div>
+<div id="stage"><div class="deck">
+<section class="slide title">
+  <div class="rail"></div>
+  <p class="kick">まるごと <ruby>初中級<rt>しょちゅうきゅう</rt></ruby>  (A2/B1)</p>
+  <h1>トピック6「<ruby>人生<rt>じんせい</rt></ruby>のできごと」</h1>
+  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 6: Marriage &amp; Life Events</p>
+  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.39–43 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 103–125</p>
+  <p class="hint">← / → でスライドを移動 &nbsp;|&nbsp; arrow keys to move</p>
+</section>
+<section class="slide">
+  <header><span class="tag">ウォームアップ / WARM-UP</span><h2><ruby>話<rt>はな</rt></ruby>してみましょう</h2></header>
+  <div class="body"><ol class="big"><li><ruby>最近<rt>さいきん</rt></ruby>、まわりの<ruby>人<rt>ひと</rt></ruby>に<ruby>何<rt>なに</rt></ruby>かいいニュースがありましたか。<span class="en">Any good news around you lately?</span></li><li><ruby>結婚<rt>けっこん</rt></ruby>するまでに、どんなことがありますか。<span class="en">What happens before marriage?</span></li><li><ruby>友<rt>とも</rt></ruby>だちが<ruby>結婚<rt>けっこん</rt></ruby>するとき、<ruby>何<rt>なに</rt></ruby>をしてあげますか。<span class="en">What do you do for a friend&#x27;s wedding?</span></li></ol>
+    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p></div>
+</section>
+<section class="slide">
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. ことばのいみ</h2></header>
+  <div class="body"><div class="grid3"><div class="card"><span class="jp"><ruby>相手<rt>あいて</rt></ruby></span><span class="gl">partner</span></div><div class="card"><span class="jp"><ruby>出会<rt>であ</rt></ruby>い</span><span class="gl">meeting / encounter</span></div><div class="card"><span class="jp"><ruby>出席<rt>しゅっせき</rt></ruby>する</span><span class="gl">to attend</span></div><div class="card"><span class="jp"><ruby>招待<rt>しょうたい</rt></ruby>する</span><span class="gl">to invite</span></div><div class="card"><span class="jp">お<ruby>祝<rt>いわ</rt></ruby>い</span><span class="gl">celebration / gift</span></div><div class="card"><span class="jp">なぐさめる</span><span class="gl">to comfort</span></div></div>
+    <p class="note"><ruby>日本語<rt>にほんご</rt></ruby>と<ruby>英語<rt>えいご</rt></ruby>をむすびましょう。 Match Japanese ↔ English.</p></div>
+</section>
+<section class="slide">
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. ことばのれんしゅう</h2>
+    <div style="position:absolute;top:0.5px"></div></header>
+  <div class="body">
+    <div class="bank">お<ruby>祝<rt>いわ</rt></ruby>い ／ おみまい ／ なぐさめます ／ はげまします ／ <ruby>出会<rt>であ</rt></ruby>い ／ <ruby>結婚<rt>けっこん</rt></ruby></div>
+    <ol class="drill"><li>1. <ruby>姉<rt>あね</rt></ruby>が<ruby>入院<rt>にゅういん</rt></ruby>しているので、（　　　）に<ruby>行<rt>い</rt></ruby>きます。</li><li>2. <ruby>友<rt>とも</rt></ruby>だちが<ruby>結婚<rt>けっこん</rt></ruby>するので、みんなで（　　　）にカップをあげます。</li><li>3. <ruby>恋人<rt>こいびと</rt></ruby>とわかれてさびしい<ruby>友<rt>とも</rt></ruby>だちを（　　　）。</li><li>4. <ruby>試験<rt>しけん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>友<rt>とも</rt></ruby>だちを（　　　）。</li><li>5. <ruby>職場<rt>しょくば</rt></ruby>での（　　　）がきっかけで<ruby>結婚<rt>けっこん</rt></ruby>する<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いです。</li></ol>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 103 ことば</span><span class="asub">正しいことばを聞きましょう</span></div><audio controls preload="none" src="103_6_1_2.mp3"></audio></div>
+  </div>
+</section>
+<section class="slide">
+      <header><span class="tag">2. きく / LISTENING</span><h2>A. <ruby>友<rt>とも</rt></ruby>だちのニュース</h2></header>
+      <div class="body two">
+        <div class="col"><p class="lead">4<ruby>人<rt>にん</rt></ruby>について、<ruby>友<rt>とも</rt></ruby>だちが<ruby>話<rt>はな</rt></ruby>しています。</p><ul class="qs"><li>① 4<ruby>人<rt>にん</rt></ruby>に<ruby>最近<rt>さいきん</rt></ruby>どんなことがありましたか。</li><li>② <ruby>友<rt>とも</rt></ruby>だちは、その<ruby>人<rt>ひと</rt></ruby>のために<ruby>何<rt>なに</rt></ruby>をしますか。</li></ul></div>
+        <div class="col audios"><div class="audio"><div class="ahead"><span class="alabel">♪ 105 のりかさん</span></div><audio controls preload="none" src="105_6_2_1%5B1%5D_norika_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 106 吉田(よしだ)さん</span></div><audio controls preload="none" src="106_6_2_1%5B2%5D_yoshida_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 107 川野(かわの)さん</span></div><audio controls preload="none" src="107_6_2_1%5B3%5D_kawano_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 108 キムさん</span></div><audio controls preload="none" src="108_6_2_1%5B4%5D_kimu_san.mp3"></audio></div></div></div>
+    </section>
+<section class="slide">
+      <header><span class="tag">2. きく / LISTENING</span><h2>B. <ruby>結婚<rt>けっこん</rt></ruby>のニュースをたしかめる</h2></header>
+      <div class="body"><p class="lead">パウロさん・のりかさん・<ruby>森<rt>もり</rt></ruby>さんが<ruby>話<rt>はな</rt></ruby>しています。</p><ul class="qs spaced"><li>① のりかさんの<ruby>結婚相手<rt>けっこんあいて</rt></ruby>はどんな<ruby>人<rt>ひと</rt></ruby>ですか。</li><li>② ふたりはどこで<ruby>知<rt>し</rt></ruby>り<ruby>合<rt>あ</rt></ruby>いましたか。</li></ul><div class="audio"><div class="ahead"><span class="alabel">♪ 110 たしかめる会話(かいわ)</span><span class="asub">ヒント：〜そうです</span></div><audio controls preload="none" src="110_6_3_1_kaiwa.mp3"></audio></div></div>
+    </section>
+<section class="slide">
+      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. 〜そうです（<ruby>伝聞<rt>でんぶん</rt></ruby>）</h2></header>
+      <div class="body">
+        <div class="exbox"><span class="ex">例)</span> のりかさんが<ruby>結婚<rt>けっこん</rt></ruby>します <span class="arr">→</span> <b>のりかさん、結婚するそうですよ。</b></div>
+        <ol class="drill"><li>1. <ruby>相手<rt>あいて</rt></ruby>は<ruby>日本祭<rt>にほんさい</rt></ruby>で<ruby>知<rt>し</rt></ruby>り<ruby>合<rt>あ</rt></ruby>った<ruby>人<rt>ひと</rt></ruby>です →相手は日本祭で知り合った人（　　　）。</li><li>2. ジョージさんもやさしい<ruby>人<rt>ひと</rt></ruby>です →ジョージさんもやさしい人（　　　）。</li></ol>
+      </div></section>
+<section class="slide">
+      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. 〜でしょうね／〜（よ）うと<ruby>思<rt>おも</rt></ruby>うんですが</h2></header>
+      <div class="body">
+        <div class="exbox"><span class="ex">例)</span> <ruby>今<rt>いま</rt></ruby>、きっと<ruby>幸<rt>しあわ</rt></ruby>せです <span class="arr">→</span> <b>今、きっと幸せでしょうね。</b></div>
+        <ol class="drill"><li>1. キムさんは<ruby>転勤<rt>てんきん</rt></ruby>が<ruby>決<rt>き</rt></ruby>まって、うれしいです →きっと（　　　）でしょうね。</li><li>2. <ruby>何<rt>なに</rt></ruby>かお<ruby>祝<rt>いわ</rt></ruby>いをします →何かお祝いを（　　　）と思うんですが。</li></ol>
+      </div></section>
+<section class="slide">
+      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>C. 〜てあげます</h2></header>
+      <div class="body">
+        <div class="exbox"><span class="ex">例)</span> のりかの<ruby>願<rt>ねが</rt></ruby>いを<ruby>聞<rt>き</rt></ruby>きます <span class="arr">→</span> <b>（<ruby>私<rt>わたし</rt></ruby>は）のりかの願いを聞いてあげます。</b></div>
+        <ol class="drill"><li>1. みんなでふたりの<ruby>結婚<rt>けっこん</rt></ruby>をいわいます →みんなで結婚を（　　　）。</li><li>2. <ruby>結婚式<rt>けっこんしき</rt></ruby>のじゅんびをてつだいます →じゅんびを（　　　）。</li></ol>
+      </div></section>
+<section class="slide">
+      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>D. 〜なくてもいいです</h2></header>
+      <div class="body">
+        <div class="exbox"><span class="ex">例)</span> <ruby>大<rt>おお</rt></ruby>きなパーティーをします <span class="arr">→</span> <b>大きなパーティーはしなくてもいいです。</b></div>
+        <ol class="drill"><li>1. <ruby>招待状<rt>しょうたいじょう</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていきます →招待状は（　　　）。</li><li>2. お<ruby>寺<rt>てら</rt></ruby>や<ruby>神社<rt>じんじゃ</rt></ruby>でします →お寺や神社で（　　　）。</li></ol>
+      </div></section>
+<section class="slide">
+  <header><span class="tag">4. はなす / SPEAKING</span><h2>ロールプレイ ＆ <ruby>発表<rt>はっぴょう</rt></ruby></h2></header>
+  <div class="body two">
+    <div class="panel blue"><h3>A. ニュースを<ruby>話<rt>はな</rt></ruby>す・たしかめる</h3><p>A: のりかさん、<ruby>結婚<rt>けっこん</rt></ruby>するそうですよ。</p><p>B: えっ、ほんとうですか。</p><p>A: <ruby>何<rt>なに</rt></ruby>かお<ruby>祝<rt>いわ</rt></ruby>いをしようと<ruby>思<rt>おも</rt></ruby>うんですが。</p><p class="hl">「〜そうです」「〜でしょうね」を<ruby>使<rt>つか</rt></ruby>ってみましょう。</p></div>
+    <div class="panel orange"><h3>B. <ruby>結婚式<rt>けっこんしき</rt></ruby>のスピーチ</h3><ul><li><ruby>結婚<rt>けっこん</rt></ruby>する<ruby>人<rt>ひと</rt></ruby>とのかんけい</li><li>その<ruby>人<rt>ひと</rt></ruby>について（どんな<ruby>人<rt>ひと</rt></ruby>か）</li><li>あなたの<ruby>気持<rt>きも</rt></ruby>ち・ねがい</li></ul><p class="hl2">「すえながくお<ruby>幸<rt>しあわ</rt></ruby>せに！」でしめましょう。</p></div>
+  </div></section>
+<section class="slide cando">
+  <div class="rail"></div>
+  <p class="kick">ふりかえり / CAN-DO CHECK</p>
+  <h2 class="cdh">できるようになりましたか？</h2>
+  <ul class="cdlist"><li><span class="box"></span><ruby>友<rt>とも</rt></ruby>だちの<ruby>最近<rt>さいきん</rt></ruby>のニュースについて<ruby>話<rt>はな</rt></ruby>せる。</li><li><span class="box"></span><ruby>聞<rt>き</rt></ruby>いた<ruby>話<rt>はなし</rt></ruby>を<ruby>本人<rt>ほんにん</rt></ruby>にたしかめられる。</li><li><span class="box"></span><ruby>結婚<rt>けっこん</rt></ruby>についての<ruby>記事<rt>きじ</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んで、だいじなポイントが<ruby>読<rt>よ</rt></ruby>みとれる。</li></ul>
+  <p class="bye">おつかれさまでした！</p>
+</section>
+<section class="slide index">
+  <header><span class="tag">♪ おんせい / AUDIO</span><h2><ruby>音声<rt>おんせい</rt></ruby>リンク集</h2></header>
+  <div class="body idxbody"><div class="idxgroup"><h4>ことば (6-1)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 103 ことば</span></div><audio controls preload="none" src="103_6_1_2.mp3"></audio></div></div></div><div class="idxgroup"><h4>友だちのニュース (6-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 105 のりか</span></div><audio controls preload="none" src="105_6_2_1%5B1%5D_norika_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 106 吉田</span></div><audio controls preload="none" src="106_6_2_1%5B2%5D_yoshida_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 107 川野</span></div><audio controls preload="none" src="107_6_2_1%5B3%5D_kawano_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 108 キム</span></div><audio controls preload="none" src="108_6_2_1%5B4%5D_kimu_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 109 ことばと文化</span></div><audio controls preload="none" src="109_6_2_kotoba_to_bunka.mp3"></audio></div></div></div><div class="idxgroup"><h4>たしかめる (6-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 110 会話</span></div><audio controls preload="none" src="110_6_3_1_kaiwa.mp3"></audio></div></div></div><div class="idxgroup"><h4>読解：結婚式 (6-5)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 111 のりか</span></div><audio controls preload="none" src="111_6_5_1_norika_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 112 ジョージ</span></div><audio controls preload="none" src="112_6_5_1_jooji_san.mp3"></audio></div></div></div><div class="idxgroup"><h4>まとめ (6-6)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 125 まとめ</span></div><audio controls preload="none" src="125_6_6_1%282%29.mp3"></audio></div></div></div></div>
+</section>
+</div></div>
+<div id="nav"><button id="prev">‹</button><span id="count"></span><button id="next">›</button></div>
+<script>
+const deck=document.querySelector('.deck');
+function fit(){const s=Math.min(window.innerWidth/1280,window.innerHeight/720);document.documentElement.style.setProperty('--s',s);}
+window.addEventListener('resize',fit);fit();
+const slides=[...document.querySelectorAll('.slide')];let i=0;const N=slides.length;
+const count=document.getElementById('count'),bar=document.getElementById('bar');
+const prev=document.getElementById('prev'),next=document.getElementById('next');
+function show(n){i=Math.max(0,Math.min(N-1,n));slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+count.textContent=(i+1)+' / '+N;bar.style.width=((i+1)/N*100)+'%';prev.disabled=i===0;next.disabled=i===N-1;}
+prev.onclick=()=>show(i-1);next.onclick=()=>show(i+1);
+document.addEventListener('keydown',e=>{
+  const t=document.activeElement;const isMedia=t&&t.tagName==='AUDIO';
+  if(e.key==='ArrowRight'||e.key==='PageDown'){show(i+1);}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1);}
+  else if(e.key===' '&&!isMedia){e.preventDefault();show(i+1);}
+  else if(e.key==='Home'){show(0);}else if(e.key==='End'){show(N-1);}
+  else if(e.key==='f'){const d=document.documentElement;if(!document.fullscreenElement)d.requestFullscreen&&d.requestFullscreen();else document.exitFullscreen();}
+});
+show(0);
+</script>
+</body></html>

@@ -1,0 +1,19 @@
+このフォルダ（T2）に、下の mp3 ファイルを
+MarugotoPre-IntermediateMp3Topic2 フォルダからコピーしてください。
+Copy these mp3 files into this T2 folder so the audio plays online:
+
+021_2_1_2_tadashii_kotoba.mp3
+023_2_2_1[1]_saitoo_san.mp3
+024_2_2_1[2]_tanaka_san.mp3
+025_2_2_1[3]_ishikawa_san.mp3
+026_2_2_1[4]_norika_san.mp3
+027_2_2_2.mp3
+028_2_3_1_kaiwa.mp3
+029_2_3_3(1).mp3
+030_2_4_1_ririi.mp3
+031_2_4_1_yagi.mp3
+035_2_4_3(3)[1]_kimura_san.mp3
+036_2_4_3(3)[2]_satoo_san.mp3
+037_2_4_3(3)[3]_kawano_san.mp3
+038_2_4_3(3)[4]_yamada_san.mp3
+040_2_5_1.mp3

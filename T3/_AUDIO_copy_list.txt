@@ -1,0 +1,14 @@
+このフォルダ（T3）に、下の mp3 ファイルを
+MarugotoPre-IntermediateMp3Topic3 フォルダからコピーしてください。
+Copy these mp3 files into this T3 folder so the audio plays online:
+
+041_3_1.mp3
+042_3_2_1[1]_edo_san.mp3
+043_3_2_1[2]_ririi_san.mp3
+044_3_2_1[3]_joi_san.mp3
+045_3_2_1[4]_hose_san.mp3
+046_3_3_1_kaiwa.mp3
+047_3_3_3.mp3
+048_3_4_1_wada.mp3
+049_3_4_1_richaado.mp3
+059_3_5_1.mp3
