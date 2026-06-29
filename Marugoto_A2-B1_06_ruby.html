@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marugoto A2-B1 - Topic 6</title>
+<style>
+:root {
+  --rose-fg: #b34155;
+  --rose-bg: #f7d8de;
+  --rose-light: #fce8eb;
+  --green-fg: #2f7d3e;
+  --green-bg: #cce8d1;
+  --green-light: #e8f4eb;
+  --blue-fg: #2a4f7c;
+  --blue-bg: #d4dfee;
+  --blue-light: #ecf1f8;
+  --orange-fg: #b35900;
+  --orange-bg: #ffd9a8;
+  --orange-light: #fff1de;
+  --purple-fg: #6b3fa0;
+  --purple-bg: #e0d4ef;
+  --purple-light: #f3edfa;
+
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+}
+* { box-sizing: border-box; }
+body { font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0; background: #f4f4f6; }
+.deck-head { background: var(--rose-fg); color: white; padding: 18px 28px; }
+.deck-head h1 { margin: 0; font-size: 1.6rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.deck-head .subtitle { margin-top: 4px; font-size: 0.95rem; opacity: 0.92; }
+.deck { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+.slide { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); padding: 24px 28px; margin-bottom: 28px; position: relative; }
+.frametitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--rose-fg);
+  border-bottom: 2px solid var(--rose-bg);
+  padding-bottom: 8px;
+  margin: 0 0 16px;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.alertblock, .exampleblock, .block, .practiceblock { border-radius: 6px; margin: 12px 0; overflow: hidden; }
+.alertblock { background: var(--rose-light); border: 1px solid var(--rose-bg); }
+.alertblock > .block-title { background: var(--rose-fg); color: white; }
+.exampleblock { background: var(--green-light); border: 1px solid var(--green-bg); }
+.exampleblock > .block-title { background: var(--green-fg); color: white; }
+.block { background: var(--blue-light); border: 1px solid var(--blue-bg); }
+.block > .block-title { background: var(--blue-fg); color: white; }
+.practiceblock { background: var(--orange-light); border: 1px solid var(--orange-bg); }
+.practiceblock > .block-title { background: var(--orange-fg); color: white; }
+.block-title {
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.block-body { padding: 10px 14px; font-size: 0.92rem; line-height: 1.55; }
+.block-body p { margin: 0.4em 0; }
+ul.block-list, ol.block-list { margin: 0.4em 0; padding-left: 1.4em; }
+ul.block-list li, ol.block-list li { margin: 0.25em 0; }
+.item-label { display: inline-block; min-width: 1.5em; font-weight: 600; color: var(--ink-soft); margin-right: 0.35em; }
+.c-red { color: #d23047; font-weight: 600; }
+.c-blue { color: #2a59a8; font-weight: 600; }
+.c-brown { color: #8a5a2b; font-weight: 600; }
+.sc { font-variant: small-caps; font-size: 0.85em; letter-spacing: 0.05em; }
+s { text-decoration: line-through; text-decoration-color: #c33; }
+sub, sup { font-size: 0.72em; }
+.writing-line { height: 1px; background: #b88a4a; margin: 18px 0; }
+.practice-body { padding-top: 4px; padding-bottom: 4px; }
+.slide-counter { position: absolute; bottom: 8px; right: 14px; font-size: 0.78rem; color: var(--ink-soft); }
+.nav-bar { position: sticky; top: 0; background: rgba(255,255,255,0.96); border-bottom: 1px solid #ddd; padding: 8px 16px; z-index: 100; font-size: 0.85rem; }
+.nav-bar a { color: var(--rose-fg); margin-right: 14px; text-decoration: none; font-weight: 500; white-space: nowrap; }
+.nav-bar a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .frametitle { font-size: 1.05rem; }
+  .deck-head h1 { font-size: 1.2rem; }
+  .deck { padding: 12px 8px 32px; }
+  .slide { padding: 16px 14px; }
+}
+
+.kanjiblock { background: var(--purple-light); border: 1px solid var(--purple-bg); border-radius: 6px; overflow: hidden; margin: 12px 0; }
+.kanjiblock > .block-title { background: var(--purple-fg); color: white; padding: 6px 12px; font-weight: 600; font-size: 0.95rem; white-space: nowrap; overflow-x: auto; overflow-y: hidden; }
+.kanjiblock > .block-body { padding: 14px 14px; }
+.kanji-audio { display: flex; align-items: center; gap: 10px; margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); }
+.kanji-audio audio { max-width: 320px; height: 32px; }
+
+
+
+
+.kanji-list { display: flex; flex-wrap: wrap; gap: 18px 24px; margin: 8px 0 16px; padding: 0; list-style: none; }
+.kanji-list .kw { display: inline-flex; flex-direction: column; align-items: center; padding: 6px 10px; background: white; border: 1px solid var(--purple-bg); border-radius: 6px; }
+.kanji-list .kw ruby { display: inline-flex; flex-direction: column; align-items: center; font-size: 1.45rem; line-height: 1.05; }
+.kanji-list .kw ruby rt { font-size: 0.6rem; color: var(--ink-soft); font-weight: 400; margin-top: 4px; }
+.kanji-list a.k { color: var(--purple-fg); text-decoration: none; padding: 0 2px; border-radius: 3px; font-weight: 600; transition: background 0.15s; }
+.kanji-list a.k:hover { background: var(--purple-bg); }
+
+/* Furigana on body / title kanji */
+.block-body ruby, .frametitle ruby { ruby-position: over; }
+.block-body ruby rt, .frametitle ruby rt { font-size: 0.55em; color: var(--ink-soft); font-weight: 400; }
+
+</style>
+</head>
+<body>
+<header class="deck-head">
+  <h1>Marugoto A2-B1 - Topic 6</h1>
+  
+</header>
+<nav class="nav-bar"><a href="#s1">Slide 6.1</a><a href="#s2">Slide 6.2</a><a href="#s3">Slide 6.3</a></nav>
+<main class="deck">
+<section class='slide' id='s1'>
+<h2 class='frametitle'>6.1: <strong>V-て</strong> <span class="c-red">あげます</span>: I do something for someone (<ruby>利益<rt>りえき</rt></ruby>・<ruby>恩恵<rt>おんけい</rt></ruby>を<ruby>与<rt>あた</rt></ruby>える)</h2>
+<div class='alertblock'>
+<div class='block-title'>Grammatical Construction:</div>
+<div class='block-body'><ul class='block-list'>
+<li>[(<ruby>私<rt>わたし</rt></ruby>は) N(ひと) <span class="c-red">に/を/のために</span> ... V-て]+<span class="c-red">あげます</span></li>
+<li>Subject (often <ruby>私<rt>わたし</rt></ruby>) performs an action considered beneficial for someone.</li>
+<li>Compare: <strong>あげる</strong> (I/someone → someone else); <strong>くれる</strong> (someone → me).</li>
+</ul></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><ol class='block-list'>
+<li>（<ruby>私<rt>わたし</rt></ruby>は）のりかの<ruby>願<rt>ねが</rt></ruby>いを <ruby>聞<rt>き</rt></ruby>いて<span class="c-red">あげます</span>。</li>
+<li>フリオ: <ruby>友<rt>とも</rt></ruby>だちみんなで パーティーをして、ふたりの<ruby>結婚<rt>けっこん</rt></ruby>を いわって<span class="c-red">あげます</span>。</li>
+<li><ruby>森<rt>もり</rt></ruby>: <ruby>結婚式<rt>けっこんしき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しいので、じゅんびを <ruby>手伝<rt>てつだ</rt></ruby>って<span class="c-red">あげます</span>。</li>
+<li>おばあさん: <ruby>何<rt>なに</rt></ruby>があっても <ruby>結婚式<rt>けっこんしき</rt></ruby>に <ruby>出席<rt>しゅっせき</rt></ruby>して<span class="c-red">あげたいです</span>。</li>
+<li>パウロ: <ruby>結婚式<rt>けっこんしき</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>、ふたりのビデオを とって<span class="c-red">あげようと<ruby>思<rt>おも</rt></ruby>います</span>。</li>
+<li>ロザナ: <ruby>私<rt>わたし</rt></ruby>は<ruby>結婚式<rt>けっこんしき</rt></ruby>でピアノを ひいて<span class="c-red">あげようと<ruby>思<rt>おも</rt></ruby>います</span>。</li>
+<li>よくのりかにケーキを <ruby>作<rt>つく</rt></ruby>って<span class="c-red">あげます</span>。</li>
+<li>ジョージにダンスを <ruby>教<rt>おし</rt></ruby>えて<span class="c-red">あげました</span>。</li>
+<li><ruby>仕事<rt>しごと</rt></ruby>で<ruby>日本<rt>にほん</rt></ruby>についてレポートを<ruby>書<rt>か</rt></ruby>いたとき、のりかに <ruby>手伝<rt>てつだ</rt></ruby>って<span class="c-red">もらいました</span>（cf. もらう）。</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li>Use <span class="c-red">あげる</span> only when speaker > or = the recipient in social distance — saying「<ruby>先生<rt>せんせい</rt></ruby>に<ruby>教<rt>おし</rt></ruby>えてあげます」sounds rude. Use 〜て<ruby>差<rt>さ</rt></ruby>し<ruby>上<rt>あ</rt></ruby>げる for superiors, or simply 〜ます.</li>
+<li>Compare three benefactive verbs:<br>
+A: <ruby>私<rt>わたし</rt></ruby>は <ruby>友<rt>とも</rt></ruby>だちに ケーキを <ruby>作<rt>つく</rt></ruby>って<span class="c-red">あげました</span>。 (I → friend)<br>
+B: <ruby>友<rt>とも</rt></ruby>だちは <ruby>私<rt>わたし</rt></ruby>に ケーキを <ruby>作<rt>つく</rt></ruby>って<span class="c-red">くれました</span>。 (friend → me)<br>
+C: <ruby>私<rt>わたし</rt></ruby>は <ruby>友<rt>とも</rt></ruby>だちに ケーキを <ruby>作<rt>つく</rt></ruby>って<span class="c-red">もらいました</span>。 (friend → me; I am recipient)</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: Compose your own sentence based on the example sentences.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>1 / 3</div>
+</section>
+<section class='slide' id='s2'>
+<h2 class='frametitle'>6.2: <strong>V-なくても</strong> いいです / だいじょうぶです: <em>do not have to V</em></h2>
+<div class='alertblock'>
+<div class='block-title'>Grammatical Construction:</div>
+<div class='block-body'><ul class='block-list'>
+<li><span class='item-label'>V:</span> V.な<s>い</s>+<span class="c-red">くてもいいです</span> / <span class="c-red">くてもだいじょうぶです</span></li>
+<li><span class='item-label'>イA:</span> あつくな<s>い</s>+<span class="c-red">くてもいいです</span></li>
+<li><span class='item-label'>ナA:</span> きれいじゃな<s>い</s>+<span class="c-red">くてもいいです</span></li>
+<li><span class='item-label'>N:</span> 学生じゃな<s>い</s>+<span class="c-red">くてもいいです</span></li>
+</ul></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><ol class='block-list'>
+<li>大きなパーティーは <span class="c-red">しなくてもいいです</span>。</li>
+<li>招待状が <span class="c-red">なくてもだいじょうぶです</span>。</li>
+<li>お祝いのお金を 持っていか<span class="c-red">なくてもいいです</span>。</li>
+<li>お寺や神社で <span class="c-red">しなくてもいいです</span>。</li>
+<li>男の人は 白いネクタイを しなければなりません。 (<em>cf.</em> obligation)</li>
+<li>パスポートが <span class="c-red">なくてもいいですよ</span>。</li>
+<li>子供の時、<ruby>仕事<rt>しごと</rt></ruby>を し<span class="c-red">なくてもよかったです</span>。 (past)</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li><span class="c-red">も</span> of なくて<span class="c-red">も</span>いい is often omitted in casual speech: 読ま<span class="c-red">なくていいです</span> / 学生じゃ<span class="c-red">なくていいですよ</span>。</li>
+<li>Past form: V-な<s>い</s>+くても <span class="c-red">よかったです</span>.</li>
+<li>Compare obligation: V-な<s>い</s>+<span class="c-red">ければなりません</span>（must V）vs.\ V-な<s>い</s>+<span class="c-red">くてもいいです</span>（need not V）.</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: Compose your own sentence based on the example sentences.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>2 / 3</div>
+</section>
+<section class='slide' id='s3'>
+<h2 class='frametitle'>6.3: Kanji / <ruby>漢字<rt>かんじ</rt></ruby> (<ruby>新<rt>あたら</rt></ruby>しい<ruby>漢字<rt>かんじ</rt></ruby>)</h2>
+<div class='kanjiblock'>
+<div class='block-title'>Click each kanji for details on Kanshudo</div>
+<div class='block-body'>
+<ul class='kanji-list'>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/相" target="_blank" rel="noopener">相</a><a class="k" href="https://www.kanshudo.com/kanji/手" target="_blank" rel="noopener">手</a><rt>あいて</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/気" target="_blank" rel="noopener">気</a><a class="k" href="https://www.kanshudo.com/kanji/持" target="_blank" rel="noopener">持</a>ち<rt>きもち</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/恋" target="_blank" rel="noopener">恋</a><a class="k" href="https://www.kanshudo.com/kanji/人" target="_blank" rel="noopener">人</a><rt>こいびと</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/出" target="_blank" rel="noopener">出</a><a class="k" href="https://www.kanshudo.com/kanji/会" target="_blank" rel="noopener">会</a>い<rt>であい</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/最" target="_blank" rel="noopener">最</a><a class="k" href="https://www.kanshudo.com/kanji/近" target="_blank" rel="noopener">近</a><rt>さいきん</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/最" target="_blank" rel="noopener">最</a><a class="k" href="https://www.kanshudo.com/kanji/高" target="_blank" rel="noopener">高</a><rt>さいこう</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/出" target="_blank" rel="noopener">出</a><a class="k" href="https://www.kanshudo.com/kanji/席" target="_blank" rel="noopener">席</a><rt>しゅっせき</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/招" target="_blank" rel="noopener">招</a><a class="k" href="https://www.kanshudo.com/kanji/待" target="_blank" rel="noopener">待</a><rt>しょうたい</rt></ruby></li>
+<li class="kw"><ruby><a class="k" href="https://www.kanshudo.com/kanji/合" target="_blank" rel="noopener">合</a>う<rt>あう (知り合う)</rt></ruby></li>
+</ul>
+<div class='kanji-audio'>
+<span>Listen (漢字のことば):</span>
+<audio controls preload="none">
+  <source src="item/6_1_kanji_no_kotoba.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class='slide-counter'>3 / 3</div>
+</section>
+</main>
+</body>
+</html>
