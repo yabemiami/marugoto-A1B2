@@ -3,92 +3,78 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marugoto A2-B1 — Slide Index</title>
+<title>Marugoto A2-B1 — 教材インデックス</title>
 <style>
-:root {
-  --rose-fg: #b34155;
-  --rose-bg: #f7d8de;
-  --rose-light: #fce8eb;
-  --green-fg: #2f7d3e;
-  --green-bg: #cce8d1;
-  --green-light: #e8f4eb;
-  --blue-fg: #2a4f7c;
-  --blue-bg: #d4dfee;
-  --blue-light: #ecf1f8;
-  --orange-fg: #b35900;
-  --orange-bg: #ffd9a8;
-  --orange-light: #fff1de;
-  --ink: #1a1a1a;
-  --ink-soft: #555;
-}
-* { box-sizing: border-box; }
-body { font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0; background: #f4f4f6; }
-.deck-head { background: var(--rose-fg); color: white; padding: 18px 28px; }
-.deck-head h1 { margin: 0; font-size: 1.6rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.deck-head .subtitle { margin-top: 4px; font-size: 0.95rem; opacity: 0.92; }
-.deck { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
-.slide { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); padding: 24px 28px; margin-bottom: 28px; position: relative; }
-.frametitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--rose-fg);
-  border-bottom: 2px solid var(--rose-bg);
-  padding-bottom: 8px;
-  margin: 0 0 16px;
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-.alertblock, .exampleblock, .block, .practiceblock { border-radius: 6px; margin: 12px 0; overflow: hidden; }
-.alertblock { background: var(--rose-light); border: 1px solid var(--rose-bg); }
-.alertblock > .block-title { background: var(--rose-fg); color: white; }
-.exampleblock { background: var(--green-light); border: 1px solid var(--green-bg); }
-.exampleblock > .block-title { background: var(--green-fg); color: white; }
-.block { background: var(--blue-light); border: 1px solid var(--blue-bg); }
-.block > .block-title { background: var(--blue-fg); color: white; }
-.practiceblock { background: var(--orange-light); border: 1px solid var(--orange-bg); }
-.practiceblock > .block-title { background: var(--orange-fg); color: white; }
-.block-title {
-  padding: 6px 12px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-.block-body { padding: 10px 14px; font-size: 0.92rem; line-height: 1.55; }
-.block-body p { margin: 0.4em 0; }
-ul.block-list, ol.block-list { margin: 0.4em 0; padding-left: 1.4em; }
-ul.block-list li, ol.block-list li { margin: 0.25em 0; }
-.item-label { display: inline-block; min-width: 1.5em; font-weight: 600; color: var(--ink-soft); margin-right: 0.35em; }
-.c-red { color: #d23047; font-weight: 600; }
-.c-blue { color: #2a59a8; font-weight: 600; }
-.c-brown { color: #8a5a2b; font-weight: 600; }
-.sc { font-variant: small-caps; font-size: 0.85em; letter-spacing: 0.05em; }
-s { text-decoration: line-through; text-decoration-color: #c33; }
-sub, sup { font-size: 0.72em; }
-.writing-line { height: 1px; background: #b88a4a; margin: 18px 0; }
-.practice-body { padding-top: 4px; padding-bottom: 4px; }
-.slide-counter { position: absolute; bottom: 8px; right: 14px; font-size: 0.78rem; color: var(--ink-soft); }
-.nav-bar { position: sticky; top: 0; background: rgba(255,255,255,0.96); border-bottom: 1px solid #ddd; padding: 8px 16px; z-index: 100; font-size: 0.85rem; }
-.nav-bar a { color: var(--rose-fg); margin-right: 14px; text-decoration: none; font-weight: 500; white-space: nowrap; }
-.nav-bar a:hover { text-decoration: underline; }
-@media (max-width: 600px) {
-  .frametitle { font-size: 1.05rem; }
-  .deck-head h1 { font-size: 1.2rem; }
-  .deck { padding: 12px 8px 32px; }
-  .slide { padding: 16px 14px; }
-}
-
-.index-list { list-style: none; padding: 0; }
-.index-list li { background: white; margin: 8px 0; padding: 14px 18px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-.index-list a { color: var(--rose-fg); text-decoration: none; font-weight: 600; }
+:root{--rose-fg:#b34155;--rose-bg:#f7d8de;--green-fg:#2f7d3e;--blue-fg:#2a4f7c;--orange-fg:#b35900;--ink:#1a1a1a;--soft:#666;}
+*{box-sizing:border-box;}
+body{font-family:"Hiragino Sans","Yu Gothic","Noto Sans CJK JP",Arial,sans-serif;color:var(--ink);margin:0;background:#f4f4f6;}
+header.top{background:var(--rose-fg);color:#fff;padding:22px 28px;}
+header.top h1{margin:0;font-size:1.5rem;font-weight:600;}
+header.top p{margin:6px 0 0;opacity:.9;font-size:.92rem;}
+main{max-width:980px;margin:0 auto;padding:24px 16px 56px;}
+.topic{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:18px 20px;margin-bottom:18px;}
+.thead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid #eee;padding-bottom:10px;margin-bottom:14px;}
+.tnum{font-weight:700;color:#fff;background:var(--rose-fg);border-radius:20px;padding:3px 12px;font-size:.82rem;}
+.ttitle{font-size:1.3rem;font-weight:700;}
+.ten{color:var(--soft);font-size:.95rem;}
+.links{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.lnk{display:flex;flex-direction:column;justify-content:center;text-decoration:none;border-radius:8px;padding:12px 10px;font-weight:700;font-size:1rem;line-height:1.2;transition:transform .08s,box-shadow .08s;}
+.lnk span{font-weight:400;font-size:.74rem;opacity:.85;margin-top:3px;}
+.lnk:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15);}
+.lnk.g{background:var(--rose-bg);color:var(--rose-fg);}
+.lnk.e{background:#d4dfee;color:var(--blue-fg);}
+.lnk.w{background:#cce8d1;color:var(--green-fg);}
+.lnk.a{background:#ffd9a8;color:var(--orange-fg);}
+.lnk.soon{background:#eee;color:#aaa;cursor:default;}
+.lnk.soon:hover{transform:none;box-shadow:none;}
+footer{text-align:center;color:var(--soft);font-size:.82rem;padding:0 16px 40px;}
+@media(max-width:620px){.links{grid-template-columns:repeat(2,1fr);}.ttitle{font-size:1.1rem;}}
 </style>
 </head>
 <body>
-<header class="deck-head"><h1>Marugoto A2-B1 — Slide Index</h1></header>
-<main class="deck">
-<ul class="index-list"><li><a href="Marugoto_A2-B1_01_ruby.html">Marugoto A2-B1 01</a></li><li><a href="Marugoto_A2-B1_02_ruby.html">Marugoto A2-B1 02</a></li><li><a href="Marugoto_A2-B1_03_ruby.html">Marugoto A2-B1 03</a></li><li><a href="Marugoto_A2-B1_04_ruby.html">Marugoto A2-B1 04</a></li><li><a href="Marugoto_A2-B1_05_ruby.html">Marugoto A2-B1 05</a></li><li><a href="Marugoto_A2-B1_06_ruby.html">Marugoto A2-B1 06</a></li><li><a href="Marugoto_A2-B1_07_ruby.html">Marugoto A2-B1 07</a></li><li><a href="Marugoto_A2-B1_08_ruby.html">Marugoto A2-B1 08</a></li><li><a href="Marugoto_A2-B1_09_ruby.html">Marugoto A2-B1 09</a></li></ul>
+<header class="top">
+  <h1>まるごと 初中級（A2-B1）　教材インデックス</h1>
+  <p>各トピックの 文法スライド・練習スライド（音声つき）・ワークシート・解答</p>
+  <p style="margin-top:12px;"><a href="https://marugoto.jpf.go.jp/en/download/pre_intermediate/" target="_blank" rel="noopener" style="display:inline-block;background:#fff;color:#b34155;text-decoration:none;font-weight:700;padding:8px 16px;border-radius:20px;font-size:.95rem;">▶ Publisher&#39;s Textbook Site (for the audio files) ↗</a></p>
+</header>
+<main>
+  <section class="topic">
+    <div class="thead"><span class="tnum">Topic 1</span><span class="ttitle">スポーツ</span><span class="ten">Sports</span></div>
+    <div class="links"><a class="lnk g" href="Marugoto_A2-B1_01_ruby.html">Grammar<span>文法スライド</span></a><a class="lnk e" href="T1/Topic1_Sports_Exercises.html">Exercise<span>練習スライド＋音声</span></a><a class="lnk w" href="T1/Topic1_Sports_Worksheet.pdf">Worksheet<span>ワークシート PDF</span></a><a class="lnk a" href="T1/Topic1_Sports_AnswerKey.pdf">Answer<span>解答 PDF</span></a></div>
+  </section>
+  <section class="topic">
+    <div class="thead"><span class="tnum">Topic 2</span><span class="ttitle">家さがし</span><span class="ten">Looking for a Place to Live</span></div>
+    <div class="links"><a class="lnk g" href="Marugoto_A2-B1_02_ruby.html">Grammar<span>文法スライド</span></a><a class="lnk e" href="T2/Topic2_House_Exercises.html">Exercise<span>練習スライド＋音声</span></a><a class="lnk w" href="T2/Topic2_House_Worksheet.pdf">Worksheet<span>ワークシート PDF</span></a><a class="lnk a" href="T2/Topic2_House_AnswerKey.pdf">Answer<span>解答 PDF</span></a></div>
+  </section>
+  <section class="topic">
+    <div class="thead"><span class="tnum">Topic 3</span><span class="ttitle">食生活</span><span class="ten">Food &amp; Eating Habits</span></div>
+    <div class="links"><a class="lnk g" href="Marugoto_A2-B1_03_ruby.html">Grammar<span>文法スライド</span></a><a class="lnk e" href="T3/Topic3_Food_Exercises.html">Exercise<span>練習スライド＋音声</span></a><a class="lnk w" href="T3/Topic3_Food_Worksheet.pdf">Worksheet<span>ワークシート PDF</span></a><a class="lnk a" href="T3/Topic3_Food_AnswerKey.pdf">Answer<span>解答 PDF</span></a></div>
+  </section>
+  <section class="topic">
+    <div class="thead"><span class="tnum">Topic 4</span><span class="ttitle">訪問</span><span class="ten">Visiting</span></div>
+    <div class="links"><a class="lnk g" href="Marugoto_A2-B1_04_ruby.html">Grammar<span>文法スライド</span></a><a class="lnk e" href="T4/Topic4_Visiting_Exercises.html">Exercise<span>練習スライド＋音声</span></a><a class="lnk w" href="T4/Topic4_Visiting_Worksheet.pdf">Worksheet<span>ワークシート PDF</span></a><a class="lnk a" href="T4/Topic4_Visiting_AnswerKey.pdf">Answer<span>解答 PDF</span></a></div>
+  </section>
+  <section class="topic">
+    <div class="thead"><span class="tnum">Topic 5</span><span class="ttitle">ことばを学ぶ</span><span class="ten">Learning Languages</span></div>
+    <div class="links"><a class="lnk g" href="Marugoto_A2-B1_05_ruby.html">Grammar<span>文法スライド</span></a><a class="lnk e" href="T5/Topic5_Languages_Exercises.html">Exercise<span>練習スライド＋音声</span></a><a class="lnk w" href="T5/Topic5_Languages_Worksheet.pdf">Worksheet<span>ワークシート PDF</span></a><a class="lnk a" href="T5/Topic5_Languages_AnswerKey.pdf">Answer<span>解答 PDF</span></a></div>
+  </section>
+  <section class="topic">
+    <div class="thead"><span class="tnum">Topic 6</span><span class="ttitle">人生のできごと</span><span class="ten">Marriage &amp; Life Events</span></div>
+    <div class="links"><a class="lnk g" href="Marugoto_A2-B1_06_ruby.html">Grammar<span>文法スライド</span></a><a class="lnk e" href="T6/Topic6_LifeEvents_Exercises.html">Exercise<span>練習スライド＋音声</span></a><a class="lnk w" href="T6/Topic6_LifeEvents_Worksheet.pdf">Worksheet<span>ワークシート PDF</span></a><a class="lnk a" href="T6/Topic6_LifeEvents_AnswerKey.pdf">Answer<span>解答 PDF</span></a></div>
+  </section>
+  <section class="topic">
+    <div class="thead"><span class="tnum">Topic 7</span><span class="ttitle">なやみ相談</span><span class="ten">Worries &amp; Advice</span></div>
+    <div class="links"><a class="lnk g" href="Marugoto_A2-B1_07_ruby.html">Grammar<span>文法スライド</span></a><span class="lnk soon">Exercise<span>準備中</span></span><span class="lnk soon">Worksheet<span>準備中</span></span><span class="lnk soon">Answer<span>準備中</span></span></div>
+  </section>
+  <section class="topic">
+    <div class="thead"><span class="tnum">Topic 8</span><span class="ttitle">旅行中のトラブル</span><span class="ten">Travel Troubles</span></div>
+    <div class="links"><a class="lnk g" href="Marugoto_A2-B1_08_ruby.html">Grammar<span>文法スライド</span></a><span class="lnk soon">Exercise<span>準備中</span></span><span class="lnk soon">Worksheet<span>準備中</span></span><span class="lnk soon">Answer<span>準備中</span></span></div>
+  </section>
+  <section class="topic">
+    <div class="thead"><span class="tnum">Topic 9</span><span class="ttitle">仕事をさがす</span><span class="ten">Job Hunting</span></div>
+    <div class="links"><a class="lnk g" href="Marugoto_A2-B1_09_ruby.html">Grammar<span>文法スライド</span></a><span class="lnk soon">Exercise<span>準備中</span></span><span class="lnk soon">Worksheet<span>準備中</span></span><span class="lnk soon">Answer<span>準備中</span></span></div>
+  </section>
 </main>
+<footer>Marugoto: Japanese Language and Culture (Pre-Intermediate A2/B1) · 練習教材</footer>
 </body>
 </html>
