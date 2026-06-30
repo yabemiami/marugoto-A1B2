@@ -100,6 +100,16 @@ sub, sup { font-size: 0.72em; }
 .kanji-list a.k { color: var(--purple-fg); text-decoration: none; padding: 0 2px; border-radius: 3px; font-weight: 600; transition: background 0.15s; }
 .kanji-list a.k:hover { background: var(--purple-bg); }
 
+/* Conjugation table */
+.gtable { width: 100%; border-collapse: collapse; margin: 6px 0 4px; font-size: 0.92rem; }
+.gtable th, .gtable td { border: 1px solid #d8d8de; padding: 6px 10px; text-align: left; }
+.gtable thead th { background: var(--rose-bg); color: var(--rose-fg); font-weight: 700; }
+.gtable tbody th { background: #faf3f4; font-weight: 600; color: var(--ink-soft); white-space: nowrap; }
+.gtable .arrow { color: var(--ink-soft); padding: 0 4px; }
+.gtable .form { font-weight: 700; color: var(--rose-fg); }
+.romaji { color: var(--ink-soft); font-size: 0.82em; }
+.table-wrap { overflow-x: auto; }
+
 /* Furigana on body / title kanji */
 .block-body ruby, .frametitle ruby { ruby-position: over; }
 .block-body ruby rt, .frametitle ruby rt { font-size: 0.55em; color: var(--ink-soft); font-weight: 400; }
@@ -109,9 +119,9 @@ sub, sup { font-size: 0.72em; }
 <body>
 <header class="deck-head">
   <h1>Marugoto A2-B1 - Topic 1</h1>
-  <div class="subtitle">Grammar Review: 名詞化 / Particle+の / V-なければなりません</div>
+  <div class="subtitle">Grammar Review: 名詞化 / Particle+の / V-なければなりません / 命令形</div>
 </header>
-<nav class="nav-bar"><a href="#s1">Slide 1.1</a><a href="#s2">Slide 1.2</a><a href="#s3">Slide 1.3</a><a href="#s4">Slide 1.4</a><a href="#s5">Slide 1.5</a></nav>
+<nav class="nav-bar"><a href="#s1">Slide 1.1</a><a href="#s2">Slide 1.2</a><a href="#s3">Slide 1.3</a><a href="#s4">Slide 1.4</a><a href="#s5">Slide 1.5</a><a href="#s6">Slide 1.6</a><a href="#s7">Slide 1.7</a></nav>
 <main class="deck">
 <section class='slide' id='s1'>
 <h2 class='frametitle'>1.1: <strong>イA/ナA</strong>+<span class="c-red">さ</span>: Forming Nouns from Adjectives (<ruby>名詞化<rt>めいしか</rt></ruby>)</h2>
@@ -142,7 +152,7 @@ sub, sup { font-size: 0.72em; }
 <div class='writing-line'></div>
 <div class='writing-line'></div>
 </div></div>
-<div class='slide-counter'>1 / 5</div>
+<div class='slide-counter'>1 / 7</div>
 </section>
 <section class='slide' id='s2'>
 <h2 class='frametitle'>1.2: <strong>V.ます</strong>: Forming Nouns from Verbs (<ruby>名詞化<rt>めいしか</rt></ruby>)</h2>
@@ -172,7 +182,7 @@ sub, sup { font-size: 0.72em; }
 <div class='writing-line'></div>
 <div class='writing-line'></div>
 </div></div>
-<div class='slide-counter'>2 / 5</div>
+<div class='slide-counter'>2 / 7</div>
 </section>
 <section class='slide' id='s3'>
 <h2 class='frametitle'>1.3: <strong>と/で/へ/から/まで</strong>+<span class="c-red">の</span>: Particle+の as a Noun Modifier</h2>
@@ -205,7 +215,7 @@ A PP (particle phrase) can modify a following NOUN by attaching <span class="c-r
 <div class='writing-line'></div>
 <div class='writing-line'></div>
 </div></div>
-<div class='slide-counter'>3 / 5</div>
+<div class='slide-counter'>3 / 7</div>
 </section>
 <section class='slide' id='s4'>
 <h2 class='frametitle'>1.4: <strong>V.な</strong>ければなりません / <strong>V.な</strong>きゃいけません</h2>
@@ -242,10 +252,85 @@ A PP (particle phrase) can modify a following NOUN by attaching <span class="c-r
 <div class='writing-line'></div>
 <div class='writing-line'></div>
 </div></div>
-<div class='slide-counter'>4 / 5</div>
+<div class='slide-counter'>4 / 7</div>
 </section>
 <section class='slide' id='s5'>
-<h2 class='frametitle'>1.5: Kanji / <ruby>漢字<rt>かんじ</rt></ruby> (<ruby>新<rt>あたら</rt></ruby>しい<ruby>漢字<rt>かんじ</rt></ruby>)</h2>
+<h2 class='frametitle'>1.5: <ruby>命令形<rt>めいれいけい</rt></ruby> — Forming the Command Form (Affirmative)</h2>
+<div class='alertblock'>
+<div class='block-title'>Rule by verb group:</div>
+<div class='block-body'><ul class='block-list'>
+<li><span class='item-label'>Ru-verb</span> (<ruby>一段<rt>いちだん</rt></ruby>): drop <span class="c-red">る</span>, add <span class="c-red">ろ</span>. たべ<s>る</s> → たべ<span class="c-red">ろ</span></li>
+<li><span class='item-label'>U-verb</span> (<ruby>五段<rt>ごだん</rt></ruby>): change the final <span class="c-red">-u</span> sound to <span class="c-red">-e</span>. の<span class="c-red">む</span> → の<span class="c-red">め</span></li>
+<li><span class='item-label'>Irreg.</span> する → <span class="c-red">しろ</span>　／　くる → <span class="c-red">こい</span></li>
+</ul></div>
+</div>
+<div class='block'>
+<div class='block-title'>Conjugation table</div>
+<div class='block-body'>
+<div class='table-wrap'>
+<table class='gtable'>
+<thead><tr><th>Group</th><th>Dictionary form</th><th></th><th>Command form</th></tr></thead>
+<tbody>
+<tr><th>Ru-verb</th><td>たべる <span class="romaji">tabe-ru</span></td><td class="arrow">▶</td><td class="form">たべろ <span class="romaji">tabe-ro</span></td></tr>
+<tr><th>Ru-verb</th><td>みる <span class="romaji">mi-ru</span></td><td class="arrow">▶</td><td class="form">みろ <span class="romaji">mi-ro</span></td></tr>
+<tr><th>U-verb</th><td>のむ <span class="romaji">nom-u</span></td><td class="arrow">▶</td><td class="form">のめ <span class="romaji">nom-e</span></td></tr>
+<tr><th>U-verb</th><td>いく <span class="romaji">ik-u</span></td><td class="arrow">▶</td><td class="form">いけ <span class="romaji">ik-e</span></td></tr>
+<tr><th>U-verb</th><td>はなす <span class="romaji">hanas-u</span></td><td class="arrow">▶</td><td class="form">はなせ <span class="romaji">hanas-e</span></td></tr>
+<tr><th>U-verb</th><td>まつ <span class="romaji">mats-u</span></td><td class="arrow">▶</td><td class="form">まて <span class="romaji">mat-e</span></td></tr>
+<tr><th>U-verb</th><td>かう <span class="romaji">ka-u</span></td><td class="arrow">▶</td><td class="form">かえ <span class="romaji">ka-e</span></td></tr>
+<tr><th>Irregular</th><td>する <span class="romaji">suru</span></td><td class="arrow">▶</td><td class="form">しろ <span class="romaji">shiro</span></td></tr>
+<tr><th>Irregular</th><td>くる <span class="romaji">kuru</span></td><td class="arrow">▶</td><td class="form">こい <span class="romaji">koi</span></td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin-top:8px;"><span class="c-blue">U-verb tip:</span> the final kana shifts down the same column on the kana chart — む→め, く→け, す→せ, つ→て, う→え, ぐ→げ, ぶ→べ, ぬ→ね, る→れ.</p>
+</div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: turn three verbs into the command form.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>5 / 7</div>
+</section>
+<section class='slide' id='s6'>
+<h2 class='frametitle'>1.6: <ruby>禁止形<rt>きんしけい</rt></ruby> — Negative Command, &amp; Usage</h2>
+<div class='alertblock'>
+<div class='block-title'>Negative command (uniform for all verbs):</div>
+<div class='block-body'><ul class='block-list'>
+<li>Add <span class="c-red">な</span> to the <strong>dictionary form</strong> (the plain present-affirmative form).</li>
+<li>[V-<ruby>辞書形<rt>じしょけい</rt></ruby>] + <span class="c-red">な</span> = "Don't do V!" — のむ → のむ<span class="c-red">な</span>　／　たべる → たべる<span class="c-red">な</span>　／　する → する<span class="c-red">な</span>　／　くる → くる<span class="c-red">な</span></li>
+</ul></div>
+</div>
+<div class='exampleblock'>
+<div class='block-title'>Example</div>
+<div class='block-body'><ol class='block-list'>
+<li><span class="c-red">がんばれ</span>！ — Go for it! / Hang in there! (cheering)</li>
+<li><span class="c-red">はしれ</span>！　<span class="c-red">まけるな</span>！ — Run! Don't lose! (at a sports event)</li>
+<li><ruby>早<rt>はや</rt></ruby>く <span class="c-red">ねろ</span>。 — Go to sleep, now. (parent → child)</li>
+<li>ここに <ruby>車<rt>くるま</rt></ruby>を <span class="c-red">とめるな</span>。 — Don't park here. (sign / order)</li>
+<li>「<ruby>待<rt>ま</rt></ruby><span class="c-red">て</span>」と<ruby>言<rt>い</rt></ruby>われました。 — I was told to "wait." (quoted command)</li>
+</ol></div>
+</div>
+<div class='block'>
+<div class='block-title'>Note:</div>
+<div class='block-body'><ol class='block-list'>
+<li>A <strong>very strong, authoritative</strong> command (senior→junior, parent→child, coach→player). It can also be an <strong>encouraging</strong> shout (がんばれ, まけるな).</li>
+<li>Blunt and masculine — avoid with strangers or superiors; use <strong>V-てください / V-ないでください</strong> in polite situations.</li>
+<li>You will meet it in cheers, road signs (とまれ), emergencies, manga, and reported commands.</li>
+</ol></div>
+</div>
+<div class='practiceblock'>
+<div class='block-title'>Your own sentence: write one command and one cheer using the command form.</div>
+<div class='block-body practice-body'>
+<div class='writing-line'></div>
+<div class='writing-line'></div>
+</div></div>
+<div class='slide-counter'>6 / 7</div>
+</section>
+<section class='slide' id='s7'>
+<h2 class='frametitle'>1.7: Kanji / <ruby>漢字<rt>かんじ</rt></ruby> (<ruby>新<rt>あたら</rt></ruby>しい<ruby>漢字<rt>かんじ</rt></ruby>)</h2>
 <div class='kanjiblock'>
 <div class='block-title'>Click each kanji for details on Kanshudo</div>
 <div class='block-body'>
@@ -268,7 +353,7 @@ A PP (particle phrase) can modify a following NOUN by attaching <span class="c-r
 </div>
 </div>
 </div>
-<div class='slide-counter'>5 / 5</div>
+<div class='slide-counter'>7 / 7</div>
 </section>
 </main>
 </body>
