@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>まるごと トピック3 Food &amp; Eating Habits — エクスプレス練習</title>
+<title>まるごと トピック3 ほっとする食べ物 — エクスプレス練習</title>
 <style>
 :root{--navy:#1A2B49;--blue:#1F6FB2;--orange:#F08A24;--light:#F2F6FA;--ink:#23303F;--grey:#7A8794;--s:1;}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:#0d1622;font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);}
-ruby rt{font-size:.5em;font-weight:400;line-height:1;}
+ruby{ruby-align:center;}
+ruby rt{font-size:.45em;font-weight:400;line-height:1;letter-spacing:-.05em;}
 #stage{position:fixed;inset:0;overflow:hidden;}
 /* fixed 1280x720 stage scaled by JS -> works on every browser */
 .deck{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(var(--s));transform-origin:center center;background:#fff;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.5);}
@@ -42,6 +43,33 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
 .arr{color:var(--grey);padding:0 6px;}
 .slots{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:8px 0;}
 .slot{background:var(--light);border:1.5px solid var(--orange);border-radius:10px;height:64px;display:flex;align-items:center;padding-left:18px;font-size:38px;color:var(--orange);font-weight:700;}
+/* textbook-faithful blocks */
+.pre{color:var(--orange);font-weight:700;}
+.bank.sm2{font-size:20px;padding:10px 16px;line-height:1.7;}
+ol.drill.sm{font-size:24px;gap:10px;}
+ul.qs.sm{font-size:22px;gap:8px;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;}
+.tbl th,.tbl td{border:1.5px solid var(--blue);padding:3px 4px;text-align:center;font-size:18px;color:var(--navy);}
+.tbl th{background:var(--light);font-weight:700;}
+.tbl th.conv{background:var(--blue);color:#fff;font-size:16px;}
+.tbl td.ans{height:38px;font-size:21px;color:var(--orange);font-weight:700;}
+.tbl .rowlab{background:var(--light);font-weight:700;white-space:nowrap;font-size:17px;text-align:left;padding:3px 8px;}
+.map{flex:1;display:flex;gap:22px;align-items:center;}
+.map .root{background:var(--navy);color:#fff;font-size:30px;font-weight:700;border-radius:10px;padding:26px 14px;flex:none;}
+.map .rows{flex:1;display:flex;flex-direction:column;gap:12px;}
+.map .row{display:flex;align-items:center;gap:10px;font-size:21px;}
+.mbox{background:#fff;border:1.5px solid var(--blue);border-radius:8px;padding:5px 14px;color:var(--navy);font-weight:700;text-align:center;}
+.mbox.blank{border-color:var(--orange);color:var(--orange);min-width:150px;}
+.marr{color:var(--grey);font-size:22px;}
+.mcol{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.arow{display:flex;gap:10px;}
+.arow .audio{flex:1;padding:6px 10px;}
+.arow .alabel{font-size:16px;}
+.arow audio{height:28px;}
+.dlg{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:10px 18px;font-size:19px;line-height:1.55;color:var(--ink);}
+.dlg p{margin:3px 0;break-inside:avoid;}
+.dlg .sp{color:var(--blue);font-weight:700;}
+.dlg .blank{color:var(--orange);font-weight:700;}
 /* audio */
 .audio{background:var(--light);border-left:6px solid var(--orange);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:6px;}
 .audio .ahead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
@@ -95,80 +123,128 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
 <section class="slide title">
   <div class="rail"></div>
   <p class="kick">まるごと <ruby>初中級<rt>しょちゅうきゅう</rt></ruby>  (A2/B1)</p>
-  <h1>トピック3「<ruby>食生活<rt>しょくせいかつ</rt></ruby>」</h1>
-  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 3: Food &amp; Eating Habits</p>
-  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.23–27 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 041–059</p>
+  <h1>トピック3「ほっとする<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>」</h1>
+  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 3: My Comfort Food</p>
+  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.44–49 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 041–047</p>
   <p class="hint">← / → でスライドを移動 &nbsp;|&nbsp; arrow keys to move</p>
 </section>
 <section class="slide">
   <header><span class="tag">ウォームアップ / WARM-UP</span><h2><ruby>話<rt>はな</rt></ruby>してみましょう</h2></header>
-  <div class="body"><ol class="big"><li><ruby>日本<rt>にほん</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>で、<ruby>好<rt>す</rt></ruby>きなものは<ruby>何<rt>なん</rt></ruby>ですか。<span class="en">Favorite Japanese food?</span></li><li><ruby>毎日<rt>まいにち</rt></ruby>の<ruby>食事<rt>しょくじ</rt></ruby>は<ruby>外食<rt>がいしょく</rt></ruby>ですか、うちで<ruby>作<rt>つく</rt></ruby>りますか。<span class="en">Eat out or cook at home?</span></li><li>あなたの<ruby>国<rt>くに</rt></ruby>には、どんな<ruby>料理<rt>りょうり</rt></ruby>がありますか。<span class="en">Dishes from your country?</span></li></ol>
-    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p></div>
-</section>
-<section class="slide">
-  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. ことばのいみ</h2></header>
-  <div class="body"><div class="grid3"><div class="card"><span class="jp"><ruby>和食<rt>わしょく</rt></ruby></span><span class="gl">Japanese food</span></div><div class="card"><span class="jp"><ruby>材料<rt>ざいりょう</rt></ruby></span><span class="gl">ingredients</span></div><div class="card"><span class="jp"><ruby>量<rt>りょう</rt></ruby></span><span class="gl">amount / portion</span></div><div class="card"><span class="jp"><ruby>外食<rt>がいしょく</rt></ruby></span><span class="gl">eating out</span></div><div class="card"><span class="jp"><ruby>健康<rt>けんこう</rt></ruby></span><span class="gl">health</span></div><div class="card"><span class="jp"><ruby>苦手<rt>にがて</rt></ruby></span><span class="gl">not good with / dislike</span></div></div>
-    <p class="note"><ruby>日本語<rt>にほんご</rt></ruby>と<ruby>英語<rt>えいご</rt></ruby>をむすびましょう。 Match Japanese ↔ English.</p></div>
-</section>
-<section class="slide">
-  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. ことばのれんしゅう</h2>
-    <div style="position:absolute;top:0.5px"></div></header>
   <div class="body">
-    <div class="bank">うすい ／ こい ／ <ruby>少<rt>すく</rt></ruby>ない ／ <ruby>多<rt>おお</rt></ruby>い ／ <ruby>苦手<rt>にがて</rt></ruby> ／ <ruby>口<rt>くち</rt></ruby>に<ruby>合<rt>あ</rt></ruby>う</div>
-    <ol class="drill"><li>1. このスープは<ruby>味<rt>あじ</rt></ruby>が（　　　）から、しょうゆを<ruby>入<rt>い</rt></ruby>れます。</li><li>2. <ruby>定食<rt>ていしょく</rt></ruby>は<ruby>量<rt>りょう</rt></ruby>が（　　　）ので、おなかいっぱいです。</li><li>3. なっとうは（　　　）で、あまり<ruby>食<rt>た</rt></ruby>べられません。</li><li>4. このラーメンは<ruby>味<rt>あじ</rt></ruby>が（　　　）です。しょっぱいです。</li><li>5. この<ruby>魚料理<rt>さかなりょうり</rt></ruby>はとてもおいしくて、（　　　）。</li></ol>
-    <div class="audio"><div class="ahead"><span class="alabel">♪ 041 ことば</span><span class="asub">ことばをかくにんしましょう</span></div><audio controls preload="none" src="041_3_1.mp3"></audio></div>
+    <ol class="big">
+      <li><ruby>外国<rt>がいこく</rt></ruby>の<ruby>料理<rt>りょうり</rt></ruby>を<ruby>食<rt>た</rt></ruby>べたことがありますか。どうでしたか。<span class="en">Have you tried foreign food? How was it?</span></li>
+      <li>あなたの<ruby>国<rt>くに</rt></ruby>の、ふつうの<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>・ごちそうは<ruby>何<rt>なん</rt></ruby>ですか。<span class="en">Everyday food and special-occasion food in your country?</span></li>
+      <li><ruby>子<rt>こ</rt></ruby>どものときから<ruby>食<rt>た</rt></ruby>べているものがありますか。<span class="en">Anything you've eaten since childhood?</span></li>
+    </ol>
+    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p>
   </div>
 </section>
 <section class="slide">
-      <header><span class="tag">2. きく / LISTENING</span><h2>A. <ruby>日本<rt>にほん</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>はどうですか</h2></header>
-      <div class="body two">
-        <div class="col"><p class="lead">4<ruby>人<rt>にん</rt></ruby>が<ruby>日本<rt>にほん</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>について<ruby>話<rt>はな</rt></ruby>しています。</p><ul class="qs"><li>① どんな<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>をよく<ruby>食<rt>た</rt></ruby>べていますか。</li><li>② <ruby>味<rt>あじ</rt></ruby>や<ruby>量<rt>りょう</rt></ruby>について、<ruby>何<rt>なに</rt></ruby>と<ruby>言<rt>い</rt></ruby>っていますか。</li></ul></div>
-        <div class="col audios"><div class="audio"><div class="ahead"><span class="alabel">♪ 042 エドさん</span></div><audio controls preload="none" src="042_3_2_1%5B1%5D_edo_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 043 リリーさん</span></div><audio controls preload="none" src="043_3_2_1%5B2%5D_ririi_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 044 ジョイさん</span></div><audio controls preload="none" src="044_3_2_1%5B3%5D_joi_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 045 ホセさん</span></div><audio controls preload="none" src="045_3_2_1%5B4%5D_hose_san.mp3"></audio></div></div></div>
-    </section>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. どの<ruby>国<rt>くに</rt></ruby>の<ruby>料理<rt>りょうり</rt></ruby>ですか <span class="gl">（じゅんび①・p.44）</span></h2></header>
+  <div class="body">
+    <div class="grid3" style="grid-template-columns:repeat(2,1fr);"><div class="card"><span class="jp">① ラーメン</span><span class="gl">（<span class="pre">a 日本</span>）</span></div><div class="card"><span class="jp">② フィッシュ アンド チップス</span><span class="gl">（　　）</span></div><div class="card"><span class="jp">③ ドルマ</span><span class="gl">（　　）</span></div><div class="card"><span class="jp">④ ガドガド</span><span class="gl">（　　）</span></div></div>
+    <div class="bank sm2">a <ruby>日本<rt>にほん</rt></ruby>　　b トルコ　　c インドネシア　　d イギリス</div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">2. きく / LISTENING</span><h2>B. <ruby>毎日<rt>まいにち</rt></ruby>の<ruby>食事<rt>しょくじ</rt></ruby></h2></header>
-      <div class="body"><p class="lead"><ruby>川井<rt>かわい</rt></ruby>さんとスリポーンさんが<ruby>話<rt>はな</rt></ruby>しています。</p><ul class="qs spaced"><li>① <ruby>川井<rt>かわい</rt></ruby>さんは<ruby>夕食<rt>ゆうしょく</rt></ruby>をどうしていますか。</li><li>② どうしてですか。</li></ul><div class="audio"><div class="ahead"><span class="alabel">♪ 046 川井(かわい)さんの会話(かいわ)</span><span class="asub">ヒント：〜から／〜ので</span></div><audio controls preload="none" src="046_3_3_1_kaiwa.mp3"></audio></div></div>
-    </section>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. ＿＿のことばの<ruby>意味<rt>いみ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>ですか <span class="gl">（じゅんび③・p.45）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <ol class="drill sm" style="font-size:22px;gap:9px;">
+      <li><ruby>私<rt>わたし</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>て<ruby>半年<rt>はんとし</rt></ruby>になります。はじめ、<ruby>和食<rt>わしょく</rt></ruby>が<ruby>苦手<rt>にがて</rt></ruby>でしたが、もう<u>なれました</u>。（<span class="pre">a</span>）</li>
+      <li>てんぷらが<ruby>大好<rt>だいす</rt></ruby>きですが、<ruby>毎日食<rt>まいにちた</rt></ruby>べて、<u>あきました</u>。（　　）</li>
+      <li><ruby>今日<rt>きょう</rt></ruby>は<ruby>体<rt>からだ</rt></ruby>の<ruby>調子<rt>ちょうし</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>いので、<ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>半分<rt>はんぶん</rt></ruby><u>のこしました</u>。（　　）</li>
+      <li>うちの<ruby>子<rt>こ</rt></ruby>どもは、<u><ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>に<ruby>好<rt>す</rt></ruby>ききらいがある</u>ので、こまっています。（　　）</li>
+      <li>A：この<ruby>魚料理<rt>さかなりょうり</rt></ruby>、どうですか。<u><ruby>口<rt>くち</rt></ruby>にあいますか</u>。　B：はい、とてもおいしいです。（　　）</li>
+    </ol>
+    <div class="bank sm2" style="font-size:19px;">a だいじょうぶです　b <ruby>食<rt>た</rt></ruby>べすぎたので、もう<ruby>食<rt>た</rt></ruby>べたくないです　c <ruby>食<rt>た</rt></ruby>べませんでした　d <ruby>好<rt>す</rt></ruby>きな<ruby>味<rt>あじ</rt></ruby>です　e <ruby>好<rt>す</rt></ruby>きなものしか<ruby>食<rt>た</rt></ruby>べません</div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. 〜から／〜ので</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> <ruby>日本人<rt>にほんじん</rt></ruby>です <span class="arr">→</span> <b>（<ruby>私<rt>わたし</rt></ruby>は）日本人なので、<ruby>白<rt>しろ</rt></ruby>いご<ruby>飯<rt>はん</rt></ruby>が<ruby>一番<rt>いちばん</rt></ruby>ほっとします。</b></div>
-        <ol class="drill"><li>1. <ruby>野菜<rt>やさい</rt></ruby>が<ruby>近所<rt>きんじょ</rt></ruby>のスーパーに<ruby>何<rt>なん</rt></ruby>でもあります →（　　　）から、<ruby>問題<rt>もんだい</rt></ruby>ないです。</li><li>2. おいしいものを<ruby>作<rt>つく</rt></ruby>ります →（　　　）から、<ruby>食<rt>た</rt></ruby>べに<ruby>来<rt>き</rt></ruby>てください。</li></ol>
-      </div></section>
+  <header><span class="tag">2. きく / LISTENING</span><h2>A. <ruby>日本<rt>にほん</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>にはもうなれましたか <span class="gl">（2-①・p.46）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <p class="lead">4<ruby>人<rt>にん</rt></ruby>は<ruby>今<rt>いま</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいます。</p>
+    <ul class="qs sm" style="font-size:20px;">
+      <li>(1) <ruby>日本<rt>にほん</rt></ruby>のどんな<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>をよく<ruby>食<rt>た</rt></ruby>べていますか。　(2) その<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>について、どんなことを<ruby>話<rt>はな</rt></ruby>していますか。</li>
+    </ul>
+    <table class="tbl">
+      <tr><th class="rowlab"></th><th class="conv">① ♪042（例）</th><th class="conv">② ♪043</th><th class="conv">③ ♪044</th><th class="conv">④ ♪045</th></tr>
+      <tr><th class="rowlab"></th><th>エドさん</th><th>リリーさん</th><th>ジョイさん</th><th>ホセさん</th></tr>
+      <tr><td class="rowlab">(1)</td><td class="ans">a</td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+      <tr><td class="rowlab">(2)</td><td class="ans">h</td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+    </table>
+    <div class="bank sm2" style="font-size:18px;">(1)　a うどん　b とんかつ　c <ruby>親子<rt>おやこ</rt></ruby>どん　d やき<ruby>魚定食<rt>ざかなていしょく</rt></ruby>　e <ruby>肉<rt>にく</rt></ruby>じゃが　f <ruby>野菜<rt>やさい</rt></ruby>のにもの　g くだもの<br>(2)　h <ruby>味<rt>あじ</rt></ruby>がうすい　i <ruby>味<rt>あじ</rt></ruby>があまい　j <ruby>量<rt>りょう</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ない　k ねだんが<ruby>高<rt>たか</rt></ruby>い</div>
+    <div class="arow"><div class="audio"><div class="ahead"><span class="alabel">♪ 042 会話①</span></div><audio controls preload="none" src="042_3_2_1%5B1%5D_edo_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 043 会話②</span></div><audio controls preload="none" src="043_3_2_1%5B2%5D_ririi_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 044 会話③</span></div><audio controls preload="none" src="044_3_2_1%5B3%5D_joi_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 045 会話④</span></div><audio controls preload="none" src="045_3_2_1%5B4%5D_hose_san.mp3"></audio></div></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. 〜ないですか／〜ませんか</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> うどんは<ruby>味<rt>あじ</rt></ruby>がうすいです <span class="arr">→</span> <b>うどんは、<ruby>外国<rt>がいこく</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>には、<ruby>味<rt>あじ</rt></ruby>がうすくないですか。</b></div>
-        <ol class="drill"><li>1. <ruby>定食<rt>ていしょく</rt></ruby>は<ruby>量<rt>りょう</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ないです →定食は、量が（　　　）か。</li></ol>
-      </div></section>
+  <header><span class="tag">2. きく / LISTENING</span><h2>B. <ruby>夜<rt>よる</rt></ruby>はうちで<ruby>食<rt>た</rt></ruby>べてます <span class="gl">（3-①・p.48）</span></h2></header>
+  <div class="body" style="gap:9px;">
+    <p class="lead"><ruby>川井<rt>かわい</rt></ruby>さんはタイのバンコクに<ruby>住<rt>す</rt></ruby>んでいます。<ruby>今<rt>いま</rt></ruby>、<ruby>同<rt>おな</rt></ruby>じ<ruby>会社<rt>かいしゃ</rt></ruby>のスリポーンさんと<ruby>話<rt>はな</rt></ruby>しています。</p>
+    <ul class="qs sm" style="font-size:20px;">
+      <li>(1) どんなことを<ruby>話<rt>はな</rt></ruby>していますか。　(2) （　　）に<ruby>入<rt>はい</rt></ruby>る<ruby>文<rt>ぶん</rt></ruby>を<ruby>選<rt>えら</rt></ruby>んで、もう<ruby>一度聞<rt>いちどき</rt></ruby>きましょう。</li>
+    </ul>
+    <div class="bank sm2" style="font-size:18px;">a どうしてますか　b <ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>はどこでするんですか　c <ruby>私<rt>わたし</rt></ruby>にもてつだわせてください　d <ruby>和食<rt>わしょく</rt></ruby>ですか　e それは<ruby>便利<rt>べんり</rt></ruby>ですね</div>
+    <div class="dlg" style="column-count:2;column-gap:28px;font-size:16.5px;">
+      <p><span class="sp">スリポーン</span>：<ruby>川井<rt>かわい</rt></ruby>さん、<ruby>夕食<rt>ゆうしょく</rt></ruby>は<ruby>毎日<rt>まいにち</rt></ruby>、（<span class="blank">① a どうしてますか</span>）。<ruby>自分<rt>じぶん</rt></ruby>で？</p>
+      <p><span class="sp">川井</span>：はい。<ruby>夜<rt>よる</rt></ruby>はうちで<ruby>作<rt>つく</rt></ruby>って<ruby>食<rt>た</rt></ruby>べてます。</p>
+      <p><span class="sp">スリポーン</span>：（<span class="blank">②　　　　　　</span>）。</p>
+      <p><span class="sp">川井</span>：ええ。<ruby>私<rt>わたし</rt></ruby>、<ruby>日本人<rt>にほんじん</rt></ruby>なので、<ruby>白<rt>しろ</rt></ruby>いご<ruby>飯<rt>はん</rt></ruby>とみそしるが<ruby>一番<rt>いちばん</rt></ruby>ほっとするんですよ。<ruby>野菜<rt>やさい</rt></ruby>もたくさん<ruby>食<rt>た</rt></ruby>べたいし…。</p>
+      <p><span class="sp">スリポーン</span>：そうですか。（<span class="blank">③　　　　　　</span>）。<ruby>和食<rt>わしょく</rt></ruby>の<ruby>材料<rt>ざいりょう</rt></ruby>、バンコクでも<ruby>買<rt>か</rt></ruby>えますか。</p>
+      <p><span class="sp">川井</span>：ええ。お<ruby>米<rt>こめ</rt></ruby>はデパートで<ruby>買<rt>か</rt></ruby>ってますが、<ruby>野菜<rt>やさい</rt></ruby>や<ruby>魚<rt>さかな</rt></ruby>は<ruby>近所<rt>きんじょ</rt></ruby>のスーパーに<ruby>何<rt>なん</rt></ruby>でもあるから、<ruby>問題<rt>もんだい</rt></ruby>ないです。</p>
+      <p><span class="sp">スリポーン</span>：そうですか。（<span class="blank">④　　　　　　</span>）。</p>
+      <p><span class="sp">川井</span>：はい。こんど<ruby>何<rt>なに</rt></ruby>かおいしいもの<ruby>作<rt>つく</rt></ruby>りますから、<ruby>食<rt>た</rt></ruby>べに<ruby>来<rt>き</rt></ruby>てください。</p>
+      <p><span class="sp">スリポーン</span>：ありがとうございます。じゃあ、（<span class="blank">⑤　　　　　　</span>）。</p>
+      <p><span class="sp">川井</span>：ええ、お<ruby>願<rt>ねが</rt></ruby>いします。</p>
+    </div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 046 川井さんとスリポーンさん</span></div><audio controls preload="none" src="046_3_3_1_kaiwa.mp3"></audio></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>C. 〜すぎる</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> <ruby>量<rt>りょう</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ないです <span class="arr">→</span> <b>量が少なすぎます。</b></div>
-        <ol class="drill"><li>1. このとんかつは<ruby>大<rt>おお</rt></ruby>きいです →このとんかつは（　　　）。</li><li>2. くだものはねだんが<ruby>高<rt>たか</rt></ruby>いです →くだものはねだんが（　　　）。</li></ol>
-      </div></section>
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. 「〜ないですか」「〜ませんか」 <span class="gl">（2-②・p.46）</span></h2></header>
+  <div class="body">
+    <div class="exbox"><span class="ex">例)</span> うどんは、<ruby>外国<rt>がいこく</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>には、<ruby>味<rt>あじ</rt></ruby>が<u>うすくないですか</u>。／ <ruby>定食<rt>ていしょく</rt></ruby>は、<ruby>量<rt>りょう</rt></ruby>が<u><ruby>少<rt>すく</rt></ruby>なすぎませんか</u>。</div>
+    <ol class="drill"><li><ruby>肉<rt>にく</rt></ruby>じゃがも、<ruby>親子<rt>おやこ</rt></ruby>どんも、<ruby>味<rt>あじ</rt></ruby>が（あまいです →　　　　　　）。</li><li>くだものは、ねだんが（<ruby>高<rt>たか</rt></ruby>いです →　　　　　　）。</li><li>このとんかつは、（<ruby>大<rt>おお</rt></ruby>きすぎます →　　　　　　）。</li></ol>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>D. 〜みたいです</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> ベジマイト・ジャム <span class="arr">→</span> <b>ベジマイトは（<ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>が）ジャムみたいです。</b></div>
-        <ol class="drill"><li>1. キンパ・おすし →キンパは（　　　）<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>です。</li><li>2. このお<ruby>茶<rt>ちゃ</rt></ruby>・りんご →このお茶はりんご（　　　）においがします。</li></ol>
-      </div></section>
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. 「〜から」「〜ので」 <span class="gl">（3-②・p.48）</span></h2></header>
+  <div class="body">
+    <div class="exbox"><span class="ex">例)</span> <ruby>私<rt>わたし</rt></ruby>、（<span class="pre"><ruby>日本人<rt>にほんじん</rt></ruby>な</span>）ので、<ruby>白<rt>しろ</rt></ruby>いご<ruby>飯<rt>はん</rt></ruby>とみそしるが<ruby>一番<rt>いちばん</rt></ruby>ほっとするんですよ。</div>
+    <ol class="drill"><li><ruby>野菜<rt>やさい</rt></ruby>や<ruby>魚<rt>さかな</rt></ruby>は<ruby>近所<rt>きんじょ</rt></ruby>のスーパーに<ruby>何<rt>なん</rt></ruby>でも（　　　　）から、<ruby>問題<rt>もんだい</rt></ruby>ないです。</li><li>こんど<ruby>何<rt>なに</rt></ruby>かおいしいもの（　　　　）から、<ruby>食<rt>た</rt></ruby>べに<ruby>来<rt>き</rt></ruby>てください。</li></ol>
+    <p class="note"><ruby>川井<rt>かわい</rt></ruby>さんは<ruby>何<rt>なん</rt></ruby>と<ruby>言<rt>い</rt></ruby>いましたか。<ruby>書<rt>か</rt></ruby>きましょう。</p>
+  </div>
+</section>
 <section class="slide">
   <header><span class="tag">4. はなす / SPEAKING</span><h2>ロールプレイ ＆ <ruby>発表<rt>はっぴょう</rt></ruby></h2></header>
   <div class="body two">
-    <div class="panel blue"><h3>A. <ruby>外国<rt>がいこく</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>について<ruby>話<rt>はな</rt></ruby>す</h3><p>A: <ruby>日本<rt>にほん</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>はいかがですか。</p><p>B: <ruby>好<rt>す</rt></ruby>きですよ。うどんとか、おすしとか、よく<ruby>食<rt>た</rt></ruby>べます。</p><p>A: うどんは<ruby>味<rt>あじ</rt></ruby>がうすくないですか。</p><p class="hl">「〜みたいです」「〜ないですか」を<ruby>使<rt>つか</rt></ruby>ってみましょう。</p></div>
-    <div class="panel orange"><h3>B. <ruby>自分<rt>じぶん</rt></ruby>の<ruby>食生活<rt>しょくせいかつ</rt></ruby></h3><ul><li><ruby>昼食<rt>ちゅうしょく</rt></ruby>・<ruby>夕食<rt>ゆうしょく</rt></ruby>はどこで</li><li><ruby>外食<rt>がいしょく</rt></ruby>か、うちで<ruby>作<rt>つく</rt></ruby>るか</li><li><ruby>気<rt>き</rt></ruby>をつけていること（<ruby>健康<rt>けんこう</rt></ruby>など）</li></ul><p class="hl2"><ruby>文<rt>ぶん</rt></ruby>を2つ<ruby>以上<rt>いじょう</rt></ruby>ならべて、<ruby>少<rt>すこ</rt></ruby>し<ruby>長<rt>なが</rt></ruby>く<ruby>話<rt>はな</rt></ruby>しましょう。</p></div>
-  </div></section>
+    <div class="panel blue">
+      <h3>A. <ruby>外国<rt>がいこく</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>、どう<ruby>思<rt>おも</rt></ruby>う？</h3>
+      <p>A: <ruby>日本<rt>にほん</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>はいかがですか。もうなれましたか。</p>
+      <p>B: ええ、よく<ruby>食<rt>た</rt></ruby>べてますよ。＿＿とか、＿＿とか。</p>
+      <p>A: ＿＿は<ruby>味<rt>あじ</rt></ruby>がうすくないですか。</p>
+      <p>B: はじめは そう<ruby>思<rt>おも</rt></ruby>いましたが、<ruby>今<rt>いま</rt></ruby>は おいしいです。</p>
+    </div>
+    <div class="panel orange">
+      <h3>B. <ruby>毎日<rt>まいにち</rt></ruby>の<ruby>食事<rt>しょくじ</rt></ruby></h3>
+      <ul>
+        <li><ruby>昼食<rt>ちゅうしょく</rt></ruby>は？　<ruby>外食<rt>がいしょく</rt></ruby>？　うちで？</li>
+        <li><ruby>夕食<rt>ゆうしょく</rt></ruby>は？　<ruby>何<rt>なに</rt></ruby>を<ruby>食<rt>た</rt></ruby>べますか。</li>
+        <li><ruby>健康<rt>けんこう</rt></ruby>のために、<ruby>気<rt>き</rt></ruby>をつけていることは？</li>
+      </ul>
+      <p class="hl2"><ruby>文<rt>ぶん</rt></ruby>を2つ<ruby>以上<rt>いじょう</rt></ruby>ならべて、<ruby>少<rt>すこ</rt></ruby>し<ruby>長<rt>なが</rt></ruby>く<ruby>話<rt>はな</rt></ruby>しましょう。（♪047）</p>
+    </div>
+  </div>
+</section>
 <section class="slide cando">
   <div class="rail"></div>
   <p class="kick">ふりかえり / CAN-DO CHECK</p>
   <h2 class="cdh">できるようになりましたか？</h2>
-  <ul class="cdlist"><li><span class="box"></span><ruby>外国<rt>がいこく</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>についてどう<ruby>思<rt>おも</rt></ruby>うか<ruby>話<rt>はな</rt></ruby>せる。</li><li><span class="box"></span><ruby>自分<rt>じぶん</rt></ruby>の<ruby>食生活<rt>しょくせいかつ</rt></ruby>について<ruby>話<rt>はな</rt></ruby>せる。</li><li><span class="box"></span><ruby>記事<rt>きじ</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んで、<ruby>書<rt>か</rt></ruby>いた<ruby>人<rt>ひと</rt></ruby>の<ruby>考<rt>かんが</rt></ruby>えを<ruby>読<rt>よ</rt></ruby>みとれる。</li></ul>
+  <ul class="cdlist"><li><span class="box"></span><ruby>外国<rt>がいこく</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>について、どう<ruby>思<rt>おも</rt></ruby>うか<ruby>話<rt>はな</rt></ruby>せる。</li><li><span class="box"></span><ruby>自分<rt>じぶん</rt></ruby>の<ruby>食生活<rt>しょくせいかつ</rt></ruby>について<ruby>話<rt>はな</rt></ruby>せる。</li></ul>
   <p class="bye">おつかれさまでした！</p>
 </section>
 <section class="slide index">
   <header><span class="tag">♪ おんせい / AUDIO</span><h2><ruby>音声<rt>おんせい</rt></ruby>リンク集</h2></header>
-  <div class="body idxbody"><div class="idxgroup"><h4>ことば (3-1)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 041 ことば</span></div><audio controls preload="none" src="041_3_1.mp3"></audio></div></div></div><div class="idxgroup"><h4>日本の食べ物 (3-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 042 エド</span></div><audio controls preload="none" src="042_3_2_1%5B1%5D_edo_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 043 リリー</span></div><audio controls preload="none" src="043_3_2_1%5B2%5D_ririi_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 044 ジョイ</span></div><audio controls preload="none" src="044_3_2_1%5B3%5D_joi_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 045 ホセ</span></div><audio controls preload="none" src="045_3_2_1%5B4%5D_hose_san.mp3"></audio></div></div></div><div class="idxgroup"><h4>毎日の食事 (3-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 046 会話</span></div><audio controls preload="none" src="046_3_3_1_kaiwa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 047 練習</span></div><audio controls preload="none" src="047_3_3_3.mp3"></audio></div></div></div><div class="idxgroup"><h4>読解：ないとこまる食べ物 (3-4)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 048 和田</span></div><audio controls preload="none" src="048_3_4_1_wada.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 049 リチャード</span></div><audio controls preload="none" src="049_3_4_1_richaado.mp3"></audio></div></div></div><div class="idxgroup"><h4>自分の食生活 (3-5)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 059 話す</span></div><audio controls preload="none" src="059_3_5_1.mp3"></audio></div></div></div></div>
+  <div class="body idxbody"><div class="idxgroup"><h4>ことば / Kanji</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 041 漢字のことば</span></div><audio controls preload="none" src="041_3_1.mp3"></audio></div></div></div><div class="idxgroup"><h4>なれましたか (3-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 042 会話①</span></div><audio controls preload="none" src="042_3_2_1%5B1%5D_edo_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 043 会話②</span></div><audio controls preload="none" src="043_3_2_1%5B2%5D_ririi_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 044 会話③</span></div><audio controls preload="none" src="044_3_2_1%5B3%5D_joi_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 045 会話④</span></div><audio controls preload="none" src="045_3_2_1%5B4%5D_hose_san.mp3"></audio></div></div></div><div class="idxgroup"><h4>うちで食べてます (3-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 046 会話</span></div><audio controls preload="none" src="046_3_3_1_kaiwa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 047 話すじゅんび</span></div><audio controls preload="none" src="047_3_3_3.mp3"></audio></div></div></div></div>
 </section>
 </div></div>
 <div id="nav"><button id="prev">‹</button><span id="count"></span><button id="next">›</button></div>
