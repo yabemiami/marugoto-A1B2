@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>まるごと トピック4 Visiting Someone&#x27;s Home — エクスプレス練習</title>
+<title>まるごと トピック4 訪問 — エクスプレス練習</title>
 <style>
 :root{--navy:#1A2B49;--blue:#1F6FB2;--orange:#F08A24;--light:#F2F6FA;--ink:#23303F;--grey:#7A8794;--s:1;}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:#0d1622;font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);}
-ruby rt{font-size:.5em;font-weight:400;line-height:1;}
+ruby{ruby-align:center;}
+ruby rt{font-size:.45em;font-weight:400;line-height:1;letter-spacing:-.05em;}
 #stage{position:fixed;inset:0;overflow:hidden;}
 /* fixed 1280x720 stage scaled by JS -> works on every browser */
 .deck{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(var(--s));transform-origin:center center;background:#fff;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.5);}
@@ -42,6 +43,33 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
 .arr{color:var(--grey);padding:0 6px;}
 .slots{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:8px 0;}
 .slot{background:var(--light);border:1.5px solid var(--orange);border-radius:10px;height:64px;display:flex;align-items:center;padding-left:18px;font-size:38px;color:var(--orange);font-weight:700;}
+/* textbook-faithful blocks */
+.pre{color:var(--orange);font-weight:700;}
+.bank.sm2{font-size:20px;padding:10px 16px;line-height:1.7;}
+ol.drill.sm{font-size:24px;gap:10px;}
+ul.qs.sm{font-size:22px;gap:8px;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;}
+.tbl th,.tbl td{border:1.5px solid var(--blue);padding:3px 4px;text-align:center;font-size:18px;color:var(--navy);}
+.tbl th{background:var(--light);font-weight:700;}
+.tbl th.conv{background:var(--blue);color:#fff;font-size:16px;}
+.tbl td.ans{height:38px;font-size:21px;color:var(--orange);font-weight:700;}
+.tbl .rowlab{background:var(--light);font-weight:700;white-space:nowrap;font-size:17px;text-align:left;padding:3px 8px;}
+.map{flex:1;display:flex;gap:22px;align-items:center;}
+.map .root{background:var(--navy);color:#fff;font-size:30px;font-weight:700;border-radius:10px;padding:26px 14px;flex:none;}
+.map .rows{flex:1;display:flex;flex-direction:column;gap:12px;}
+.map .row{display:flex;align-items:center;gap:10px;font-size:21px;}
+.mbox{background:#fff;border:1.5px solid var(--blue);border-radius:8px;padding:5px 14px;color:var(--navy);font-weight:700;text-align:center;}
+.mbox.blank{border-color:var(--orange);color:var(--orange);min-width:150px;}
+.marr{color:var(--grey);font-size:22px;}
+.mcol{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.arow{display:flex;gap:10px;}
+.arow .audio{flex:1;padding:6px 10px;}
+.arow .alabel{font-size:16px;}
+.arow audio{height:28px;}
+.dlg{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:10px 18px;font-size:19px;line-height:1.55;color:var(--ink);}
+.dlg p{margin:3px 0;break-inside:avoid;}
+.dlg .sp{color:var(--blue);font-weight:700;}
+.dlg .blank{color:var(--orange);font-weight:700;}
 /* audio */
 .audio{background:var(--light);border-left:6px solid var(--orange);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:6px;}
 .audio .ahead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
@@ -96,73 +124,162 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
   <div class="rail"></div>
   <p class="kick">まるごと <ruby>初中級<rt>しょちゅうきゅう</rt></ruby>  (A2/B1)</p>
   <h1>トピック4「<ruby>訪問<rt>ほうもん</rt></ruby>」</h1>
-  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 4: Visiting Someone&#x27;s Home</p>
-  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.28–32 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 060–084</p>
+  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 4: Visiting Someone</p>
+  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.54–59 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 060–070</p>
   <p class="hint">← / → でスライドを移動 &nbsp;|&nbsp; arrow keys to move</p>
 </section>
 <section class="slide">
   <header><span class="tag">ウォームアップ / WARM-UP</span><h2><ruby>話<rt>はな</rt></ruby>してみましょう</h2></header>
-  <div class="body"><ol class="big"><li><ruby>人<rt>ひと</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>を<ruby>訪問<rt>ほうもん</rt></ruby>したことがありますか。<span class="en">Have you visited someone&#x27;s home?</span></li><li><ruby>家<rt>いえ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>るとき、<ruby>何<rt>なん</rt></ruby>と<ruby>言<rt>い</rt></ruby>いますか。<span class="en">What do you say when entering?</span></li><li><ruby>外国<rt>がいこく</rt></ruby>に<ruby>住<rt>す</rt></ruby>んだことがありますか。<span class="en">Have you lived abroad?</span></li></ol>
-    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p></div>
-</section>
-<section class="slide">
-  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. ことばのいみ</h2></header>
-  <div class="body"><div class="grid3"><div class="card"><span class="jp"><ruby>訪問<rt>ほうもん</rt></ruby></span><span class="gl">a visit</span></div><div class="card"><span class="jp"><ruby>経験<rt>けいけん</rt></ruby></span><span class="gl">experience</span></div><div class="card"><span class="jp"><ruby>親切<rt>しんせつ</rt></ruby></span><span class="gl">kind</span></div><div class="card"><span class="jp"><ruby>紹介<rt>しょうかい</rt></ruby>する</span><span class="gl">to introduce</span></div><div class="card"><span class="jp"><ruby>住所<rt>じゅうしょ</rt></ruby></span><span class="gl">address</span></div><div class="card"><span class="jp"><ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby></span><span class="gl">memory</span></div></div>
-    <p class="note"><ruby>日本語<rt>にほんご</rt></ruby>と<ruby>英語<rt>えいご</rt></ruby>をむすびましょう。 Match Japanese ↔ English.</p></div>
-</section>
-<section class="slide">
-  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. ことばのれんしゅう</h2>
-    <div style="position:absolute;top:0.5px"></div></header>
   <div class="body">
-    <div class="bank">ごめんください ／ おじゃまします ／ お<ruby>父<rt>とう</rt></ruby>さん ／ むすめ ／ しゅじん ／ お<ruby>子<rt>こ</rt></ruby>さん</div>
-    <ol class="drill"><li>1. <ruby>玄関<rt>げんかん</rt></ruby>で「（　　　）」と<ruby>言<rt>い</rt></ruby>います。</li><li>2. <ruby>家<rt>いえ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>るとき「（　　　）」と<ruby>言<rt>い</rt></ruby>います。</li><li>3. <ruby>友<rt>とも</rt></ruby>だちの<ruby>父親<rt>ちちおや</rt></ruby>は「（　　　）」と<ruby>言<rt>い</rt></ruby>います。</li><li>4. <ruby>自分<rt>じぶん</rt></ruby>の<ruby>夫<rt>おっと</rt></ruby>を<ruby>紹介<rt>しょうかい</rt></ruby>するとき「（　　　）です」と<ruby>言<rt>い</rt></ruby>います。</li><li>5. <ruby>自分<rt>じぶん</rt></ruby>の<ruby>娘<rt>むすめ</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>に「（　　　）」と<ruby>言<rt>い</rt></ruby>います。</li></ol>
-    <div class="audio"><div class="ahead"><span class="alabel">♪ 061 ことば</span><span class="asub">正しいことばを聞きましょう</span></div><audio controls preload="none" src="061_4_1_2.mp3"></audio></div>
+    <ol class="big">
+      <li><ruby>知<rt>し</rt></ruby>りあいの<ruby>家<rt>いえ</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったことがありますか。<span class="en">Have you visited someone's home?</span></li>
+      <li><ruby>日本<rt>にほん</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>のげんかんで、<ruby>何<rt>なに</rt></ruby>をしますか。<span class="en">What do you do in a Japanese entryway?</span></li>
+      <li><ruby>訪問<rt>ほうもん</rt></ruby>したとき、どんなことをよく<ruby>話<rt>はな</rt></ruby>しますか。<span class="en">What do you talk about when visiting?</span></li>
+    </ol>
+    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p>
   </div>
 </section>
 <section class="slide">
-      <header><span class="tag">2. きく / LISTENING</span><h2>A. <ruby>家族<rt>かぞく</rt></ruby>を<ruby>紹介<rt>しょうかい</rt></ruby>する</h2></header>
-      <div class="body two">
-        <div class="col"><p class="lead">ようこさんがカールさんに<ruby>家族<rt>かぞく</rt></ruby>を<ruby>紹介<rt>しょうかい</rt></ruby>しています。</p><ul class="qs"><li>① ようこさんはだれを<ruby>紹介<rt>しょうかい</rt></ruby>していますか。</li><li>② その<ruby>人<rt>ひと</rt></ruby>はようこさんとどんなかんけいですか。</li></ul></div>
-        <div class="col audios"><div class="audio"><div class="ahead"><span class="alabel">♪ 063 紹介(しょうかい)①</span></div><audio controls preload="none" src="063_4_2_1%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 064 紹介②</span></div><audio controls preload="none" src="064_4_2_1%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 065 紹介③</span></div><audio controls preload="none" src="065_4_2_1%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 066 紹介④</span></div><audio controls preload="none" src="066_4_2_1%5B4%5D.mp3"></audio></div></div></div>
-    </section>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. <ruby>日本<rt>にほん</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>で <span class="gl">（じゅんび・p.55）</span></h2></header>
+  <div class="body">
+    <div class="grid3"><div class="card"><span class="jp">① ベルをおす</span><span class="gl">ring the bell</span></div><div class="card"><span class="jp">② くつをぬぐ</span><span class="gl">take off shoes</span></div><div class="card"><span class="jp">③ スリッパをはく</span><span class="gl">put on slippers</span></div><div class="card"><span class="jp">④ へやに<ruby>入<rt>はい</rt></ruby>る</span><span class="gl">enter the room</span></div><div class="card"><span class="jp">⑤ <ruby>正座<rt>せいざ</rt></ruby>をする</span><span class="gl">sit seiza-style</span></div><div class="card"><span class="jp">⑥ <ruby>足<rt>あし</rt></ruby>がしびれる</span><span class="gl">legs fall asleep</span></div></div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 060 日本の家で</span><span class="asub">聞いて、じゅんばんにならべましょう</span></div><audio controls preload="none" src="060_4_1_1_nihon_no_ie_de.mp3"></audio></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">2. きく / LISTENING</span><h2>B. <ruby>外国<rt>がいこく</rt></ruby>で<ruby>生活<rt>せいかつ</rt></ruby>した<ruby>経験<rt>けいけん</rt></ruby></h2></header>
-      <div class="body"><p class="lead"><ruby>山本<rt>やまもと</rt></ruby>さんとカールさんが<ruby>話<rt>はな</rt></ruby>しています。</p><ul class="qs spaced"><li>① ようこさん（<ruby>山本<rt>やまもと</rt></ruby>さん）はどこに<ruby>住<rt>す</rt></ruby>んでいましたか。</li><li>② どのくらいの<ruby>間<rt>あいだ</rt></ruby><ruby>住<rt>す</rt></ruby>んでいましたか。</li></ul><div class="audio"><div class="ahead"><span class="alabel">♪ 069 山本(やまもと)さんの会話(かいわ)</span><span class="asub">ヒント：ていねいたい・ふつうたい</span></div><audio controls preload="none" src="069_4_3_1_kaiwa.mp3"></audio></div></div>
-    </section>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. <ruby>家族<rt>かぞく</rt></ruby>のことば <span class="gl">（じゅんび②・p.55）</span></h2></header>
+  <div class="body" style="gap:11px;">
+    <p class="lead"><ruby>正<rt>ただ</rt></ruby>しいことばを<ruby>選<rt>えら</rt></ruby>びましょう。<ruby>家族<rt>かぞく</rt></ruby>について<ruby>話<rt>はな</rt></ruby>すとき、どんなことばを<ruby>使<rt>つか</rt></ruby>いますか。</p>
+    <ol class="drill sm">
+      <li><ruby>私<rt>わたし</rt></ruby>の（<span class="pre">a <ruby>父<rt>ちち</rt></ruby></span> ・ b お<ruby>父<rt>とう</rt></ruby>さん）はエンジニアです。</li>
+      <li>うちは、（a <ruby>妻<rt>つま</rt></ruby> ・ b おくさん）と（a <ruby>子<rt>こ</rt></ruby>ども ・ b お<ruby>子<rt>こ</rt></ruby>さん）2<ruby>人<rt>り</rt></ruby>の、4<ruby>人家族<rt>にんかぞく</rt></ruby>です。</li>
+      <li>シンさんは（a <ruby>姉<rt>あね</rt></ruby> ・ b お<ruby>姉<rt>ねえ</rt></ruby>さん）が3<ruby>人<rt>にん</rt></ruby>いるそうです。</li>
+      <li><ruby>田中<rt>たなか</rt></ruby>さんの（a そふ ・ b おじいさん）は、むかし、タイで<ruby>働<rt>はたら</rt></ruby>いていたそうです。</li>
+      <li><ruby>私<rt>わたし</rt></ruby>の（a むすめ ・ b むすめさん）の<ruby>家族<rt>かぞく</rt></ruby>は、<ruby>広島<rt>ひろしま</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいます。</li>
+    </ol>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 061 ことばのかくにん</span><span class="asub">聞いて、答えをチェックしましょう</span></div><audio controls preload="none" src="061_4_1_2.mp3"></audio></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. 〜てくれます</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> アニスさんが<ruby>家<rt>いえ</rt></ruby>によびました <span class="arr">→</span> <b>アニスさんが家によんでくれました。</b></div>
-        <ol class="drill"><li>1. アニスさんが<ruby>住所<rt>じゅうしょ</rt></ruby>と<ruby>電話番号<rt>でんわばんごう</rt></ruby>を<ruby>書<rt>か</rt></ruby>きました →（　　　）。</li><li>2. <ruby>家族<rt>かぞく</rt></ruby>があたたかくむかえました →（　　　）。</li></ol>
-      </div></section>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>C. げんかんとへやで <span class="gl">（じゅんび①・p.54）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <p class="lead"><ruby>会話<rt>かいわ</rt></ruby>の（　　）に<ruby>入<rt>はい</rt></ruby>る<ruby>文<rt>ぶん</rt></ruby>を<ruby>選<rt>えら</rt></ruby>びましょう。</p>
+    <div class="dlg" style="font-size:20px;">
+      <p><span class="sp">お<ruby>客<rt>きゃく</rt></ruby></span>：（<span class="blank">① a ごめんください。</span>）</p>
+      <p><span class="sp">うちの<ruby>人<rt>ひと</rt></ruby></span>：よくいらっしゃいました。どうぞおあがりください。どうぞスリッパをはいてください。</p>
+      <p><span class="sp">お<ruby>客<rt>きゃく</rt></ruby></span>：（<span class="blank">②　　　　　　　</span>）</p>
+      <p><span class="sp">うちの<ruby>人<rt>ひと</rt></ruby></span>：（<span class="blank">③　　　　　　　</span>）〔へやで〕</p>
+      <p><span class="sp">お<ruby>客<rt>きゃく</rt></ruby></span>：しつれいします。</p>
+      <p><span class="sp">うちの<ruby>人<rt>ひと</rt></ruby></span>：（<span class="blank">④　　　　　　　</span>）<ruby>足<rt>あし</rt></ruby>はらくにしてくださいね。</p>
+      <p><span class="sp">お<ruby>客<rt>きゃく</rt></ruby></span>：ありがとうございます。</p>
+    </div>
+    <div class="bank sm2" style="font-size:19px;">a ごめんください。　b どうぞお<ruby>座<rt>すわ</rt></ruby>りください。　c おじゃまします。　d こちらへどうぞ。</div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. 〜てもらいます</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> アニスさんがつうやくをしました <span class="arr">→</span> <b>アニスさんにつうやくをしてもらいました。</b></div>
-        <ol class="drill"><li>1. お<ruby>兄<rt>にい</rt></ruby>さんが<ruby>写真<rt>しゃしん</rt></ruby>をとりました →お兄さんに写真を（　　　）。</li><li>2. アニスさんがインドネシア<ruby>語<rt>ご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えました →アニスさんにインドネシア語を（　　　）。</li></ol>
-      </div></section>
+  <header><span class="tag">2. きく / LISTENING</span><h2>A. うちの<ruby>家族<rt>かぞく</rt></ruby>です <span class="gl">（2-①・p.56）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <p class="lead">カールさんは<ruby>日本<rt>にほん</rt></ruby>の<ruby>会社<rt>かいしゃ</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>いています。<ruby>同<rt>おな</rt></ruby>じ<ruby>会社<rt>かいしゃ</rt></ruby>のようこさんの<ruby>家<rt>いえ</rt></ruby>にあそびに<ruby>来<rt>き</rt></ruby>ました。</p>
+    <ul class="qs sm" style="font-size:20px;">
+      <li>(1) ようこさんはカールさんにだれを<ruby>紹介<rt>しょうかい</rt></ruby>していますか。　(2) その<ruby>人<rt>ひと</rt></ruby>はようこさんとどんなかんけいですか。</li>
+    </ul>
+    <table class="tbl">
+      <tr><th class="rowlab"></th><th class="conv">① ♪063（例）</th><th class="conv">② ♪064</th><th class="conv">③ ♪065</th><th class="conv">④ ♪066</th></tr>
+      <tr><td class="rowlab">(1) だれ？</td><td class="ans">d</td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+      <tr><td class="rowlab">(2) かんけい</td><td class="ans">j</td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+    </table>
+    <div class="bank sm2" style="font-size:18px;">(1)　a かずお　b よしえ と タマ　c めぐみ　d しょう<br>(2)　e そぼ　f <ruby>夫<rt>おっと</rt></ruby>　g <ruby>妻<rt>つま</rt></ruby>　h <ruby>父<rt>ちち</rt></ruby>　i <ruby>母<rt>はは</rt></ruby>　j <ruby>子<rt>こ</rt></ruby>ども</div>
+    <div class="arow"><div class="audio"><div class="ahead"><span class="alabel">♪ 063 会話①</span></div><audio controls preload="none" src="063_4_2_1%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 064 会話②</span></div><audio controls preload="none" src="064_4_2_1%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 065 会話③</span></div><audio controls preload="none" src="065_4_2_1%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 066 会話④</span></div><audio controls preload="none" src="066_4_2_1%5B4%5D.mp3"></audio></div></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>C. ていねいたい・ふつうたい</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> ニューヨークに<ruby>住<rt>す</rt></ruby>んでいました（ていねい） <span class="arr">→</span> <b>ニューヨークに住んでたんだよ。（ふつう）</b></div>
-        <ol class="drill"><li>1. <ruby>親切<rt>しんせつ</rt></ruby>な<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くてたすかりました →（ふつうたいに）（　　　）。</li><li>2. すばらしかったです →（ふつうたいに）（　　　）。</li></ol>
-      </div></section>
+  <header><span class="tag">2. きく / LISTENING</span><h2>B. <ruby>外国生活<rt>がいこくせいかつ</rt></ruby>の<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby> <span class="gl">（3-①・p.58）</span></h2></header>
+  <div class="body" style="gap:9px;">
+    <p class="lead"><ruby>山本<rt>やまもと</rt></ruby>さんの<ruby>家<rt>いえ</rt></ruby>にカールさんがあそびに<ruby>来<rt>き</rt></ruby>ました。(1) どんなことを<ruby>話<rt>はな</rt></ruby>していますか。 (2) （　）に<ruby>入<rt>はい</rt></ruby>る<ruby>文<rt>ぶん</rt></ruby>を<ruby>選<rt>えら</rt></ruby>びましょう。</p>
+    <div class="bank sm2" style="font-size:17px;">a アメリカに<ruby>行<rt>い</rt></ruby>ったこと、ありますか　b アメリカでの<ruby>生活<rt>せいかつ</rt></ruby>はどうでしたか　c いつごろですか　d <ruby>私<rt>わたし</rt></ruby>もそのころニューヨークで<ruby>勉強<rt>べんきょう</rt></ruby>していたんですよ</div>
+    <div class="dlg" style="column-count:2;column-gap:28px;font-size:16.5px;">
+      <p><span class="sp">カール</span>：<ruby>山本<rt>やまもと</rt></ruby>さんは、（<span class="blank">① a アメリカに行ったこと、ありますか</span>）。</p>
+      <p><span class="sp">ようこ</span>：カールさん、<ruby>私<rt>わたし</rt></ruby>たち、ニューヨークに<ruby>住<rt>す</rt></ruby>んでたんですよ。</p>
+      <p><span class="sp">カール</span>：え、ほんとに？（<span class="blank">②　　　　　　</span>）。</p>
+      <p><span class="sp">ようこ</span>：2004<ruby>年<rt>ねん</rt></ruby>から2010<ruby>年<rt>ねん</rt></ruby>まで、<ruby>約<rt>やく</rt></ruby>6<ruby>年間<rt>ねんかん</rt></ruby>です。</p>
+      <p><span class="sp">カール</span>：へえ、（<span class="blank">③　　　　　　</span>）。</p>
+      <p><span class="sp">ようこ</span>：ぐうぜんですね。</p>
+      <p><span class="sp">カール</span>：（<span class="blank">④　　　　　　</span>）。</p>
+      <p><span class="sp">ようこ</span>：ことばがわからなくてこまったけど、<ruby>親切<rt>しんせつ</rt></ruby>な<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くてたすかりました。</p>
+      <p><span class="sp">かずお</span>：そうだね。あと、<ruby>家族<rt>かぞく</rt></ruby>でよく<ruby>旅行<rt>りょこう</rt></ruby>したね、ようこ。おぼえてるか。グランドキャニオン、すごかったよね。</p>
+      <p><span class="sp">ようこ</span>：ええ、あれはすばらしかった。わすれられないけしきだよね。</p>
+      <p><span class="sp">かずお</span>：ああ。ぼくも、<ruby>人生観<rt>じんせいかん</rt></ruby>が<ruby>変<rt>か</rt></ruby>わった。</p>
+      <p><span class="sp">カール</span>：へえ、そうですか。</p>
+    </div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 069 思い出の会話</span></div><audio controls preload="none" src="069_4_3_1_kaiwa.mp3"></audio></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. <ruby>家族<rt>かぞく</rt></ruby>のよび<ruby>方<rt>かた</rt></ruby> <span class="gl">（2-②・p.56）</span></h2></header>
+  <div class="body two">
+    <div class="panel blue">
+      <h3><ruby>家族<rt>かぞく</rt></ruby>をよぶとき</h3>
+      <ul>
+        <li>「しょう、<span class="hl">お<ruby>姉<rt>ねえ</rt></ruby>ちゃん</span>は？」</li>
+        <li>「あ、<span class="hl">お<ruby>父<rt>とう</rt></ruby>さん</span>、こっちよ。」</li>
+      </ul>
+    </div>
+    <div class="panel orange">
+      <h3><ruby>紹介<rt>しょうかい</rt></ruby>するとき</h3>
+      <ul>
+        <li>「カールさん、<span class="hl"><ruby>むすこ<rt></rt></ruby>のしょう</span>です。」</li>
+        <li>「<span class="hl">むすめのめぐみ</span>です。」</li>
+        <li>「<span class="hl">うちのしゅじん</span>です。」</li>
+      </ul>
+      <p class="hl2">♪067・068 もう<ruby>一度聞<rt>いちどき</rt></ruby>きましょう。</p>
+    </div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. ていねいたい・ふつうたい 1 <span class="gl">（3-②・p.58）</span></h2></header>
+  <div class="body" style="gap:11px;">
+    <p class="lead">つぎの<ruby>文<rt>ぶん</rt></ruby>は<span class="hl">だれに</span><ruby>話<rt>はな</rt></ruby>していますか。（　）に<ruby>書<rt>か</rt></ruby>きましょう。</p>
+    <ol class="drill sm">
+      <li><ruby>私<rt>わたし</rt></ruby>たち、ニューヨークに<ruby>住<rt>す</rt></ruby>んでたんですよ。　ようこ →（<span class="pre">カール</span>）</li>
+      <li>ぐうぜんですね。　ようこ →（　　　　）</li>
+      <li><ruby>親切<rt>しんせつ</rt></ruby>な<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くてたすかりました。　ようこ →（　　　　）</li>
+      <li><ruby>家族<rt>かぞく</rt></ruby>でよく<ruby>旅行<rt>りょこう</rt></ruby>したね。　かずお →（　　　　）</li>
+      <li>おぼえてるか。　かずお →（　　　　）</li>
+      <li>わすれられないけしきだよね。　ようこ →（　　　　）</li>
+    </ol>
+    <p class="note"><ruby>友<rt>とも</rt></ruby>だちに<ruby>話<rt>はな</rt></ruby>すときと、<ruby>家族<rt>かぞく</rt></ruby>に<ruby>話<rt>はな</rt></ruby>すときは、どんなちがいがありますか。</p>
+  </div>
+</section>
 <section class="slide">
   <header><span class="tag">4. はなす / SPEAKING</span><h2>ロールプレイ ＆ <ruby>発表<rt>はっぴょう</rt></ruby></h2></header>
   <div class="body two">
-    <div class="panel blue"><h3>A. <ruby>家<rt>いえ</rt></ruby>にあんないする・<ruby>紹介<rt>しょうかい</rt></ruby>する</h3><p>A: ごめんください。</p><p>B: どうぞお<ruby>入<rt>はい</rt></ruby>りください。スリッパをどうぞ。</p><p>A: おじゃまします。</p><p class="hl">「〜てくれます」「〜てもらいます」も<ruby>使<rt>つか</rt></ruby>ってみましょう。</p></div>
-    <div class="panel orange"><h3>B. <ruby>外国<rt>がいこく</rt></ruby>で<ruby>生活<rt>せいかつ</rt></ruby>した<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby></h3><ul><li>いつ・どこに<ruby>住<rt>す</rt></ruby>んでいたか</li><li>どんな<ruby>経験<rt>けいけん</rt></ruby>をしたか</li><li><ruby>今<rt>いま</rt></ruby>、どう<ruby>思<rt>おも</rt></ruby>うか</li></ul><p class="hl2"><ruby>文<rt>ぶん</rt></ruby>を2つ<ruby>以上<rt>いじょう</rt></ruby>ならべて、<ruby>少<rt>すこ</rt></ruby>し<ruby>長<rt>なが</rt></ruby>く<ruby>話<rt>はな</rt></ruby>しましょう。</p></div>
-  </div></section>
+    <div class="panel blue">
+      <h3>A. <ruby>家族<rt>かぞく</rt></ruby>を<ruby>紹介<rt>しょうかい</rt></ruby>する</h3>
+      <p>「＿＿さん、<ruby>紹介<rt>しょうかい</rt></ruby>します。うちの<ruby>母<rt>はは</rt></ruby>です。<ruby>今<rt>いま</rt></ruby>、<ruby>英語<rt>えいご</rt></ruby>をならってるんですよ。」</p>
+      <p>「はじめまして。いつも むすめ が おせわになって(い)ます。」</p>
+      <p>「こちらこそ、いつも ＿＿さん に おせわになって(い)ます。」</p>
+    </div>
+    <div class="panel orange">
+      <h3>B. <ruby>外国生活<rt>がいこくせいかつ</rt></ruby>の<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby></h3>
+      <ul>
+        <li>いつ、どこに<ruby>住<rt>す</rt></ruby>んでいましたか。</li>
+        <li>どんな<ruby>経験<rt>けいけん</rt></ruby>や<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby>がありますか。</li>
+        <li><ruby>今<rt>いま</rt></ruby>、どう<ruby>思<rt>おも</rt></ruby>いますか。（〜て、なつかしいです）</li>
+      </ul>
+      <p class="hl2"><ruby>文<rt>ぶん</rt></ruby>を2つ<ruby>以上<rt>いじょう</rt></ruby>ならべて、<ruby>少<rt>すこ</rt></ruby>し<ruby>長<rt>なが</rt></ruby>く<ruby>話<rt>はな</rt></ruby>しましょう。（♪070）</p>
+    </div>
+  </div>
+</section>
 <section class="slide cando">
   <div class="rail"></div>
   <p class="kick">ふりかえり / CAN-DO CHECK</p>
   <h2 class="cdh">できるようになりましたか？</h2>
-  <ul class="cdlist"><li><span class="box"></span><ruby>客<rt>きゃく</rt></ruby>を<ruby>家<rt>いえ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>にあんないできる。／<ruby>家族<rt>かぞく</rt></ruby>を<ruby>紹介<rt>しょうかい</rt></ruby>できる。</li><li><span class="box"></span><ruby>外国<rt>がいこく</rt></ruby>などで<ruby>生活<rt>せいかつ</rt></ruby>した<ruby>経験<rt>けいけん</rt></ruby>や<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby>について<ruby>話<rt>はな</rt></ruby>せる。</li><li><span class="box"></span><ruby>訪問<rt>ほうもん</rt></ruby>の<ruby>記事<rt>きじ</rt></ruby>やおれいのメールを<ruby>読<rt>よ</rt></ruby>みとれる。</li></ul>
+  <ul class="cdlist"><li><span class="box"></span>お<ruby>客<rt>きゃく</rt></ruby>を<ruby>家<rt>いえ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>にあんないすることができる。</li><li><span class="box"></span><ruby>家族<rt>かぞく</rt></ruby>をお<ruby>客<rt>きゃく</rt></ruby>に<ruby>紹介<rt>しょうかい</rt></ruby>することができる。</li><li><span class="box"></span><ruby>外国<rt>がいこく</rt></ruby>などで<ruby>生活<rt>せいかつ</rt></ruby>した<ruby>経験<rt>けいけん</rt></ruby>や<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby>について<ruby>話<rt>はな</rt></ruby>せる。</li></ul>
   <p class="bye">おつかれさまでした！</p>
 </section>
 <section class="slide index">
   <header><span class="tag">♪ おんせい / AUDIO</span><h2><ruby>音声<rt>おんせい</rt></ruby>リンク集</h2></header>
-  <div class="body idxbody"><div class="idxgroup"><h4>日本の家・ことば (4-1)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 060 日本の家</span></div><audio controls preload="none" src="060_4_1_1_nihon_no_ie_de.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 061 ことば</span></div><audio controls preload="none" src="061_4_1_2.mp3"></audio></div></div></div><div class="idxgroup"><h4>家族の紹介 (4-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 063 紹介①</span></div><audio controls preload="none" src="063_4_2_1%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 064 紹介②</span></div><audio controls preload="none" src="064_4_2_1%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 065 紹介③</span></div><audio controls preload="none" src="065_4_2_1%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 066 紹介④</span></div><audio controls preload="none" src="066_4_2_1%5B4%5D.mp3"></audio></div></div></div><div class="idxgroup"><h4>外国生活 (4-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 069 会話</span></div><audio controls preload="none" src="069_4_3_1_kaiwa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 070 練習</span></div><audio controls preload="none" src="070_4_3_3.mp3"></audio></div></div></div><div class="idxgroup"><h4>読解：友だちの家 (4-4)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 072 [1]</span></div><audio controls preload="none" src="072_4_4_2%281%29%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 073 [2]</span></div><audio controls preload="none" src="073_4_4_2%281%29%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 074 [3]</span></div><audio controls preload="none" src="074_4_4_2%281%29%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 075 [4]</span></div><audio controls preload="none" src="075_4_4_2%281%29%5B4%5D.mp3"></audio></div></div></div><div class="idxgroup"><h4>読解：おれいのメール (4-4)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 079 [1]</span></div><audio controls preload="none" src="079_4_4_3%282%29%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 080 [2]</span></div><audio controls preload="none" src="080_4_4_3%282%29%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 081 [3]</span></div><audio controls preload="none" src="081_4_4_3%282%29%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 082 [4]</span></div><audio controls preload="none" src="082_4_4_3%282%29%5B4%5D.mp3"></audio></div></div></div><div class="idxgroup"><h4>自分の国 (4-5)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 084 話す</span></div><audio controls preload="none" src="084_4_5_1.mp3"></audio></div></div></div></div>
+  <div class="body idxbody"><div class="idxgroup"><h4>じゅんび / Preparation</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 060 日本の家で</span></div><audio controls preload="none" src="060_4_1_1_nihon_no_ie_de.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 061 ことば</span></div><audio controls preload="none" src="061_4_1_2.mp3"></audio></div></div></div><div class="idxgroup"><h4>うちの家族です (4-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 063 会話①</span></div><audio controls preload="none" src="063_4_2_1%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 064 会話②</span></div><audio controls preload="none" src="064_4_2_1%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 065 会話③</span></div><audio controls preload="none" src="065_4_2_1%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 066 会話④</span></div><audio controls preload="none" src="066_4_2_1%5B4%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 067 よび方①</span></div><audio controls preload="none" src="067_4_2_2%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 068 よび方②</span></div><audio controls preload="none" src="068_4_2_2%5B3%5D.mp3"></audio></div></div></div><div class="idxgroup"><h4>外国生活の思い出 (4-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 069 会話</span></div><audio controls preload="none" src="069_4_3_1_kaiwa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 070 話すじゅんび</span></div><audio controls preload="none" src="070_4_3_3.mp3"></audio></div></div></div></div>
 </section>
 </div></div>
 <div id="nav"><button id="prev">‹</button><span id="count"></span><button id="next">›</button></div>
