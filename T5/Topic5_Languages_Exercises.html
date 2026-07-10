@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>まるごと トピック5 Learning Languages — エクスプレス練習</title>
+<title>まるごと トピック5 ことばを学ぶ楽しみ — エクスプレス練習</title>
 <style>
 :root{--navy:#1A2B49;--blue:#1F6FB2;--orange:#F08A24;--light:#F2F6FA;--ink:#23303F;--grey:#7A8794;--s:1;}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:#0d1622;font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);}
-ruby rt{font-size:.5em;font-weight:400;line-height:1;}
+ruby{ruby-align:center;}
+ruby rt{font-size:.45em;font-weight:400;line-height:1;letter-spacing:-.05em;}
 #stage{position:fixed;inset:0;overflow:hidden;}
 /* fixed 1280x720 stage scaled by JS -> works on every browser */
 .deck{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(var(--s));transform-origin:center center;background:#fff;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.5);}
@@ -42,6 +43,33 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
 .arr{color:var(--grey);padding:0 6px;}
 .slots{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:8px 0;}
 .slot{background:var(--light);border:1.5px solid var(--orange);border-radius:10px;height:64px;display:flex;align-items:center;padding-left:18px;font-size:38px;color:var(--orange);font-weight:700;}
+/* textbook-faithful blocks */
+.pre{color:var(--orange);font-weight:700;}
+.bank.sm2{font-size:20px;padding:10px 16px;line-height:1.7;}
+ol.drill.sm{font-size:24px;gap:10px;}
+ul.qs.sm{font-size:22px;gap:8px;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;}
+.tbl th,.tbl td{border:1.5px solid var(--blue);padding:3px 4px;text-align:center;font-size:18px;color:var(--navy);}
+.tbl th{background:var(--light);font-weight:700;}
+.tbl th.conv{background:var(--blue);color:#fff;font-size:16px;}
+.tbl td.ans{height:38px;font-size:21px;color:var(--orange);font-weight:700;}
+.tbl .rowlab{background:var(--light);font-weight:700;white-space:nowrap;font-size:17px;text-align:left;padding:3px 8px;}
+.map{flex:1;display:flex;gap:22px;align-items:center;}
+.map .root{background:var(--navy);color:#fff;font-size:30px;font-weight:700;border-radius:10px;padding:26px 14px;flex:none;}
+.map .rows{flex:1;display:flex;flex-direction:column;gap:12px;}
+.map .row{display:flex;align-items:center;gap:10px;font-size:21px;}
+.mbox{background:#fff;border:1.5px solid var(--blue);border-radius:8px;padding:5px 14px;color:var(--navy);font-weight:700;text-align:center;}
+.mbox.blank{border-color:var(--orange);color:var(--orange);min-width:150px;}
+.marr{color:var(--grey);font-size:22px;}
+.mcol{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.arow{display:flex;gap:10px;}
+.arow .audio{flex:1;padding:6px 10px;}
+.arow .alabel{font-size:16px;}
+.arow audio{height:28px;}
+.dlg{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:10px 18px;font-size:19px;line-height:1.55;color:var(--ink);}
+.dlg p{margin:3px 0;break-inside:avoid;}
+.dlg .sp{color:var(--blue);font-weight:700;}
+.dlg .blank{color:var(--orange);font-weight:700;}
 /* audio */
 .audio{background:var(--light);border-left:6px solid var(--orange);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:6px;}
 .audio .ahead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
@@ -95,80 +123,135 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
 <section class="slide title">
   <div class="rail"></div>
   <p class="kick">まるごと <ruby>初中級<rt>しょちゅうきゅう</rt></ruby>  (A2/B1)</p>
-  <h1>トピック5「ことばを<ruby>学<rt>まな</rt></ruby>ぶ」</h1>
-  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 5: Learning Languages</p>
-  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.33–37 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 085–102</p>
+  <h1>トピック5「ことばを<ruby>学<rt>まな</rt></ruby>ぶ<ruby>楽<rt>たの</rt></ruby>しみ」</h1>
+  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 5: The Pleasure of Learning Languages</p>
+  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.64–69 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 085–092</p>
   <p class="hint">← / → でスライドを移動 &nbsp;|&nbsp; arrow keys to move</p>
 </section>
 <section class="slide">
   <header><span class="tag">ウォームアップ / WARM-UP</span><h2><ruby>話<rt>はな</rt></ruby>してみましょう</h2></header>
-  <div class="body"><ol class="big"><li>どうやって<ruby>外国語<rt>がいこくご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>していますか。<span class="en">How do you study a language?</span></li><li>どんな<ruby>目的<rt>もくてき</rt></ruby>で<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>っていますか。<span class="en">Why study Japanese?</span></li><li>クラスで<ruby>学<rt>まな</rt></ruby>ぶ<ruby>楽<rt>たの</rt></ruby>しみは<ruby>何<rt>なん</rt></ruby>ですか。<span class="en">What&#x27;s fun about studying in class?</span></li></ol>
-    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p></div>
-</section>
-<section class="slide">
-  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. ことばのいみ</h2></header>
-  <div class="body"><div class="grid3"><div class="card"><span class="jp"><ruby>目的<rt>もくてき</rt></ruby></span><span class="gl">purpose / goal</span></div><div class="card"><span class="jp"><ruby>方法<rt>ほうほう</rt></ruby></span><span class="gl">method</span></div><div class="card"><span class="jp"><ruby>自信<rt>じしん</rt></ruby></span><span class="gl">confidence</span></div><div class="card"><span class="jp"><ruby>計画<rt>けいかく</rt></ruby></span><span class="gl">plan</span></div><div class="card"><span class="jp"><ruby>通<rt>つう</rt></ruby>じる</span><span class="gl">to be understood</span></div><div class="card"><span class="jp"><ruby>習<rt>なら</rt></ruby>う</span><span class="gl">to learn</span></div></div>
-    <p class="note"><ruby>日本語<rt>にほんご</rt></ruby>と<ruby>英語<rt>えいご</rt></ruby>をむすびましょう。 Match Japanese ↔ English.</p></div>
-</section>
-<section class="slide">
-  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. ことばのれんしゅう</h2>
-    <div style="position:absolute;top:0.5px"></div></header>
   <div class="body">
-    <div class="bank"><ruby>聞<rt>き</rt></ruby>きとれる ／ <ruby>通<rt>つう</rt></ruby>じる ／ つづいて ／ ひかくして ／ せっきょく<ruby>的<rt>てき</rt></ruby> ／ <ruby>目的<rt>もくてき</rt></ruby></div>
-    <ol class="drill"><li>1. CDをよく<ruby>聞<rt>き</rt></ruby>いたので、はやい<ruby>会話<rt>かいわ</rt></ruby>が（　　　）ようになりました。</li><li>2. <ruby>文法<rt>ぶんぽう</rt></ruby>は、ほかの<ruby>外国語<rt>がいこくご</rt></ruby>と（　　　）<ruby>考<rt>かんが</rt></ruby>えます。</li><li>3. はずかしがらないで、（　　　）に<ruby>話<rt>はな</rt></ruby>すようにしています。</li><li>4. <ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>学<rt>まな</rt></ruby>ぶ<ruby>友<rt>とも</rt></ruby>だちがいるので、<ruby>勉強<rt>べんきょう</rt></ruby>が（　　　）います。</li><li>5. チャットで、<ruby>自分<rt>じぶん</rt></ruby>の<ruby>日本語<rt>にほんご</rt></ruby>が（　　　）ことがわかりました。</li></ol>
-    <div class="audio"><div class="ahead"><span class="alabel">♪ 085 ことば</span><span class="asub">正しいことばを聞きましょう</span></div><audio controls preload="none" src="085_5_1_2.mp3"></audio></div>
+    <ol class="big">
+      <li>どうして<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>っていますか。<span class="en">Why are you learning Japanese?</span></li>
+      <li>どうやって<ruby>勉強<rt>べんきょう</rt></ruby>していますか。<span class="en">How do you study?</span></li>
+      <li>クラスで<ruby>学<rt>まな</rt></ruby>ぶ<ruby>楽<rt>たの</rt></ruby>しみは<ruby>何<rt>なん</rt></ruby>ですか。<span class="en">What do you enjoy about learning in class?</span></li>
+    </ol>
+    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p>
   </div>
 </section>
 <section class="slide">
-      <header><span class="tag">2. きく / LISTENING</span><h2>A. <ruby>勉強<rt>べんきょう</rt></ruby>の<ruby>方法<rt>ほうほう</rt></ruby></h2></header>
-      <div class="body two">
-        <div class="col"><p class="lead">4<ruby>人<rt>にん</rt></ruby>が<ruby>外国語<rt>がいこくご</rt></ruby>の<ruby>勉強方法<rt>べんきょうほうほう</rt></ruby>について<ruby>話<rt>はな</rt></ruby>しています。</p><ul class="qs"><li>① <ruby>何<rt>なに</rt></ruby>について<ruby>話<rt>はな</rt></ruby>していますか（<ruby>聞<rt>き</rt></ruby>く・<ruby>話<rt>はな</rt></ruby>す・<ruby>漢字<rt>かんじ</rt></ruby>・<ruby>文法<rt>ぶんぽう</rt></ruby>）。</li><li>② どうやって<ruby>勉強<rt>べんきょう</rt></ruby>していますか。</li></ul></div>
-        <div class="col audios"><div class="audio"><div class="ahead"><span class="alabel">♪ 087 ナターリヤさん</span></div><audio controls preload="none" src="087_5_2_1%5B1%5D_nataariya_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 088 エスターさん</span></div><audio controls preload="none" src="088_5_2_1%5B2%5D_esutaa_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 089 エドワードさん</span></div><audio controls preload="none" src="089_5_2_1%5B1%5D_edowaado_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 090 タイラーさん</span></div><audio controls preload="none" src="090_5_2_1%5B1%5D_tairaa_san.mp3"></audio></div></div></div>
-    </section>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. ことばを<ruby>学<rt>まな</rt></ruby>ぶ<ruby>活動<rt>かつどう</rt></ruby> <span class="gl">（じゅんび①・p.64）</span></h2></header>
+  <div class="body">
+    <div class="grid3"><div class="card"><span class="jp"><ruby>歌<rt>うた</rt></ruby>を<ruby>聞<rt>き</rt></ruby>く</span><span class="gl">listen to songs</span></div><div class="card"><span class="jp">えんげきをする</span><span class="gl">do a play / drama</span></div><div class="card"><span class="jp"><ruby>試験<rt>しけん</rt></ruby>を<ruby>受<rt>う</rt></ruby>ける</span><span class="gl">take an exam</span></div><div class="card"><span class="jp"><ruby>集<rt>あつ</rt></ruby>まりに<ruby>参加<rt>さんか</rt></ruby>する</span><span class="gl">join a meet-up</span></div><div class="card"><span class="jp">インターネット<ruby>電話<rt>でんわ</rt></ruby>で<ruby>話<rt>はな</rt></ruby>す</span><span class="gl">talk via internet call</span></div><div class="card"><span class="jp"><ruby>海外<rt>かいがい</rt></ruby>にいる<ruby>人<rt>ひと</rt></ruby>と<ruby>話<rt>はな</rt></ruby>す</span><span class="gl">talk with people overseas</span></div></div>
+    <p class="note">あなたも<ruby>同<rt>おな</rt></ruby>じ<ruby>活動<rt>かつどう</rt></ruby>をしたことがありますか。</p>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">2. きく / LISTENING</span><h2>B. クラスで<ruby>学<rt>まな</rt></ruby>ぶ<ruby>楽<rt>たの</rt></ruby>しみ</h2></header>
-      <div class="body"><p class="lead">さいとうさん・<ruby>田中<rt>たなか</rt></ruby>さん・エスターさんが<ruby>話<rt>はな</rt></ruby>しています。</p><ul class="qs spaced"><li>① <ruby>田中<rt>たなか</rt></ruby>さんのクラスには、どんな<ruby>人<rt>ひと</rt></ruby>がいますか。</li><li>② クラスで<ruby>学<rt>まな</rt></ruby>ぶ<ruby>楽<rt>たの</rt></ruby>しみは<ruby>何<rt>なん</rt></ruby>ですか。</li></ul><div class="audio"><div class="ahead"><span class="alabel">♪ 091 クラスの会話(かいわ)</span><span class="asub">ヒント：自分とはちがう意見が聞ける</span></div><audio controls preload="none" src="091_5_3_1_kaiwa.mp3"></audio></div></div>
-    </section>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. <ruby>正<rt>ただ</rt></ruby>しいことばを<ruby>選<rt>えら</rt></ruby>びましょう <span class="gl">（じゅんび②・p.65）</span></h2></header>
+  <div class="body">
+    <ol class="drill sm">
+      <li>CDをよく<ruby>聞<rt>き</rt></ruby>いたので、はやい<ruby>会話<rt>かいわ</rt></ruby>が（<span class="pre">① e <ruby>聞<rt>き</rt></ruby>きとれる</span>）ようになりました。</li>
+      <li>いっしょに<ruby>学<rt>まな</rt></ruby>ぶ<ruby>友<rt>とも</rt></ruby>だちがいるので、<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>勉強<rt>べんきょう</rt></ruby>が（②　　　　　）。</li>
+      <li><ruby>文法<rt>ぶんぽう</rt></ruby>は、ほかの<ruby>外国語<rt>がいこくご</rt></ruby>や<ruby>母語<rt>ぼご</rt></ruby>と（③　　　　　）<ruby>考<rt>かんが</rt></ruby>えるようにしています。</li>
+      <li>はずかしがらないで、（④　　　　　）<ruby>話<rt>はな</rt></ruby>すことがたいせつです。</li>
+      <li><ruby>日本人<rt>にほんじん</rt></ruby>と<ruby>話<rt>はな</rt></ruby>して、<ruby>自分<rt>じぶん</rt></ruby>の<ruby>日本語<rt>にほんご</rt></ruby>が（⑤　　　　　）と、<ruby>自信<rt>じしん</rt></ruby>がつきます。</li>
+    </ol>
+    <div class="bank sm2">a せっきょく<ruby>的<rt>てき</rt></ruby>に　　b <ruby>通<rt>つう</rt></ruby>じる　　c ひかくして　　d つづいています　　e <ruby>聞<rt>き</rt></ruby>きとれる</div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 085 ことばのかくにん</span><span class="asub">聞いて、答えをチェックしましょう</span></div><audio controls preload="none" src="085_5_1_2.mp3"></audio></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. 〜ように／〜ようになる</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> <ruby>上手<rt>じょうず</rt></ruby>になります・<ruby>毎日<rt>まいにち</rt></ruby>ニュースを<ruby>見<rt>み</rt></ruby>ます <span class="arr">→</span> <b>上手になれるように、毎日ニュースを見ています。</b></div>
-        <ol class="drill"><li>1. はやい<ruby>会話<rt>かいわ</rt></ruby>が<ruby>聞<rt>き</rt></ruby>きとれます →はやい会話が（　　　）ようになりました。</li><li>2. <ruby>漢字<rt>かんじ</rt></ruby>をわすれません →漢字を（　　　）ように、ノートを<ruby>持<rt>も</rt></ruby>っています。</li></ol>
-      </div></section>
+  <header><span class="tag">2. きく / LISTENING</span><h2>A. どうやって<ruby>勉強<rt>べんきょう</rt></ruby>してますか <span class="gl">（2-①・p.66）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <p class="lead"><ruby>田中<rt>たなか</rt></ruby>さんはイギリスで<ruby>仕事<rt>しごと</rt></ruby>をしています。<ruby>今<rt>いま</rt></ruby>、<ruby>友<rt>とも</rt></ruby>だちに<ruby>外国語<rt>がいこくご</rt></ruby>の<ruby>勉強方法<rt>べんきょうほうほう</rt></ruby>について<ruby>聞<rt>き</rt></ruby>いています。</p>
+    <ul class="qs sm" style="font-size:20px;">
+      <li>(1) <ruby>友<rt>とも</rt></ruby>だちは、<ruby>何<rt>なに</rt></ruby>について<ruby>話<rt>はな</rt></ruby>していますか。　(2) どうやって<ruby>勉強<rt>べんきょう</rt></ruby>していますか。（<ruby>教科書<rt>きょうかしょ</rt></ruby>の<ruby>絵<rt>え</rt></ruby> e–h）</li>
+    </ul>
+    <table class="tbl">
+      <tr><th class="rowlab"></th><th class="conv">① ♪087（例）</th><th class="conv">② ♪088</th><th class="conv">③ ♪089</th><th class="conv">④ ♪090</th></tr>
+      <tr><th class="rowlab"></th><th>ナターリヤさん</th><th>エスターさん</th><th>エドワードさん</th><th>タイラーさん</th></tr>
+      <tr><td class="rowlab">(1)</td><td class="ans">b</td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+      <tr><td class="rowlab">(2)</td><td class="ans">f</td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+    </table>
+    <div class="bank sm2" style="font-size:19px;">(1)　a <ruby>聞<rt>き</rt></ruby>くこと　b <ruby>話<rt>はな</rt></ruby>すこと　c <ruby>漢字<rt>かんじ</rt></ruby>　d <ruby>文法<rt>ぶんぽう</rt></ruby>　　(2)　e〜h：<ruby>教科書<rt>きょうかしょ</rt></ruby> p.66 の<ruby>絵<rt>え</rt></ruby>を<ruby>見<rt>み</rt></ruby>ましょう</div>
+    <div class="arow"><div class="audio"><div class="ahead"><span class="alabel">♪ 087 会話①</span></div><audio controls preload="none" src="087_5_2_1%5B1%5D_nataariya_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 088 会話②</span></div><audio controls preload="none" src="088_5_2_1%5B2%5D_esutaa_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 089 会話③</span></div><audio controls preload="none" src="089_5_2_1%5B1%5D_edowaado_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 090 会話④</span></div><audio controls preload="none" src="090_5_2_1%5B1%5D_tairaa_san.mp3"></audio></div></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. 〜（よ）うと<ruby>思<rt>おも</rt></ruby>っています</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> <ruby>日本<rt>にほん</rt></ruby>に<ruby>留学<rt>りゅうがく</rt></ruby>します <span class="arr">→</span> <b><ruby>大学<rt>だいがく</rt></ruby>を<ruby>卒業<rt>そつぎょう</rt></ruby>したら、日本に留学しようと思っています。</b></div>
-        <ol class="drill"><li>1. アニメをつくる<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>ります →（　　　）と<ruby>思<rt>おも</rt></ruby>っています。</li><li>2. <ruby>日本料理<rt>にほんりょうり</rt></ruby>の<ruby>店<rt>みせ</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めます →（　　　）と思っています。</li></ol>
-      </div></section>
+  <header><span class="tag">2. きく / LISTENING</span><h2>B. <ruby>見習<rt>みなら</rt></ruby>わなきゃ <span class="gl">（3-①・p.68）</span></h2></header>
+  <div class="body" style="gap:9px;">
+    <p class="lead">さいとうさんは<ruby>田中<rt>たなか</rt></ruby>さんのせんぱいで、<ruby>田中<rt>たなか</rt></ruby>さんとエスターさんは<ruby>友<rt>とも</rt></ruby>だちです。(2) （　）に<ruby>入<rt>はい</rt></ruby>る<ruby>文<rt>ぶん</rt></ruby>を<ruby>選<rt>えら</rt></ruby>びましょう。</p>
+    <div class="bank sm2" style="font-size:18px;">a もう2<ruby>年<rt>ねん</rt></ruby>になります。　b どんな<ruby>人<rt>ひと</rt></ruby>がいますか。　c <ruby>一番<rt>いちばん</rt></ruby>の<ruby>楽<rt>たの</rt></ruby>しみです。　d それは、<ruby>楽<rt>たの</rt></ruby>しそうですね。</div>
+    <div class="dlg" style="column-count:2;column-gap:28px;font-size:16.5px;">
+      <p><span class="sp">さいとう</span>：<ruby>田中<rt>たなか</rt></ruby>くん、<ruby>英語<rt>えいご</rt></ruby>の<ruby>学校<rt>がっこう</rt></ruby>、つづいてるね。</p>
+      <p><span class="sp">田中</span>：ええ、もう1<ruby>年<rt>ねん</rt></ruby>です。いろいろな<ruby>人<rt>ひと</rt></ruby>がいて、おもしろいですよ。</p>
+      <p><span class="sp">エスター</span>：へえ。（<span class="blank">① b どんな人がいますか</span>）。</p>
+      <p><span class="sp">田中</span>：<ruby>学生<rt>がくせい</rt></ruby>、<ruby>会社員<rt>かいしゃいん</rt></ruby>、<ruby>退職<rt>たいしょく</rt></ruby>した<ruby>人<rt>ひと</rt></ruby>、あと、<ruby>芸術家<rt>げいじゅつか</rt></ruby>もいるよ。</p>
+      <p><span class="sp">エスター</span>：（<span class="blank">②　　　　　　</span>）。</p>
+      <p><span class="sp">田中</span>：うん。<ruby>自分<rt>じぶん</rt></ruby>とはちがう<ruby>意見<rt>いけん</rt></ruby>が<ruby>聞<rt>き</rt></ruby>けて、<ruby>勉強<rt>べんきょう</rt></ruby>になるよ。</p>
+      <p><span class="sp">さいとう</span>：<ruby>仕事<rt>しごと</rt></ruby>のことをわすれて<ruby>学生<rt>がくせい</rt></ruby>になれるのが、<ruby>楽<rt>たの</rt></ruby>しいよね。</p>
+      <p><span class="sp">エスター</span>：<ruby>私<rt>わたし</rt></ruby>は<ruby>日本語<rt>にほんご</rt></ruby>クラスで<ruby>同<rt>おな</rt></ruby>じしゅみの<ruby>人<rt>ひと</rt></ruby>に<ruby>会<rt>あ</rt></ruby>えるのが、（<span class="blank">③　　　　　　</span>）。</p>
+      <p><span class="sp">さいとう</span>：エスターさんも、<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>学校<rt>がっこう</rt></ruby>、つづいてますね。</p>
+      <p><span class="sp">エスター</span>：はい。（<span class="blank">④　　　　　　</span>）</p>
+      <p><span class="sp">さいとう</span>：そうですか。<ruby>上手<rt>じょうず</rt></ruby>になりましたね。<ruby>田中<rt>たなか</rt></ruby>くんも、エスターさんを<ruby>見習<rt>みなら</rt></ruby>わなきゃ。</p>
+      <p><span class="sp">田中</span>：はい、がんばります。</p>
+    </div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 091 三人の会話</span></div><audio controls preload="none" src="091_5_3_1_kaiwa.mp3"></audio></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>C. 〜そうです（ようす）</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> つぎの<ruby>試験<rt>しけん</rt></ruby>、いい<ruby>成績<rt>せいせき</rt></ruby>がとれます <span class="arr">→</span> <b>つぎの試験、いい成績がとれそうです。</b></div>
-        <ol class="drill"><li>1. この<ruby>本<rt>ほん</rt></ruby>は<ruby>私<rt>わたし</rt></ruby>にも<ruby>読<rt>よ</rt></ruby>めます →これなら、私にも（　　　）。</li><li>2. 1<ruby>日<rt>にち</rt></ruby>に5つなら、たんごがおぼえられます →1日に5つなら、（　　　）。</li></ol>
-      </div></section>
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. 「〜ように」 <span class="gl">（2-②・p.66）</span></h2></header>
+  <div class="body">
+    <div class="exbox" style="font-size:24px;"><span class="ex">例)</span> せっきょく<ruby>的<rt>てき</rt></ruby>に<ruby>英語<rt>えいご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>す<u>ようにして(い)ます</u>。／ <ruby>上手<rt>じょうず</rt></ruby>になれる<u>ように</u>、<ruby>毎日<rt>まいにち</rt></ruby>ニュースを<ruby>見<rt>み</rt></ruby>て(い)ます。</div>
+    <ol class="drill sm"><li>はやい<ruby>会話<rt>かいわ</rt></ruby>も（<ruby>聞<rt>き</rt></ruby>きとれます →　　　　　　）ようになりました。</li><li>できるだけ<ruby>漢字<rt>かんじ</rt></ruby>のノートを（<ruby>見<rt>み</rt></ruby>ます →　　　　　　）ようにして(い)ます。</li><li><ruby>漢字<rt>かんじ</rt></ruby>を（わすれません →　　　　　　）ように、ノートをいつも<ruby>持<rt>も</rt></ruby>って(い)ます。</li></ol>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>D. 〜も／〜だけ／〜しか</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> きのうは3<ruby>時間<rt>じかん</rt></ruby>チャットをしました <span class="arr">→</span> <b>きのうは3時間もチャットをしました。</b></div>
-        <ol class="drill"><li>1. <ruby>上級<rt>じょうきゅう</rt></ruby>コースは<ruby>学生<rt>がくせい</rt></ruby>が4<ruby>人<rt>にん</rt></ruby>（　　　）いません。</li><li>2. この<ruby>学校<rt>がっこう</rt></ruby>には<ruby>外国人<rt>がいこくじん</rt></ruby>の<ruby>先生<rt>せんせい</rt></ruby>が<ruby>何人<rt>なんにん</rt></ruby>（　　　）います。</li></ol>
-      </div></section>
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. ていねいたい・ふつうたい 2 <span class="gl">（3-②・p.68）</span></h2></header>
+  <div class="body" style="gap:11px;">
+    <p class="lead">つぎの<ruby>文<rt>ぶん</rt></ruby>は<span class="hl">だれに</span><ruby>話<rt>はな</rt></ruby>していますか。3<ruby>人<rt>にん</rt></ruby>のかんけいとことばの<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>について<ruby>考<rt>かんが</rt></ruby>えましょう。</p>
+    <ol class="drill sm">
+      <li><ruby>英語<rt>えいご</rt></ruby>の<ruby>学校<rt>がっこう</rt></ruby>、つづいてるね。　さいとう →（<span class="pre">たなか</span>）</li>
+      <li>ええ、もう1<ruby>年<rt>ねん</rt></ruby>です。　田中 →（　　　　）</li>
+      <li>げいじゅつかもいるよ。　田中 →（　　　　）</li>
+      <li>うん。<ruby>自分<rt>じぶん</rt></ruby>とはちがういけんが<ruby>聞<rt>き</rt></ruby>けて、<ruby>勉強<rt>べんきょう</rt></ruby>になるよ。　田中 →（　　　　）</li>
+      <li><ruby>日本語<rt>にほんご</rt></ruby>の<ruby>学校<rt>がっこう</rt></ruby>、つづいてますね。　さいとう →（　　　　）</li>
+      <li>エスターさんを<ruby>見習<rt>みなら</rt></ruby>わなきゃ。　さいとう →（　　　　）</li>
+    </ol>
+  </div>
+</section>
 <section class="slide">
   <header><span class="tag">4. はなす / SPEAKING</span><h2>ロールプレイ ＆ <ruby>発表<rt>はっぴょう</rt></ruby></h2></header>
   <div class="body two">
-    <div class="panel blue"><h3>A. <ruby>勉強<rt>べんきょう</rt></ruby>の<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>話<rt>はな</rt></ruby>す</h3><p>A: <ruby>何<rt>なに</rt></ruby>かいい<ruby>勉強方法<rt>べんきょうほうほう</rt></ruby>、ありませんか。</p><p>B: <ruby>私<rt>わたし</rt></ruby>はアニメをよく<ruby>見<rt>み</rt></ruby>ます。</p><p>A: それで、はやい<ruby>会話<rt>かいわ</rt></ruby>も<ruby>聞<rt>き</rt></ruby>きとれるようになったんですね。</p><p class="hl">「〜ように」「〜ようになる」を<ruby>使<rt>つか</rt></ruby>ってみましょう。</p></div>
-    <div class="panel orange"><h3>B. しょうらいの<ruby>計画<rt>けいかく</rt></ruby></h3><ul><li><ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>う<ruby>目的<rt>もくてき</rt></ruby></li><li><ruby>今<rt>いま</rt></ruby>している<ruby>勉強方法<rt>べんきょうほうほう</rt></ruby></li><li>これからの<ruby>計画<rt>けいかく</rt></ruby>（〜うと<ruby>思<rt>おも</rt></ruby>っています）</li></ul><p class="hl2"><ruby>文<rt>ぶん</rt></ruby>を2つ<ruby>以上<rt>いじょう</rt></ruby>ならべて、<ruby>少<rt>すこ</rt></ruby>し<ruby>長<rt>なが</rt></ruby>く<ruby>話<rt>はな</rt></ruby>しましょう。</p></div>
-  </div></section>
+    <div class="panel blue">
+      <h3>A. <ruby>勉強方法<rt>べんきょうほうほう</rt></ruby>を<ruby>聞<rt>き</rt></ruby>く</h3>
+      <p>A: ＿＿さん、<ruby>日本語<rt>にほんご</rt></ruby>、<ruby>上手<rt>じょうず</rt></ruby>ですね。</p>
+      <p>B: いいえ。そんなこと、ないです。まだまだです。</p>
+      <p>A: <ruby>何<rt>なに</rt></ruby>かいい<ruby>勉強方法<rt>べんきょうほうほう</rt></ruby>、ありませんか。</p>
+      <p>B: <ruby>私<rt>わたし</rt></ruby>は＿＿＿をよくします。</p>
+      <p>A: <ruby>私<rt>わたし</rt></ruby>もやってみます。</p>
+    </div>
+    <div class="panel orange">
+      <h3>B. クラスで<ruby>学<rt>まな</rt></ruby>ぶ<ruby>楽<rt>たの</rt></ruby>しみ</h3>
+      <ul>
+        <li>どこで<ruby>外国語<rt>がいこくご</rt></ruby>を<ruby>学<rt>まな</rt></ruby>んでいますか。</li>
+        <li>クラスにどんな<ruby>人<rt>ひと</rt></ruby>がいますか。</li>
+        <li>＿＿＿ので、クラスで<ruby>学<rt>まな</rt></ruby>ぶことは<ruby>楽<rt>たの</rt></ruby>しいです。</li>
+      </ul>
+      <p class="hl2"><ruby>文<rt>ぶん</rt></ruby>を2つ<ruby>以上<rt>いじょう</rt></ruby>ならべて、<ruby>少<rt>すこ</rt></ruby>し<ruby>長<rt>なが</rt></ruby>く<ruby>話<rt>はな</rt></ruby>しましょう。（♪092）</p>
+    </div>
+  </div>
+</section>
 <section class="slide cando">
   <div class="rail"></div>
   <p class="kick">ふりかえり / CAN-DO CHECK</p>
   <h2 class="cdh">できるようになりましたか？</h2>
-  <ul class="cdlist"><li><span class="box"></span><ruby>外国語<rt>がいこくご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>する<ruby>方法<rt>ほうほう</rt></ruby>について<ruby>話<rt>はな</rt></ruby>せる。</li><li><span class="box"></span>クラスで<ruby>学<rt>まな</rt></ruby>ぶ<ruby>楽<rt>たの</rt></ruby>しみについて<ruby>話<rt>はな</rt></ruby>せる。</li><li><span class="box"></span><ruby>記事<rt>きじ</rt></ruby>やメールから、<ruby>勉強<rt>べんきょう</rt></ruby>の<ruby>経験<rt>けいけん</rt></ruby>や<ruby>気持<rt>きも</rt></ruby>ちを<ruby>読<rt>よ</rt></ruby>みとれる。</li></ul>
+  <ul class="cdlist"><li><span class="box"></span><ruby>外国語<rt>がいこくご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>する<ruby>方法<rt>ほうほう</rt></ruby>について<ruby>話<rt>はな</rt></ruby>せる。</li><li><span class="box"></span><ruby>外国語<rt>がいこくご</rt></ruby>をクラスで<ruby>学<rt>まな</rt></ruby>ぶ<ruby>楽<rt>たの</rt></ruby>しみについて<ruby>話<rt>はな</rt></ruby>せる。</li></ul>
   <p class="bye">おつかれさまでした！</p>
 </section>
 <section class="slide index">
   <header><span class="tag">♪ おんせい / AUDIO</span><h2><ruby>音声<rt>おんせい</rt></ruby>リンク集</h2></header>
-  <div class="body idxbody"><div class="idxgroup"><h4>ことば (5-1)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 085 ことば</span></div><audio controls preload="none" src="085_5_1_2.mp3"></audio></div></div></div><div class="idxgroup"><h4>勉強の方法 (5-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 087 ナターリヤ</span></div><audio controls preload="none" src="087_5_2_1%5B1%5D_nataariya_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 088 エスター</span></div><audio controls preload="none" src="088_5_2_1%5B2%5D_esutaa_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 089 エドワード</span></div><audio controls preload="none" src="089_5_2_1%5B1%5D_edowaado_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 090 タイラー</span></div><audio controls preload="none" src="090_5_2_1%5B1%5D_tairaa_san.mp3"></audio></div></div></div><div class="idxgroup"><h4>クラスで学ぶ (5-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 091 会話</span></div><audio controls preload="none" src="091_5_3_1_kaiwa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 092 練習</span></div><audio controls preload="none" src="092_5_3_3%281%29.mp3"></audio></div></div></div><div class="idxgroup"><h4>読解：海外で日本語 (5-4)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 093 タン</span></div><audio controls preload="none" src="093_5_4_1_tan.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 094 エスター</span></div><audio controls preload="none" src="094_5_4_1_esutaa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 095 川井</span></div><audio controls preload="none" src="095_5_4_2%281%29%5B1%5D_kawai_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 096 アリ</span></div><audio controls preload="none" src="096_5_4_2%281%29%5B2%5D_ari_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 097 山田</span></div><audio controls preload="none" src="097_5_4_2%281%29%5B3%5D_yamada_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 098 ホセ</span></div><audio controls preload="none" src="098_5_4_2%281%29%5B4%5D_hose_san.mp3"></audio></div></div></div><div class="idxgroup"><h4>しょうらい (5-5)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 102 話す</span></div><audio controls preload="none" src="102_5_5_1.mp3"></audio></div></div></div></div>
+  <div class="body idxbody"><div class="idxgroup"><h4>じゅんび / Preparation</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 085 ことば</span></div><audio controls preload="none" src="085_5_1_2.mp3"></audio></div></div></div><div class="idxgroup"><h4>勉強方法 (5-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 087 会話①</span></div><audio controls preload="none" src="087_5_2_1%5B1%5D_nataariya_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 088 会話②</span></div><audio controls preload="none" src="088_5_2_1%5B2%5D_esutaa_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 089 会話③</span></div><audio controls preload="none" src="089_5_2_1%5B1%5D_edowaado_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 090 会話④</span></div><audio controls preload="none" src="090_5_2_1%5B1%5D_tairaa_san.mp3"></audio></div></div></div><div class="idxgroup"><h4>見習わなきゃ (5-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 091 会話</span></div><audio controls preload="none" src="091_5_3_1_kaiwa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 092 話すじゅんび</span></div><audio controls preload="none" src="092_5_3_3%281%29.mp3"></audio></div></div></div></div>
 </section>
 </div></div>
 <div id="nav"><button id="prev">‹</button><span id="count"></span><button id="next">›</button></div>
