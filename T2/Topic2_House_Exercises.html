@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>まるごと トピック2 Looking for a Place to Live — エクスプレス練習</title>
+<title>まるごと トピック2 家をさがす — エクスプレス練習</title>
 <style>
 :root{--navy:#1A2B49;--blue:#1F6FB2;--orange:#F08A24;--light:#F2F6FA;--ink:#23303F;--grey:#7A8794;--s:1;}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:#0d1622;font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);}
-ruby rt{font-size:.5em;font-weight:400;line-height:1;}
+ruby{ruby-align:center;}
+ruby rt{font-size:.45em;font-weight:400;line-height:1;letter-spacing:-.05em;}
 #stage{position:fixed;inset:0;overflow:hidden;}
 /* fixed 1280x720 stage scaled by JS -> works on every browser */
 .deck{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(var(--s));transform-origin:center center;background:#fff;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.5);}
@@ -42,6 +43,33 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
 .arr{color:var(--grey);padding:0 6px;}
 .slots{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:8px 0;}
 .slot{background:var(--light);border:1.5px solid var(--orange);border-radius:10px;height:64px;display:flex;align-items:center;padding-left:18px;font-size:38px;color:var(--orange);font-weight:700;}
+/* textbook-faithful blocks */
+.pre{color:var(--orange);font-weight:700;}
+.bank.sm2{font-size:20px;padding:10px 16px;line-height:1.7;}
+ol.drill.sm{font-size:24px;gap:10px;}
+ul.qs.sm{font-size:22px;gap:8px;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;}
+.tbl th,.tbl td{border:1.5px solid var(--blue);padding:3px 4px;text-align:center;font-size:18px;color:var(--navy);}
+.tbl th{background:var(--light);font-weight:700;}
+.tbl th.conv{background:var(--blue);color:#fff;font-size:16px;}
+.tbl td.ans{height:38px;font-size:21px;color:var(--orange);font-weight:700;}
+.tbl .rowlab{background:var(--light);font-weight:700;white-space:nowrap;font-size:17px;text-align:left;padding:3px 8px;}
+.map{flex:1;display:flex;gap:22px;align-items:center;}
+.map .root{background:var(--navy);color:#fff;font-size:30px;font-weight:700;border-radius:10px;padding:26px 14px;flex:none;}
+.map .rows{flex:1;display:flex;flex-direction:column;gap:12px;}
+.map .row{display:flex;align-items:center;gap:10px;font-size:21px;}
+.mbox{background:#fff;border:1.5px solid var(--blue);border-radius:8px;padding:5px 14px;color:var(--navy);font-weight:700;text-align:center;}
+.mbox.blank{border-color:var(--orange);color:var(--orange);min-width:150px;}
+.marr{color:var(--grey);font-size:22px;}
+.mcol{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.arow{display:flex;gap:10px;}
+.arow .audio{flex:1;padding:6px 10px;}
+.arow .alabel{font-size:16px;}
+.arow audio{height:28px;}
+.dlg{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:10px 18px;font-size:19px;line-height:1.55;color:var(--ink);}
+.dlg p{margin:3px 0;break-inside:avoid;}
+.dlg .sp{color:var(--blue);font-weight:700;}
+.dlg .blank{color:var(--orange);font-weight:700;}
 /* audio */
 .audio{background:var(--light);border-left:6px solid var(--orange);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:6px;}
 .audio .ahead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
@@ -95,80 +123,158 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
 <section class="slide title">
   <div class="rail"></div>
   <p class="kick">まるごと <ruby>初中級<rt>しょちゅうきゅう</rt></ruby>  (A2/B1)</p>
-  <h1>トピック2「<ruby>家<rt>いえ</rt></ruby>さがし」</h1>
-  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 2: Looking for a Place to Live</p>
-  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.18–22 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 021–040</p>
+  <h1>トピック2「<ruby>家<rt>いえ</rt></ruby>をさがす」</h1>
+  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 2: Looking for a House</p>
+  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.34–39 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 021–029</p>
   <p class="hint">← / → でスライドを移動 &nbsp;|&nbsp; arrow keys to move</p>
 </section>
 <section class="slide">
   <header><span class="tag">ウォームアップ / WARM-UP</span><h2><ruby>話<rt>はな</rt></ruby>してみましょう</h2></header>
-  <div class="body"><ol class="big"><li><ruby>今<rt>いま</rt></ruby>、どんなところに<ruby>住<rt>す</rt></ruby>んでいますか。<span class="en">Where do you live now?</span></li><li><ruby>家<rt>いえ</rt></ruby>をさがすとき、<ruby>何<rt>なに</rt></ruby>がだいじですか。<span class="en">What matters when house-hunting?</span></li><li>どんな<ruby>家<rt>いえ</rt></ruby>に<ruby>住<rt>す</rt></ruby>みたいですか。<span class="en">What kind of home do you want?</span></li></ol>
-    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p></div>
-</section>
-<section class="slide">
-  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. ことばのいみ</h2></header>
-  <div class="body"><div class="grid3"><div class="card"><span class="jp"><ruby>環境<rt>かんきょう</rt></ruby></span><span class="gl">environment</span></div><div class="card"><span class="jp"><ruby>交通<rt>こうつう</rt></ruby></span><span class="gl">transport</span></div><div class="card"><span class="jp"><ruby>通勤<rt>つうきん</rt></ruby></span><span class="gl">commute</span></div><div class="card"><span class="jp"><ruby>家賃<rt>やちん</rt></ruby></span><span class="gl">rent</span></div><div class="card"><span class="jp"><ruby>郊外<rt>こうがい</rt></ruby></span><span class="gl">suburbs</span></div><div class="card"><span class="jp"><ruby>一戸建<rt>いっこだ</rt></ruby>て</span><span class="gl">detached house</span></div></div>
-    <p class="note"><ruby>日本語<rt>にほんご</rt></ruby>と<ruby>英語<rt>えいご</rt></ruby>をむすびましょう。 Match Japanese ↔ English.</p></div>
-</section>
-<section class="slide">
-  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. ことばのれんしゅう</h2>
-    <div style="position:absolute;top:0.5px"></div></header>
   <div class="body">
-    <div class="bank"><ruby>近<rt>ちか</rt></ruby>い ／ <ruby>遠<rt>とお</rt></ruby>い ／ <ruby>安全<rt>あんぜん</rt></ruby> ／ <ruby>便利<rt>べんり</rt></ruby> ／ <ruby>不便<rt>ふべん</rt></ruby> ／ <ruby>静<rt>しず</rt></ruby>か</div>
-    <ol class="drill"><li>1. <ruby>駅<rt>えき</rt></ruby>に（　　　）から、<ruby>通勤<rt>つうきん</rt></ruby>に<ruby>便利<rt>べんり</rt></ruby>です。</li><li>2. このマンションは<ruby>夜<rt>よる</rt></ruby>も（　　　）です。</li><li>3. まわりに<ruby>店<rt>みせ</rt></ruby>がなくて、<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に（　　　）です。</li><li>4. <ruby>会社<rt>かいしゃ</rt></ruby>まで2<ruby>時間<rt>じかん</rt></ruby>、ちょっと（　　　）です。</li><li>5. <ruby>公園<rt>こうえん</rt></ruby>が<ruby>近<rt>ちか</rt></ruby>くて（　　　）でいいところです。</li></ol>
-    <div class="audio"><div class="ahead"><span class="alabel">♪ 021 ことば</span><span class="asub">正しいことばを聞きましょう</span></div><audio controls preload="none" src="021_2_1_2_tadashii_kotoba.mp3"></audio></div>
+    <ol class="big">
+      <li><ruby>今<rt>いま</rt></ruby>、どんなところに<ruby>住<rt>す</rt></ruby>んでいますか。<span class="en">What kind of place do you live in now?</span></li>
+      <li><ruby>近<rt>ちか</rt></ruby>くに<ruby>何<rt>なに</rt></ruby>がありますか。<span class="en">What is there nearby?</span></li>
+      <li><ruby>家<rt>いえ</rt></ruby>をさがすとき、<ruby>何<rt>なに</rt></ruby>がだいじですか。<span class="en">What matters when looking for a place?</span></li>
+    </ol>
+    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p>
   </div>
 </section>
 <section class="slide">
-      <header><span class="tag">2. きく / LISTENING</span><h2>A. どんな<ruby>家<rt>いえ</rt></ruby>をさがしていますか</h2></header>
-      <div class="body two">
-        <div class="col"><p class="lead">4<ruby>人<rt>にん</rt></ruby>が<ruby>外国<rt>がいこく</rt></ruby>にてんきんして、<ruby>家<rt>いえ</rt></ruby>をさがしています。</p><ul class="qs"><li>① 4<ruby>人<rt>にん</rt></ruby>が「いい」と<ruby>言<rt>い</rt></ruby>っているじょうけんをえらびましょう。</li><li>② あなたと<ruby>同<rt>おな</rt></ruby>じじょうけんの<ruby>人<rt>ひと</rt></ruby>はだれですか。</li></ul><ul class="opts"><li>a <ruby>静<rt>しず</rt></ruby>か</li><li>b <ruby>広<rt>ひろ</rt></ruby>い</li><li>c <ruby>安全<rt>あんぜん</rt></ruby></li><li>d <ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>い</li><li>e <ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>便利<rt>べんり</rt></ruby></li><li>f <ruby>家賃<rt>やちん</rt></ruby>が<ruby>高<rt>たか</rt></ruby>くない</li><li>g ペットがかえる</li><li>h ちゅうしゃ<ruby>場<rt>じょう</rt></ruby>がある</li></ul></div>
-        <div class="col audios"><div class="audio"><div class="ahead"><span class="alabel">♪ 023 さいとうさん</span></div><audio controls preload="none" src="023_2_2_1%5B1%5D_saitoo_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 024 田中(たなか)さん</span></div><audio controls preload="none" src="024_2_2_1%5B2%5D_tanaka_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 025 石川(いしかわ)さん</span></div><audio controls preload="none" src="025_2_2_1%5B3%5D_ishikawa_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 026 のりかさん</span></div><audio controls preload="none" src="026_2_2_1%5B4%5D_norika_san.mp3"></audio></div></div></div>
-    </section>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. <ruby>住<rt>す</rt></ruby>まいのことば <span class="gl">（じゅんび①・p.34）</span></h2></header>
+  <div class="body">
+    <div class="grid3"><div class="card"><span class="jp">アパート</span><span class="gl">apartment</span></div><div class="card"><span class="jp">マンション</span><span class="gl">condominium</span></div><div class="card"><span class="jp"><ruby>一戸建<rt>いっこだ</rt></ruby>て</span><span class="gl">detached house</span></div><div class="card"><span class="jp"><ruby>駐車場<rt>ちゅうしゃじょう</rt></ruby></span><span class="gl">parking lot</span></div><div class="card"><span class="jp"><ruby>病院<rt>びょういん</rt></ruby></span><span class="gl">hospital</span></div><div class="card"><span class="jp"><ruby>公園<rt>こうえん</rt></ruby></span><span class="gl">park</span></div></div>
+    <div class="exbox"><span class="ex">例)</span> <ruby>私<rt>わたし</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>は<b>いっこだて</b>です。<ruby>近<rt>ちか</rt></ruby>くに<b><ruby>小学校<rt>しょうがっこう</rt></ruby></b>と<b>きれいな<ruby>公園<rt>こうえん</rt></ruby></b>があります。</div>
+    <p class="note">あなたは<ruby>今<rt>いま</rt></ruby>、どんなところに<ruby>住<rt>す</rt></ruby>んでいますか。ことばを<ruby>使<rt>つか</rt></ruby>って<ruby>言<rt>い</rt></ruby>いましょう。</p>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">2. きく / LISTENING</span><h2>B. ひっこし</h2></header>
-      <div class="body"><p class="lead"><ruby>石川<rt>いしかわ</rt></ruby>さんとケイトさんが<ruby>話<rt>はな</rt></ruby>しています。</p><ul class="qs spaced"><li>① <ruby>石川<rt>いしかわ</rt></ruby>さんは<ruby>家<rt>いえ</rt></ruby>が<ruby>見<rt>み</rt></ruby>つかりましたか。（ はい ・ いいえ ）</li><li>② どうしてそこに<ruby>決<rt>き</rt></ruby>めましたか。</li></ul><div class="audio"><div class="ahead"><span class="alabel">♪ 028 石川(いしかわ)さんの会話(かいわ)</span><span class="asub">ヒント：〜けど／〜から</span></div><audio controls preload="none" src="028_2_3_1_kaiwa.mp3"></audio></div></div>
-    </section>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. <ruby>正<rt>ただ</rt></ruby>しいことばを<ruby>選<rt>えら</rt></ruby>びましょう <span class="gl">（じゅんび②・p.35）</span></h2></header>
+  <div class="body">
+    <ol class="drill sm">
+      <li><ruby>木山<rt>きやま</rt></ruby>さんの<ruby>家<rt>いえ</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くには、<ruby>公園<rt>こうえん</rt></ruby>や<ruby>学校<rt>がっこう</rt></ruby>があって、（<span class="pre">① a かんきょう</span>）がいいです。</li>
+      <li><ruby>家<rt>いえ</rt></ruby>は（②　　　　）にあるので、としんまで<ruby>時間<rt>じかん</rt></ruby>がかかります。</li>
+      <li>このあたりは<ruby>電車<rt>でんしゃ</rt></ruby>やバスなどが<ruby>少<rt>すく</rt></ruby>なくて、（③　　　　）が<ruby>不便<rt>ふべん</rt></ruby>です。</li>
+      <li><ruby>木山<rt>きやま</rt></ruby>さんは、<ruby>毎日車<rt>まいにちくるま</rt></ruby>で（④　　　　）しています。</li>
+      <li>これから<ruby>新<rt>あたら</rt></ruby>しい<ruby>家<rt>いえ</rt></ruby>をさがします。どんなところがいいか、（⑤　　　　）を<ruby>考<rt>かんが</rt></ruby>えます。</li>
+    </ol>
+    <div class="bank sm2">a かんきょう　　b こうがい　　c てんきん　　d じょうけん　　e <ruby>通勤<rt>つうきん</rt></ruby>　　f <ruby>交通<rt>こうつう</rt></ruby></div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 021 ことばのかくにん</span><span class="asub">聞いて、答えをチェックしましょう</span></div><audio controls preload="none" src="021_2_1_2_tadashii_kotoba.mp3"></audio></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. 〜から／〜けど</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> <ruby>会社<rt>かいしゃ</rt></ruby>まで<ruby>少<rt>すこ</rt></ruby>し<ruby>遠<rt>とお</rt></ruby>い <span class="arr">→</span> <b>会社まで少し遠いけど、いい<ruby>家<rt>いえ</rt></ruby>があったから、<ruby>決<rt>き</rt></ruby>めました。</b></div>
-        <ol class="drill"><li>1. <ruby>庭<rt>にわ</rt></ruby>が<ruby>広<rt>ひろ</rt></ruby>くてあそべます →（　　　）から、<ruby>子<rt>こ</rt></ruby>どもも<ruby>喜<rt>よろこ</rt></ruby>んでいます。</li><li>2. <ruby>夜<rt>よる</rt></ruby>も<ruby>安全<rt>あんぜん</rt></ruby>です →（　　　）から、そのマンションにしました。</li></ol>
-      </div></section>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>C. はんたいのことばを<ruby>選<rt>えら</rt></ruby>びましょう <span class="gl">（じゅんび③・p.35）</span></h2></header>
+  <div class="body">
+    <ol class="drill">
+      <li>① やちんが<ruby>高<rt>たか</rt></ruby>い　⇔　（<span class="pre">e <ruby>安<rt>やす</rt></ruby>い</span>）</li>
+      <li>② へやがせまい　⇔　（　　　　）</li>
+      <li>③ <ruby>夜<rt>よる</rt></ruby>、<ruby>危<rt>あぶ</rt></ruby>ない　⇔　<ruby>夜<rt>よる</rt></ruby>も（　　　　）</li>
+      <li>④ まわりがうるさい　⇔　（　　　　）</li>
+      <li>⑤ <ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>不便<rt>ふべん</rt></ruby>　⇔　（　　　　）</li>
+    </ol>
+    <div class="bank sm2">a <ruby>安全<rt>あんぜん</rt></ruby>　　b <ruby>静<rt>しず</rt></ruby>か　　c <ruby>近<rt>ちか</rt></ruby>い　　d <ruby>便利<rt>べんり</rt></ruby>　　e <ruby>安<rt>やす</rt></ruby>い　　f <ruby>広<rt>ひろ</rt></ruby>い</div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. 〜ば／なければ</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> もっと<ruby>広<rt>ひろ</rt></ruby>いへやがあります <span class="arr">→</span> <b>もっと広いへやがあれば、ひっこしたいです。</b></div>
-        <ol class="drill"><li>1. お<ruby>客<rt>きゃく</rt></ruby>さんが<ruby>来<rt>く</rt></ruby>るので、<ruby>家<rt>いえ</rt></ruby>が<ruby>広<rt>ひろ</rt></ruby>い →（　　　）、その家を<ruby>借<rt>か</rt></ruby>りたいです。</li><li>2. <ruby>近<rt>ちか</rt></ruby>くにレストランがない →（　　　）、こまります。</li></ol>
-      </div></section>
+  <header><span class="tag">2. きく / LISTENING</span><h2>A. <ruby>家<rt>いえ</rt></ruby>はもう<ruby>見<rt>み</rt></ruby>つかりましたか <span class="gl">（2-①・p.36）</span></h2></header>
+  <div class="body">
+    <p class="lead">4<ruby>人<rt>にん</rt></ruby>は<ruby>外国<rt>がいこく</rt></ruby>にてんきんして、<ruby>今<rt>いま</rt></ruby>、<ruby>家<rt>いえ</rt></ruby>をさがしています。</p>
+    <ul class="qs sm">
+      <li>どんなじょうけんで<ruby>家<rt>いえ</rt></ruby>をさがしていますか。<ruby>会社<rt>かいしゃ</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>との<ruby>会話<rt>かいわ</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きましょう。</li>
+    </ul>
+    <table class="tbl">
+      <tr><th class="rowlab"></th><th class="conv">① ♪023（例）</th><th class="conv">② ♪024</th><th class="conv">③ ♪025</th><th class="conv">④ ♪026</th></tr>
+      <tr><th class="rowlab"></th><th>さいとうさん</th><th><ruby>田中<rt>たなか</rt></ruby>さん</th><th><ruby>石川<rt>いしかわ</rt></ruby>さん</th><th>のりかさん</th></tr>
+      <tr><td class="rowlab">じょうけん</td><td class="ans" style="font-size:18px;">d <ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>い<br>e <ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>便利<rt>べんり</rt></ruby></td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+    </table>
+    <div class="bank sm2" style="font-size:19px;">a <ruby>静<rt>しず</rt></ruby>か　b <ruby>広<rt>ひろ</rt></ruby>い　c <ruby>安全<rt>あんぜん</rt></ruby>　d <ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>い　e <ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>便利<rt>べんり</rt></ruby>　f やちんが<ruby>高<rt>たか</rt></ruby>くない　g ペットがかえる　h ちゅうしゃ<ruby>場<rt>じょう</rt></ruby>がある</div>
+    <div class="arow"><div class="audio"><div class="ahead"><span class="alabel">♪ 023 会話①</span></div><audio controls preload="none" src="023_2_2_1%5B1%5D_saitoo_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 024 会話②</span></div><audio controls preload="none" src="024_2_2_1%5B2%5D_tanaka_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 025 会話③</span></div><audio controls preload="none" src="025_2_2_1%5B3%5D_ishikawa_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 026 会話④</span></div><audio controls preload="none" src="026_2_2_1%5B4%5D_norika_san.mp3"></audio></div></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>C. 〜ても／でも</h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> せまいです・がまんします <span class="arr">→</span> <b>せまくてもがまんしています。</b></div>
-        <ol class="drill"><li>1. <ruby>不便<rt>ふべん</rt></ruby>です・ここに<ruby>住<rt>す</rt></ruby>みたいです →（　　　）、ここに住みたいです。</li><li>2. <ruby>家賃<rt>やちん</rt></ruby>が<ruby>少<rt>すこ</rt></ruby>し<ruby>高<rt>たか</rt></ruby>いです・だいじょうぶです →（　　　）、だいじょうぶです。</li></ol>
-      </div></section>
+  <header><span class="tag">2. きく / LISTENING</span><h2>B. <ruby>週末<rt>しゅうまつ</rt></ruby>はひっこしです <span class="gl">（3-①・p.38）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <p class="lead"><ruby>石川<rt>いしかわ</rt></ruby>さんは<ruby>日本<rt>にほん</rt></ruby>からオーストラリアにてんきんして、<ruby>今<rt>いま</rt></ruby>、<ruby>家<rt>いえ</rt></ruby>をさがしています。</p>
+    <ul class="qs sm">
+      <li>(1) <ruby>会話<rt>かいわ</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きましょう。どんなことを<ruby>話<rt>はな</rt></ruby>していますか。</li>
+      <li>(2) （　　）に<ruby>入<rt>はい</rt></ruby>る<ruby>文<rt>ぶん</rt></ruby>を<ruby>選<rt>えら</rt></ruby>んで、もう<ruby>一度<rt>いちど</rt></ruby><ruby>聞<rt>き</rt></ruby>きましょう。</li>
+    </ul>
+    <div class="bank sm2" style="font-size:19px;">a ああ、<ruby>知<rt>し</rt></ruby>ってます。　b じゃあ、<ruby>楽<rt>たの</rt></ruby>しみにしています。　c それはよかったですね。　d もう<ruby>家<rt>いえ</rt></ruby>は<ruby>見<rt>み</rt></ruby>つかりましたか。</div>
+    <div class="dlg" style="column-count:2;column-gap:30px;font-size:18px;">
+      <p><span class="sp">ケイト</span>：<ruby>石川<rt>いしかわ</rt></ruby>さん、（<span class="blank">① d もう家は見つかりましたか</span>）。</p>
+      <p><span class="sp">石川</span>：はい、やっと<ruby>見<rt>み</rt></ruby>つかりました。<ruby>週末<rt>しゅうまつ</rt></ruby>はひっこしです。</p>
+      <p><span class="sp">ケイト</span>：（<span class="blank">②　　　　　　　</span>）どこですか。</p>
+      <p><span class="sp">石川</span>：キングズベイというところです。</p>
+      <p><span class="sp">ケイト</span>：（<span class="blank">③　　　　　　　</span>）<ruby>環境<rt>かんきょう</rt></ruby>がいいところですよね。<ruby>友<rt>とも</rt></ruby>だちが<ruby>住<rt>す</rt></ruby>んでます。</p>
+      <p><span class="sp">石川</span>：<ruby>会社<rt>かいしゃ</rt></ruby>まで<ruby>少<rt>すこ</rt></ruby>し<ruby>遠<rt>とお</rt></ruby>いけど、<ruby>広<rt>ひろ</rt></ruby>くていい<ruby>家<rt>いえ</rt></ruby>があったから、そこに<ruby>決<rt>き</rt></ruby>めました。<ruby>庭<rt>にわ</rt></ruby>が<ruby>広<rt>ひろ</rt></ruby>くてあそべるから、<ruby>子<rt>こ</rt></ruby>どもも<ruby>喜<rt>よろこ</rt></ruby>んでます。</p>
+      <p><span class="sp">ケイト</span>：そうですか。</p>
+      <p><span class="sp">石川</span>：おちついたら、みんなを<ruby>招待<rt>しょうたい</rt></ruby>しますから、ぜひあそびに<ruby>来<rt>き</rt></ruby>てください。</p>
+      <p><span class="sp">ケイト</span>：はい。（<span class="blank">④　　　　　　　</span>）</p>
+    </div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 028 ひっこしの会話</span></div><audio controls preload="none" src="028_2_3_1_kaiwa.mp3"></audio></div>
+  </div>
+</section>
 <section class="slide">
-      <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>D. 〜<ruby>以上<rt>いじょう</rt></ruby>／〜<ruby>以下<rt>いか</rt></ruby></h2></header>
-      <div class="body">
-        <div class="exbox"><span class="ex">例)</span> <ruby>通勤<rt>つうきん</rt></ruby>に2<ruby>時間<rt>じかん</rt></ruby>かかります <span class="arr">→</span> <b>通勤に2<ruby>時間以上<rt>いじょう</rt></ruby>かかります。</b></div>
-        <ol class="drill"><li>1. <ruby>家賃<rt>やちん</rt></ruby>は6<ruby>万円<rt>まんえん</rt></ruby>より<ruby>下<rt>した</rt></ruby>がいい →家賃は6万円（　　　）がいいです。</li><li>2. <ruby>毎日<rt>まいにち</rt></ruby>2<ruby>時間<rt>じかん</rt></ruby>より<ruby>多<rt>おお</rt></ruby>く<ruby>歩<rt>ある</rt></ruby>きます →毎日2時間（　　　）歩きます。</li></ol>
-      </div></section>
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. <ruby>文<rt>ぶん</rt></ruby>の<ruby>終<rt>お</rt></ruby>わり<ruby>方<rt>かた</rt></ruby> 「〜んですけど」 <span class="gl">（2-②・p.36）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <p class="lead"><ruby>聞<rt>き</rt></ruby>いて（　　）に<ruby>入<rt>はい</rt></ruby>ることばを<ruby>選<rt>えら</rt></ruby>びましょう。どんな<ruby>終<rt>お</rt></ruby>わり<ruby>方<rt>かた</rt></ruby>がありますか。</p>
+    <div class="dlg" style="font-size:20px;">
+      <p><span class="sp">A</span>：<ruby>家<rt>いえ</rt></ruby>はもう<ruby>見<rt>み</rt></ruby>つかりましたか。</p>
+      <p><span class="sp">B</span>：いいえ、まだなんです。いろいろ（<span class="blank">① b さがして(い)るんですけど</span>）。</p>
+      <p><span class="sp">A</span>：どんなところをさがして(い)るんですか。（<span class="blank">②　　　　　　　</span>）。</p>
+      <p><span class="sp">B</span>：<ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>くて、<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>便利<rt>べんり</rt></ruby>なところが（<span class="blank">③　　　　　　　</span>）。</p>
+      <p><span class="sp">A</span>：そうですか。</p>
+      <p><span class="sp">B</span>：ええ。でも、いいところが（<span class="blank">④　　　　　　　</span>）。</p>
+      <p><span class="sp">A</span>：たいへんですね。</p>
+    </div>
+    <div class="bank sm2" style="font-size:19px;">a あまりなくて　b さがして(い)るんですけど　c いいんですが　d <ruby>場所<rt>ばしょ</rt></ruby>とか、かんきょうとか</div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 027 文の終わり方</span></div><audio controls preload="none" src="027_2_2_2.mp3"></audio></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. 「〜から」「〜けど」 <span class="gl">（3-②・p.38）</span></h2></header>
+  <div class="body" style="gap:11px;">
+    <div class="exbox" style="font-size:24px;"><span class="ex">例)</span> <ruby>広<rt>ひろ</rt></ruby>くていい<ruby>家<rt>いえ</rt></ruby>が<u>あったから</u>、<ruby>決<rt>き</rt></ruby>めました。／ <ruby>会社<rt>かいしゃ</rt></ruby>まで<ruby>少<rt>すこ</rt></ruby>し<ruby>遠<rt>とお</rt></ruby>い<u>けど</u>、いい<ruby>家<rt>いえ</rt></ruby>があった<u>から</u>、そこに<ruby>決<rt>き</rt></ruby>めました。</div>
+    <ol class="drill sm">
+      <li><ruby>庭<rt>にわ</rt></ruby>が<ruby>広<rt>ひろ</rt></ruby>くて（あそべます →　　　　）から、<ruby>子<rt>こ</rt></ruby>どもも<ruby>喜<rt>よろこ</rt></ruby>んで(い)ます。</li>
+      <li><ruby>夜<rt>よる</rt></ruby>も（<ruby>安全<rt>あんぜん</rt></ruby>です →　　　　）から、そのマンションにしました。</li>
+      <li>かんきょうがよくて、<ruby>会社<rt>かいしゃ</rt></ruby>も（<ruby>近<rt>ちか</rt></ruby>いです →　　　　）から、<ruby>決<rt>き</rt></ruby>めました。</li>
+      <li><ruby>駅<rt>えき</rt></ruby>から（　　）けど、まわりが（　　）から、そこに<ruby>決<rt>き</rt></ruby>めました。</li>
+      <li>かんきょうは（　　）けど、<ruby>家<rt>いえ</rt></ruby>が（　　）から、ひっこしました。</li>
+    </ol>
+    <div class="bank sm2">4・5<ruby>番用<rt>ばんよう</rt></ruby>：a <ruby>古<rt>ふる</rt></ruby>くなった　　b <ruby>静<rt>しず</rt></ruby>かだ　　c <ruby>遠<rt>とお</rt></ruby>い　　d いい</div>
+  </div>
+</section>
 <section class="slide">
   <header><span class="tag">4. はなす / SPEAKING</span><h2>ロールプレイ ＆ <ruby>発表<rt>はっぴょう</rt></ruby></h2></header>
   <div class="body two">
-    <div class="panel blue"><h3>A. どんな<ruby>家<rt>いえ</rt></ruby>に<ruby>住<rt>す</rt></ruby>みたいですか</h3><p>じょうけんを<ruby>書<rt>か</rt></ruby>いて、ペアで<ruby>話<rt>はな</rt></ruby>しましょう。</p><p>A: どんなところがいいんですか。</p><p>B: <ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>くて、<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>便利<rt>べんり</rt></ruby>なところが…。</p><p class="hl">「〜けど」「〜から」を<ruby>使<rt>つか</rt></ruby>いましょう。</p></div>
-    <div class="panel orange"><h3>B. <ruby>今<rt>いま</rt></ruby><ruby>住<rt>す</rt></ruby>んでいるところ</h3><ul><li>どこに／どんな<ruby>家<rt>いえ</rt></ruby></li><li>いいところ（<ruby>近<rt>ちか</rt></ruby>い・<ruby>便利<rt>べんり</rt></ruby>・<ruby>静<rt>しず</rt></ruby>か…）</li><li>こまっているところ</li></ul><p class="hl2"><ruby>文<rt>ぶん</rt></ruby>を2つ<ruby>以上<rt>いじょう</rt></ruby>ならべて、<ruby>少<rt>すこ</rt></ruby>し<ruby>長<rt>なが</rt></ruby>く<ruby>話<rt>はな</rt></ruby>しましょう。</p></div>
-  </div></section>
+    <div class="panel blue">
+      <h3>A. どんな<ruby>家<rt>いえ</rt></ruby>に<ruby>住<rt>す</rt></ruby>みたいですか</h3>
+      <p>じょうけんを3つ<ruby>書<rt>か</rt></ruby>いて、<ruby>話<rt>はな</rt></ruby>しましょう。</p>
+      <p>「<ruby>駅<rt>えき</rt></ruby>から<ruby>近<rt>ちか</rt></ruby>いところがいいんですが。」</p>
+      <p>「<ruby>安全<rt>あんぜん</rt></ruby>なところがいいです。<ruby>小<rt>ちい</rt></ruby>さい<ruby>子<rt>こ</rt></ruby>どもがいますから。」</p>
+      <p class="hl">→「〜がいいんですが」「〜から」を<ruby>使<rt>つか</rt></ruby>いましょう。</p>
+    </div>
+    <div class="panel orange">
+      <h3>B. <ruby>今<rt>いま</rt></ruby>、<ruby>住<rt>す</rt></ruby>んでいるところ</h3>
+      <ul>
+        <li><ruby>私<rt>わたし</rt></ruby>は＿＿＿に<ruby>住<rt>す</rt></ruby>んでいます。</li>
+        <li>どんな<ruby>家<rt>いえ</rt></ruby>？どんなところ？</li>
+        <li>＿＿＿けど、＿＿＿から、<ruby>決<rt>き</rt></ruby>めました。</li>
+      </ul>
+      <p class="hl2"><ruby>文<rt>ぶん</rt></ruby>を2つ<ruby>以上<rt>いじょう</rt></ruby>ならべて、<ruby>少<rt>すこ</rt></ruby>し<ruby>長<rt>なが</rt></ruby>く<ruby>話<rt>はな</rt></ruby>しましょう。</p>
+    </div>
+  </div>
+</section>
 <section class="slide cando">
   <div class="rail"></div>
   <p class="kick">ふりかえり / CAN-DO CHECK</p>
   <h2 class="cdh">できるようになりましたか？</h2>
-  <ul class="cdlist"><li><span class="box"></span><ruby>住<rt>す</rt></ruby>むところをさがすのにだいじなポイントを<ruby>話<rt>はな</rt></ruby>すことができる。</li><li><span class="box"></span><ruby>自分<rt>じぶん</rt></ruby>が<ruby>住<rt>す</rt></ruby>んでいるところについて<ruby>話<rt>はな</rt></ruby>せる。</li><li><span class="box"></span><ruby>記事<rt>きじ</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んで、どんな<ruby>家<rt>いえ</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいるか<ruby>読<rt>よ</rt></ruby>みとれる。</li></ul>
+  <ul class="cdlist"><li><span class="box"></span><ruby>住<rt>す</rt></ruby>むところをさがすのに、だいじなポイントは<ruby>何<rt>なに</rt></ruby>か<ruby>話<rt>はな</rt></ruby>せる。</li><li><span class="box"></span><ruby>自分<rt>じぶん</rt></ruby>が<ruby>住<rt>す</rt></ruby>んでいるところについて<ruby>話<rt>はな</rt></ruby>せる。</li></ul>
   <p class="bye">おつかれさまでした！</p>
 </section>
 <section class="slide index">
   <header><span class="tag">♪ おんせい / AUDIO</span><h2><ruby>音声<rt>おんせい</rt></ruby>リンク集</h2></header>
-  <div class="body idxbody"><div class="idxgroup"><h4>ことば (2-1)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 021 ことば</span></div><audio controls preload="none" src="021_2_1_2_tadashii_kotoba.mp3"></audio></div></div></div><div class="idxgroup"><h4>どんな家をさがす (2-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 023 さいとう</span></div><audio controls preload="none" src="023_2_2_1%5B1%5D_saitoo_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 024 田中</span></div><audio controls preload="none" src="024_2_2_1%5B2%5D_tanaka_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 025 石川</span></div><audio controls preload="none" src="025_2_2_1%5B3%5D_ishikawa_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 026 のりか</span></div><audio controls preload="none" src="026_2_2_1%5B4%5D_norika_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 027 まとめ</span></div><audio controls preload="none" src="027_2_2_2.mp3"></audio></div></div></div><div class="idxgroup"><h4>ひっこし (2-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 028 会話</span></div><audio controls preload="none" src="028_2_3_1_kaiwa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 029 練習</span></div><audio controls preload="none" src="029_2_3_3%281%29.mp3"></audio></div></div></div><div class="idxgroup"><h4>読解：私の家 (2-4)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 030 リリー</span></div><audio controls preload="none" src="030_2_4_1_ririi.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 031 八木</span></div><audio controls preload="none" src="031_2_4_1_yagi.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 035 きむら</span></div><audio controls preload="none" src="035_2_4_3%283%29%5B1%5D_kimura_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 036 さとう</span></div><audio controls preload="none" src="036_2_4_3%283%29%5B2%5D_satoo_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 037 かわの</span></div><audio controls preload="none" src="037_2_4_3%283%29%5B3%5D_kawano_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 038 やまだ</span></div><audio controls preload="none" src="038_2_4_3%283%29%5B4%5D_yamada_san.mp3"></audio></div></div></div><div class="idxgroup"><h4>自分の家 (2-5)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 040 話す</span></div><audio controls preload="none" src="040_2_5_1.mp3"></audio></div></div></div></div>
+  <div class="body idxbody"><div class="idxgroup"><h4>ことば / Vocabulary</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 021 ことば</span></div><audio controls preload="none" src="021_2_1_2_tadashii_kotoba.mp3"></audio></div></div></div><div class="idxgroup"><h4>家をさがす (2-1)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 023 会話①</span></div><audio controls preload="none" src="023_2_2_1%5B1%5D_saitoo_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 024 会話②</span></div><audio controls preload="none" src="024_2_2_1%5B2%5D_tanaka_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 025 会話③</span></div><audio controls preload="none" src="025_2_2_1%5B3%5D_ishikawa_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 026 会話④</span></div><audio controls preload="none" src="026_2_2_1%5B4%5D_norika_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 027 文の終わり方</span></div><audio controls preload="none" src="027_2_2_2.mp3"></audio></div></div></div><div class="idxgroup"><h4>ひっこし (2-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 028 会話</span></div><audio controls preload="none" src="028_2_3_1_kaiwa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 029 話すじゅんび</span></div><audio controls preload="none" src="029_2_3_3%281%29.mp3"></audio></div></div></div></div>
 </section>
 </div></div>
 <div id="nav"><button id="prev">‹</button><span id="count"></span><button id="next">›</button></div>
