@@ -6,7 +6,8 @@
 :root{--navy:#1A2B49;--blue:#1F6FB2;--orange:#F08A24;--light:#F2F6FA;--ink:#23303F;--grey:#7A8794;--s:1;}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:#0d1622;font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);}
-ruby rt{font-size:.5em;font-weight:400;line-height:1;}
+ruby{ruby-align:center;}
+ruby rt{font-size:.45em;font-weight:400;line-height:1;letter-spacing:-.05em;}
 #stage{position:fixed;inset:0;overflow:hidden;}
 /* fixed 1280x720 stage scaled by JS -> works on every browser */
 .deck{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(var(--s));transform-origin:center center;background:#fff;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.5);}
@@ -42,6 +43,33 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
 .arr{color:var(--grey);padding:0 6px;}
 .slots{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:8px 0;}
 .slot{background:var(--light);border:1.5px solid var(--orange);border-radius:10px;height:64px;display:flex;align-items:center;padding-left:18px;font-size:38px;color:var(--orange);font-weight:700;}
+/* textbook-faithful blocks */
+.pre{color:var(--orange);font-weight:700;}
+.bank.sm2{font-size:20px;padding:10px 16px;line-height:1.7;}
+ol.drill.sm{font-size:24px;gap:10px;}
+ul.qs.sm{font-size:22px;gap:8px;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;}
+.tbl th,.tbl td{border:1.5px solid var(--blue);padding:3px 4px;text-align:center;font-size:18px;color:var(--navy);}
+.tbl th{background:var(--light);font-weight:700;}
+.tbl th.conv{background:var(--blue);color:#fff;font-size:16px;}
+.tbl td.ans{height:38px;font-size:21px;color:var(--orange);font-weight:700;}
+.tbl .rowlab{background:var(--light);font-weight:700;white-space:nowrap;font-size:17px;text-align:left;padding:3px 8px;}
+.map{flex:1;display:flex;gap:22px;align-items:center;}
+.map .root{background:var(--navy);color:#fff;font-size:30px;font-weight:700;border-radius:10px;padding:26px 14px;flex:none;}
+.map .rows{flex:1;display:flex;flex-direction:column;gap:12px;}
+.map .row{display:flex;align-items:center;gap:10px;font-size:21px;}
+.mbox{background:#fff;border:1.5px solid var(--blue);border-radius:8px;padding:5px 14px;color:var(--navy);font-weight:700;text-align:center;}
+.mbox.blank{border-color:var(--orange);color:var(--orange);min-width:150px;}
+.marr{color:var(--grey);font-size:22px;}
+.mcol{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.arow{display:flex;gap:10px;}
+.arow .audio{flex:1;padding:6px 10px;}
+.arow .alabel{font-size:16px;}
+.arow audio{height:28px;}
+.dlg{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:10px 18px;font-size:19px;line-height:1.55;color:var(--ink);}
+.dlg p{margin:3px 0;break-inside:avoid;}
+.dlg .sp{color:var(--blue);font-weight:700;}
+.dlg .blank{color:var(--orange);font-weight:700;}
 /* audio */
 .audio{background:var(--light);border-left:6px solid var(--orange);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:6px;}
 .audio .ahead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
@@ -97,7 +125,7 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
   <p class="kick">まるごと <ruby>初中級<rt>しょちゅうきゅう</rt></ruby>  (A2/B1)</p>
   <h1>トピック1「スポーツ」</h1>
   <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 1: Sports</p>
-  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.13–17 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 001–020</p>
+  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.24–29 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 001–020</p>
   <p class="hint">← / → でスライドを移動 &nbsp;|&nbsp; arrow keys to move</p>
 </section>
 <section class="slide">
@@ -119,32 +147,79 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
   </div>
 </section>
 <section class="slide">
-  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. <ruby>試合<rt>しあい</rt></ruby>のことば</h2></header>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. <ruby>正<rt>ただ</rt></ruby>しいことばを<ruby>選<rt>えら</rt></ruby>びましょう <span class="gl">（じゅんび②・p.25）</span></h2></header>
   <div class="body">
-    <div class="bank"><ruby>勝<rt>か</rt></ruby>つ ／ <ruby>負<rt>ま</rt></ruby>ける ／ ひきわける ／ おうえんする ／ もりあがる ／ <ruby>出<rt>で</rt></ruby>る</div>
-    <ol class="drill"><li>1. イーグルズが3<ruby>対<rt>たい</rt></ruby>2で（　　　　）。 <span class="gl">(won)</span></li><li>2. ベアーズは0<ruby>対<rt>たい</rt></ruby>2で（　　　　）。 <span class="gl">(lost)</span></li><li>3. <ruby>今日<rt>きょう</rt></ruby>の<ruby>試合<rt>しあい</rt></ruby>は1<ruby>対<rt>たい</rt></ruby>1で（　　　　）。 <span class="gl">(drew)</span></li><li>4. ファンはいっしょうけんめい（　　　　）。 <span class="gl">(cheered)</span></li><li>5. <ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>選手<rt>せんしゅ</rt></ruby>が（　　）ので、<ruby>試合<rt>しあい</rt></ruby>が（　　）。 <span class="gl">(appeared / got exciting)</span></li></ol>
-    <div class="audio"><div class="ahead"><span class="alabel">♪ 002 ことばのかくにん</span><span class="asub">正しいことばを聞きましょう</span></div><audio controls preload="none" src="002_1_1_2_tadashii_kotoba.mp3"></audio></div>
+    <ol class="drill sm">
+      <li><ruby>友<rt>とも</rt></ruby>だちにさそわれて、サッカーの<ruby>試合<rt>しあい</rt></ruby>を（<span class="pre">① f <ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました</span>）。</li>
+      <li>その<ruby>日<rt>ひ</rt></ruby>は、イーグルズ（②　　　）ベアーズの<ruby>試合<rt>しあい</rt></ruby>でした。</li>
+      <li><ruby>私<rt>わたし</rt></ruby>はイーグルズのファンだから、イーグルズを（③　　　　　）。</li>
+      <li><ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>選手<rt>せんしゅ</rt></ruby>が<ruby>試合<rt>しあい</rt></ruby>に<ruby>出<rt>で</rt></ruby>たので、<ruby>試合<rt>しあい</rt></ruby>が（④　　　　　）。</li>
+      <li>ベアーズが（⑤　　　　）ので、ベアーズのファンはくやしそうでした。</li>
+      <li><ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>試合<rt>しあい</rt></ruby>にもさそわれましたが、<ruby>仕事<rt>しごと</rt></ruby>があるので（⑥　　　　　）。</li>
+    </ol>
+    <div class="bank sm2">a <ruby>対<rt>たい</rt></ruby>　　b おうえんしました　　c <ruby>負<rt>ま</rt></ruby>けた　　d ことわりました　　e もりあがりました　　f <ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました</div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 002 ことばのかくにん</span><span class="asub">聞いて、答えをチェックしましょう</span></div><audio controls preload="none" src="002_1_1_2_tadashii_kotoba.mp3"></audio></div>
   </div>
 </section>
 <section class="slide">
-  <header><span class="tag">2. きく / LISTENING</span><h2>A. さそう・ことわる</h2></header>
-  <div class="body two">
-    <div class="col">
-      <p class="lead"><ruby>中村<rt>なかむら</rt></ruby>さんが<ruby>友<rt>とも</rt></ruby>だちをサッカーの<ruby>試合<rt>しあい</rt></ruby>にさそっています。</p>
-      <ul class="qs"><li>① <ruby>中村<rt>なかむら</rt></ruby>さんは<ruby>友<rt>とも</rt></ruby>だちを<ruby>何<rt>なに</rt></ruby>にさそいましたか。</li><li>② <ruby>友<rt>とも</rt></ruby>だちは<ruby>行<rt>い</rt></ruby>きますか。 （ はい ・ いいえ ）</li><li>③ どうして<ruby>行<rt>い</rt></ruby>けませんか。</li></ul>
-      <ul class="opts"><li>a <ruby>仕事<rt>しごと</rt></ruby></li><li>b <ruby>勉強<rt>べんきょう</rt></ruby></li><li>c アルバイト</li><li>d ほかのやくそく</li></ul>
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>C. かんけいを<ruby>考<rt>かんが</rt></ruby>えて、ことばを<ruby>選<rt>えら</rt></ruby>びましょう <span class="gl">（じゅんび③・p.25）</span></h2></header>
+  <div class="body">
+    <div class="map" style="flex:0 0 auto;margin-top:26px;">
+      <div class="root"><ruby>試合<rt>しあい</rt></ruby></div>
+      <div class="rows">
+        <div class="row" style="align-items:flex-end;">
+          <div class="mcol"><span class="mbox blank">②（　　　　　）</span><span class="marr">↑</span><span class="mbox blank"><span class="pre">① d <ruby>勝<rt>か</rt></ruby>つ</span></span></div>
+          <span class="marr" style="padding-bottom:11px;">―</span><span class="mbox">ひきわける</span><span class="marr" style="padding-bottom:11px;">―</span><span class="mbox"><ruby>負<rt>ま</rt></ruby>ける</span>
+        </div>
+        <div class="row"><span class="mbox"><ruby>選手<rt>せんしゅ</rt></ruby></span><span class="marr">→</span><span class="mbox blank">③ <ruby>試合<rt>しあい</rt></ruby>に（　　　）</span></div>
+        <div class="row"><span class="mbox">チーム</span><span class="marr">→</span><span class="mbox"><ruby>試合<rt>しあい</rt></ruby>をする</span>／<span class="mbox blank">④（　　　　）</span><span class="marr">⇔</span><span class="mbox"><ruby>弱<rt>よわ</rt></ruby>い</span></div>
+        <div class="row"><span class="mbox blank">⑤（　　　　）</span><span class="marr">→</span><span class="mbox"><ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>く</span><span class="marr">→</span><span class="mbox blank">⑥（　　　　　）</span></div>
+      </div>
     </div>
-    <div class="col audios"><div class="audio"><div class="ahead"><span class="alabel">♪ 004 会話①</span></div><audio controls preload="none" src="004_1_2_1%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 005 会話②</span></div><audio controls preload="none" src="005_1_2_1%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 006 会話③</span></div><audio controls preload="none" src="006_1_2_1%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 007 会話④</span></div><audio controls preload="none" src="007_1_2_1%5B4%5D.mp3"></audio></div></div>
+    <div class="bank sm2">a <ruby>強<rt>つよ</rt></ruby>い　　b ゆうしょうする　　c ファン　　d <ruby>勝<rt>か</rt></ruby>つ　　e <ruby>出<rt>で</rt></ruby>る　　f おうえんする</div>
   </div>
 </section>
 <section class="slide">
-  <header><span class="tag">2. きく / LISTENING</span><h2>B. やくそくをキャンセルする</h2></header>
+  <header><span class="tag">2. きく / LISTENING</span><h2>A. <ruby>行<rt>い</rt></ruby>きたいんですが… <span class="gl">（2-①・p.26）</span></h2></header>
   <div class="body">
-    <p class="lead">ワンさんが<ruby>中村<rt>なかむら</rt></ruby>さんに<ruby>電話<rt>でんわ</rt></ruby>しています。</p>
-    <ul class="qs spaced">
-      <li>① ワンさんはどうして<ruby>電話<rt>でんわ</rt></ruby>しましたか。</li>
-      <li>② ワンさんはどうして<ruby>試合<rt>しあい</rt></ruby>に<ruby>行<rt>い</rt></ruby>けなくなりましたか。</li>
+    <p class="lead"><ruby>中村<rt>なかむら</rt></ruby>さんが、<ruby>友<rt>とも</rt></ruby>だちをサッカーの<ruby>試合<rt>しあい</rt></ruby>にさそっています。</p>
+    <ul class="qs sm">
+      <li>(1) <ruby>友<rt>とも</rt></ruby>だちは、サッカーの<ruby>試合<rt>しあい</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きますか。（はい ○、いいえ ×）</li>
+      <li>(2) どうして<ruby>行<rt>い</rt></ruby>きませんか。</li>
     </ul>
+    <table class="tbl">
+      <tr><th class="rowlab"></th><th class="conv" colspan="2">会話① ♪004（例）</th><th class="conv" colspan="2">会話② ♪005</th><th class="conv" colspan="2">会話③ ♪006</th><th class="conv" colspan="2">会話④ ♪007</th></tr>
+      <tr><th class="rowlab"></th><th>カーラさん</th><th>ヤンさん</th><th><ruby>吉田<rt>よしだ</rt></ruby>さん</th><th>ワンさん</th><th>ジョイさん</th><th>シンさん</th><th>キムさん</th><th><ruby>野田<rt>のだ</rt></ruby>さん</th></tr>
+      <tr><td class="rowlab">(1)</td><td class="ans">×</td><td class="ans">○</td><td class="ans"></td><td class="ans"></td><td class="ans"></td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+      <tr><td class="rowlab">(2)</td><td class="ans">e</td><td class="ans">／</td><td class="ans"></td><td class="ans"></td><td class="ans"></td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+    </table>
+    <div class="bank sm2" style="font-size:19px;">a <ruby>仕事<rt>しごと</rt></ruby>があります　b <ruby>勉強<rt>べんきょう</rt></ruby>が<ruby>忙<rt>いそが</rt></ruby>しいです　c ほかにやくそくがあります　d あまりきょうみがありません　e アルバイトがあります</div>
+    <p class="gl">＊えんりょします = to decline</p>
+    <div class="arow"><div class="audio"><div class="ahead"><span class="alabel">♪ 004 会話①</span></div><audio controls preload="none" src="004_1_2_1%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 005 会話②</span></div><audio controls preload="none" src="005_1_2_1%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 006 会話③</span></div><audio controls preload="none" src="006_1_2_1%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 007 会話④</span></div><audio controls preload="none" src="007_1_2_1%5B4%5D.mp3"></audio></div></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">2. きく / LISTENING</span><h2>B. <ruby>行<rt>い</rt></ruby>けなくなったんです <span class="gl">（3-①・p.28）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <p class="lead">ワンさんが<ruby>中村<rt>なかむら</rt></ruby>さんに<ruby>電話<rt>でんわ</rt></ruby>しています。</p>
+    <ul class="qs sm">
+      <li>(1) <ruby>会話<rt>かいわ</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きましょう。ワンさんは、どうして<ruby>中村<rt>なかむら</rt></ruby>さんに<ruby>電話<rt>でんわ</rt></ruby>しましたか。</li>
+      <li>(2) （　　）に<ruby>入<rt>はい</rt></ruby>る<ruby>文<rt>ぶん</rt></ruby>を<ruby>選<rt>えら</rt></ruby>んで、もう<ruby>一度<rt>いちど</rt></ruby><ruby>聞<rt>き</rt></ruby>きましょう。</li>
+    </ul>
+    <div class="bank sm2">a しつれいします　b ワンです　c <ruby>行<rt>い</rt></ruby>けなくなったんです　d お<ruby>願<rt>ねが</rt></ruby>いします　e すみません</div>
+    <div class="dlg" style="column-count:2;column-gap:30px;font-size:18px;">
+      <p><span class="sp">ワン</span>：もしもし、<ruby>中村<rt>なかむら</rt></ruby>さん？（<span class="blank">① b ワンです</span>）。</p>
+      <p><span class="sp">中村</span>：あ、ワンさん、おはようございます。</p>
+      <p><span class="sp">ワン</span>：おはようございます。あのう、じつは、<ruby>明日<rt>あした</rt></ruby>の<ruby>試合<rt>しあい</rt></ruby>、（<span class="blank">②　　　　　　　</span>）。</p>
+      <p><span class="sp">中村</span>：えっ、ざんねんだなあ。どうしたんですか。</p>
+      <p><span class="sp">ワン</span>：（<span class="blank">③　　　　　　　</span>）。じつは、<ruby>中国<rt>ちゅうごく</rt></ruby>から<ruby>知<rt>し</rt></ruby>りあいが<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>く</rt></ruby>るんです。</p>
+      <p><span class="sp">中村</span>：そうなんですか。だいじょうぶですよ。<ruby>気<rt>き</rt></ruby>にしないで。</p>
+      <p><span class="sp">ワン</span>：はい。ありがとうございます。</p>
+      <p><span class="sp">中村</span>：<ruby>試合<rt>しあい</rt></ruby>は<ruby>来月<rt>らいげつ</rt></ruby>もあるから、よかったら、つぎ<ruby>行<rt>い</rt></ruby>きましょう。</p>
+      <p><span class="sp">ワン</span>：はい。（<span class="blank">④　　　　　　</span>）。</p>
+      <p><span class="sp">中村</span>：それじゃあ。</p>
+      <p><span class="sp">ワン</span>：はい。（<span class="blank">⑤　　　　　　</span>）。</p>
+    </div>
     <div class="audio"><div class="ahead"><span class="alabel">♪ 009 ワンさんの電話</span><span class="asub">ヒント：「じつは〜んです」</span></div><audio controls preload="none" src="009_1_3_1_kaiwa.mp3"></audio></div>
   </div>
 </section>
@@ -153,7 +228,7 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
   <div class="body">
     <p class="lead"><ruby>聞<rt>き</rt></ruby>こえたおうえんのことばを<ruby>書<rt>か</rt></ruby>きましょう。</p>
     <div class="slots"><div class="slot">①</div><div class="slot">②</div><div class="slot">③</div><div class="slot">④</div></div>
-    <div class="audio"><div class="ahead"><span class="alabel">♪ 010 おうえんのことば</span><span class="asub">がんばれ／負けるな／…</span></div><audio controls preload="none" src="010_1_4_1%5B1%5D%EF%BF%BD%60%5B7%5D.mp3"></audio></div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 010 おうえんのことば</span><span class="asub">がんばれ／負けるな／…</span></div><audio controls preload="none" src="010_1_4_1_1-7.mp3"></audio></div>
   </div>
 </section>
 <section class="slide">
@@ -220,7 +295,7 @@ ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24
 </section>
 <section class="slide index">
   <header><span class="tag">♪ おんせい / AUDIO</span><h2><ruby>音声<rt>おんせい</rt></ruby>リンク集</h2></header>
-  <div class="body idxbody"><div class="idxgroup"><h4>導入 / Title</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 001 タイトル</span></div><audio controls preload="none" src="001_A2%EF%BF%BD%5EB1_title.mp3"></audio></div></div></div><div class="idxgroup"><h4>ことば / Vocabulary</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 002 ことば</span></div><audio controls preload="none" src="002_1_1_2_tadashii_kotoba.mp3"></audio></div></div></div><div class="idxgroup"><h4>さそう・ことわる (1-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 004 会話①</span></div><audio controls preload="none" src="004_1_2_1%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 005 会話②</span></div><audio controls preload="none" src="005_1_2_1%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 006 会話③</span></div><audio controls preload="none" src="006_1_2_1%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 007 会話④</span></div><audio controls preload="none" src="007_1_2_1%5B4%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 008 そうですか</span></div><audio controls preload="none" src="008_1_2_3_soodesuka.mp3"></audio></div></div></div><div class="idxgroup"><h4>キャンセル (1-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 009 ワンさんの電話</span></div><audio controls preload="none" src="009_1_3_1_kaiwa.mp3"></audio></div></div></div><div class="idxgroup"><h4>おうえん (1-4)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 010 おうえんのことば</span></div><audio controls preload="none" src="010_1_4_1%5B1%5D%EF%BF%BD%60%5B7%5D.mp3"></audio></div></div></div><div class="idxgroup"><h4>読解 (1-5/1-6)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 011 おわびメール</span></div><audio controls preload="none" src="011_1_5_1_owabi.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 012 へんじメール</span></div><audio controls preload="none" src="012_1_5_1_re_owabi.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 013 カーラさん</span></div><audio controls preload="none" src="013_1_5_2%281%29%5B1%5D_kaara_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 014 ホセさん</span></div><audio controls preload="none" src="014_1_5_2%281%29%5B2%5D_hose_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 015 アベさん</span></div><audio controls preload="none" src="015_1_5_2%281%29%5B3%5D_abe_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 016 パクさん</span></div><audio controls preload="none" src="016_1_5_2%281%29%5B4%5D_paku_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 020 シンさんのメール</span></div><audio controls preload="none" src="020_1_6_shin_san_kara.mp3"></audio></div></div></div></div>
+  <div class="body idxbody"><div class="idxgroup"><h4>導入 / Title</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 001 タイトル</span></div><audio controls preload="none" src="001_A2B1_title.mp3"></audio></div></div></div><div class="idxgroup"><h4>ことば / Vocabulary</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 002 ことば</span></div><audio controls preload="none" src="002_1_1_2_tadashii_kotoba.mp3"></audio></div></div></div><div class="idxgroup"><h4>さそう・ことわる (1-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 004 会話①</span></div><audio controls preload="none" src="004_1_2_1%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 005 会話②</span></div><audio controls preload="none" src="005_1_2_1%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 006 会話③</span></div><audio controls preload="none" src="006_1_2_1%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 007 会話④</span></div><audio controls preload="none" src="007_1_2_1%5B4%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 008 そうですか</span></div><audio controls preload="none" src="008_1_2_3_soodesuka.mp3"></audio></div></div></div><div class="idxgroup"><h4>キャンセル (1-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 009 ワンさんの電話</span></div><audio controls preload="none" src="009_1_3_1_kaiwa.mp3"></audio></div></div></div><div class="idxgroup"><h4>おうえん (1-4)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 010 おうえんのことば</span></div><audio controls preload="none" src="010_1_4_1_1-7.mp3"></audio></div></div></div><div class="idxgroup"><h4>読解 (1-5/1-6)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 011 おわびメール</span></div><audio controls preload="none" src="011_1_5_1_owabi.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 012 へんじメール</span></div><audio controls preload="none" src="012_1_5_1_re_owabi.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 013 カーラさん</span></div><audio controls preload="none" src="013_1_5_2%281%29%5B1%5D_kaara_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 014 ホセさん</span></div><audio controls preload="none" src="014_1_5_2%281%29%5B2%5D_hose_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 015 アベさん</span></div><audio controls preload="none" src="015_1_5_2%281%29%5B3%5D_abe_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 016 パクさん</span></div><audio controls preload="none" src="016_1_5_2%281%29%5B4%5D_paku_san.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 020 シンさんのメール</span></div><audio controls preload="none" src="020_1_6_shin_san_kara.mp3"></audio></div></div></div></div>
 </section>
 </div></div>
 <div id="nav"><button id="prev">‹</button><span id="count"></span><button id="next">›</button></div>
