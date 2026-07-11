@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>まるごと トピック8 旅行中のトラブル — エクスプレス練習</title>
+<style>
+:root{--navy:#1A2B49;--blue:#1F6FB2;--orange:#F08A24;--light:#F2F6FA;--ink:#23303F;--grey:#7A8794;--s:1;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0d1622;font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);}
+ruby{ruby-align:center;}
+ruby rt{font-size:.45em;font-weight:400;line-height:1;letter-spacing:-.05em;}
+#stage{position:fixed;inset:0;overflow:hidden;}
+/* fixed 1280x720 stage scaled by JS -> works on every browser */
+.deck{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(var(--s));transform-origin:center center;background:#fff;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.5);}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .25s;display:flex;flex-direction:column;}
+.slide.active{opacity:1;visibility:visible;}
+.rail{position:absolute;left:0;top:0;width:20px;height:100%;background:var(--orange);}
+header{background:var(--navy);padding:16px 40px 16px 54px;}
+header .tag{color:var(--orange);font-weight:700;font-size:18px;letter-spacing:.12em;}
+header h2{color:#fff;font-size:40px;margin-top:4px;}
+.body{flex:1;padding:26px 52px 18px 54px;display:flex;flex-direction:column;gap:14px;overflow:hidden;}
+.body.two{flex-direction:row;gap:36px;}
+.col{flex:1;display:flex;flex-direction:column;gap:12px;}
+.note{color:var(--blue);font-size:21px;margin-top:auto;}
+.en{display:block;color:var(--grey);font-style:italic;font-size:16px;margin-top:2px;}
+.gl{color:var(--grey);font-size:.78em;}
+ol.big{list-style:none;display:flex;flex-direction:column;gap:22px;counter-reset:b;}
+ol.big li{counter-increment:b;font-size:33px;font-weight:700;color:var(--ink);padding-left:62px;position:relative;}
+ol.big li::before{content:counter(b);position:absolute;left:0;top:-2px;width:46px;height:46px;background:var(--blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:16px 10px;text-align:center;display:flex;flex-direction:column;gap:4px;}
+.card .jp{font-size:33px;font-weight:700;color:var(--navy);}
+.card .gl{font-size:16px;color:var(--grey);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;}
+.card.sm{display:block;font-size:24px;font-weight:700;color:var(--navy);text-align:left;border:none;padding:18px;white-space:nowrap;}
+.bank{background:var(--navy);color:#fff;border-radius:9px;padding:14px 22px;text-align:center;font-size:24px;}
+ol.drill{list-style:none;display:flex;flex-direction:column;gap:13px;font-size:27px;}
+ul.qs{list-style:none;display:flex;flex-direction:column;gap:16px;font-size:27px;}
+ul.qs.spaced{gap:30px;}
+ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24px;padding-left:42px;margin-top:4px;}
+.lead{color:var(--blue);font-weight:700;font-size:25px;}
+.exbox{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:20px 22px;font-size:27px;color:var(--navy);line-height:1.5;}
+.exbox .ex{color:var(--orange);font-weight:700;}
+.arr{color:var(--grey);padding:0 6px;}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:8px 0;}
+.slot{background:var(--light);border:1.5px solid var(--orange);border-radius:10px;height:64px;display:flex;align-items:center;padding-left:18px;font-size:38px;color:var(--orange);font-weight:700;}
+/* textbook-faithful blocks */
+.pre{color:var(--orange);font-weight:700;}
+.bank.sm2{font-size:20px;padding:10px 16px;line-height:1.7;}
+ol.drill.sm{font-size:24px;gap:10px;}
+ul.qs.sm{font-size:22px;gap:8px;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;}
+.tbl th,.tbl td{border:1.5px solid var(--blue);padding:3px 4px;text-align:center;font-size:18px;color:var(--navy);}
+.tbl th{background:var(--light);font-weight:700;}
+.tbl th.conv{background:var(--blue);color:#fff;font-size:16px;}
+.tbl td.ans{height:38px;font-size:21px;color:var(--orange);font-weight:700;}
+.tbl .rowlab{background:var(--light);font-weight:700;white-space:nowrap;font-size:17px;text-align:left;padding:3px 8px;}
+.map{flex:1;display:flex;gap:22px;align-items:center;}
+.map .root{background:var(--navy);color:#fff;font-size:30px;font-weight:700;border-radius:10px;padding:26px 14px;flex:none;}
+.map .rows{flex:1;display:flex;flex-direction:column;gap:12px;}
+.map .row{display:flex;align-items:center;gap:10px;font-size:21px;}
+.mbox{background:#fff;border:1.5px solid var(--blue);border-radius:8px;padding:5px 14px;color:var(--navy);font-weight:700;text-align:center;}
+.mbox.blank{border-color:var(--orange);color:var(--orange);min-width:150px;}
+.marr{color:var(--grey);font-size:22px;}
+.mcol{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.arow{display:flex;gap:10px;}
+.arow .audio{flex:1;padding:6px 10px;}
+.arow .alabel{font-size:16px;}
+.arow audio{height:28px;}
+.dlg{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:10px 18px;font-size:19px;line-height:1.55;color:var(--ink);}
+.dlg p{margin:3px 0;break-inside:avoid;}
+.dlg .sp{color:var(--blue);font-weight:700;}
+.dlg .blank{color:var(--orange);font-weight:700;}
+/* audio */
+.audio{background:var(--light);border-left:6px solid var(--orange);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:6px;}
+.audio .ahead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+.audio .alabel{font-weight:700;color:var(--navy);font-size:22px;}
+.audio .asub{color:var(--grey);font-size:16px;}
+.audio audio{width:100%;height:34px;}
+.audio.missing{color:#b23a2e;font-size:18px;}
+.audios{gap:12px;justify-content:center;}
+/* panels */
+.panel{flex:1;background:var(--light);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;}
+.panel h3{color:#fff;padding:14px 18px;font-size:24px;}
+.panel.blue h3{background:var(--blue);}
+.panel.orange h3{background:var(--orange);}
+.panel p,.panel ul{padding:0 18px;font-size:22px;margin:12px 0;line-height:1.55;}
+.panel ul{padding-left:40px;display:flex;flex-direction:column;gap:10px;}
+.panel .hl{color:var(--orange);font-weight:700;}
+.panel .hl2{color:var(--blue);}
+/* title + cando + index */
+.slide.title,.slide.cando{background:var(--navy);color:#fff;justify-content:center;padding:0 70px;}
+.slide.index{background:#fff;color:var(--ink);justify-content:flex-start;}
+.slide.title .kick{color:var(--orange);font-weight:700;font-size:26px;}
+.slide.title h1{font-size:88px;margin:14px 0;}
+.slide.title .sub{font-size:32px;color:#CADCFC;}
+.slide.title .meta{font-size:22px;color:#9FB0C4;margin-top:16px;}
+.slide.title .hint{position:absolute;bottom:34px;left:70px;color:#6b7d92;font-size:17px;}
+.slide.title::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:14px;background:var(--orange);}
+.slide.cando{padding-left:70px;}
+.slide.cando .kick{color:var(--orange);font-weight:700;font-size:20px;letter-spacing:.1em;}
+.slide.cando .cdh{font-size:52px;margin:16px 0 34px;}
+.cdlist{list-style:none;display:flex;flex-direction:column;gap:26px;}
+.cdlist li{display:flex;align-items:center;gap:22px;font-size:24px;white-space:nowrap;}
+.cdlist .box{width:38px;height:38px;border:2px solid var(--orange);border-radius:5px;background:#fff;flex:none;}
+.slide.cando .bye{position:absolute;bottom:40px;color:#CADCFC;font-style:italic;font-size:22px;}
+/* index */
+.idxbody{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;overflow-y:auto;}
+.idxgroup h4{color:var(--blue);font-size:21px;margin-bottom:8px;border-bottom:2px solid var(--light);padding-bottom:4px;}
+.idxrows{display:flex;flex-direction:column;gap:8px;}
+.idxrows .audio{padding:7px 12px;}
+.idxrows .alabel{font-size:17px;}
+.idxrows audio{height:30px;}
+/* nav */
+#nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;background:rgba(20,30,46,.85);color:#fff;padding:8px 16px;border-radius:30px;font-size:14px;z-index:10;}
+#nav button{background:var(--orange);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer;}
+#nav button:disabled{opacity:.35;cursor:default;}
+#count{min-width:54px;text-align:center;font-variant-numeric:tabular-nums;}
+#bar{position:fixed;top:0;left:0;height:4px;background:var(--orange);z-index:11;transition:width .25s;}
+</style></head>
+<body>
+<div id="bar"></div>
+<div id="stage"><div class="deck">
+<section class="slide title">
+  <div class="rail"></div>
+  <p class="kick">まるごと <ruby>初中級<rt>しょちゅうきゅう</rt></ruby>  (A2/B1)</p>
+  <h1>トピック8「<ruby>旅行中<rt>りょこうちゅう</rt></ruby>のトラブル」</h1>
+  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 8: Problems When Travelling</p>
+  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.96–101 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 145–156</p>
+  <p class="hint">← / → でスライドを移動 &nbsp;|&nbsp; arrow keys to move</p>
+</section>
+<section class="slide">
+  <header><span class="tag">ウォームアップ / WARM-UP</span><h2><ruby>話<rt>はな</rt></ruby>してみましょう</h2></header>
+  <div class="body">
+    <ol class="big">
+      <li><ruby>空港<rt>くうこう</rt></ruby>でトラブルにあったことがありますか。<span class="en">Ever had trouble at an airport?</span></li>
+      <li><ruby>旅行中<rt>りょこうちゅう</rt></ruby>、どんなトラブルがありますか。<span class="en">What can go wrong when travelling?</span></li>
+      <li>アナウンスがわからなかったとき、どうしますか。<span class="en">What do you do if you don't understand an announcement?</span></li>
+    </ol>
+    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. <ruby>空港<rt>くうこう</rt></ruby>の<ruby>中<rt>なか</rt></ruby> <span class="gl">（じゅんび①・p.96）</span></h2></header>
+  <div class="body">
+    <p class="lead">つぎのとき、どこに<ruby>行<rt>い</rt></ruby>きますか。</p>
+    <ol class="drill">
+      <li><ruby>忘<rt>わす</rt></ruby>れ<ruby>物<rt>もの</rt></ruby>を<ruby>受<rt>う</rt></ruby>けとります。（<span class="pre">d</span>）</li>
+      <li><ruby>飛行機<rt>ひこうき</rt></ruby>に<ruby>乗<rt>の</rt></ruby>る<ruby>手続<rt>てつづ</rt></ruby>きをします。（　　）</li>
+      <li><ruby>到着<rt>とうちゃく</rt></ruby>してから、<ruby>荷物<rt>にもつ</rt></ruby>を<ruby>受<rt>う</rt></ruby>けとります。（　　）</li>
+      <li><ruby>飛行機<rt>ひこうき</rt></ruby>の<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>はい</rt></ruby>ります。（　　）</li>
+    </ol>
+    <div class="bank sm2" style="font-size:19px;">a チェックインカウンター　b <ruby>搭乗<rt>とうじょう</rt></ruby>ゲート　c ターンテーブル（<ruby>荷物<rt>にもつ</rt></ruby>）　d おわすれものセンター</div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. <ruby>空港<rt>くうこう</rt></ruby>のアナウンス <span class="gl">（じゅんび②・p.97）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <ol class="drill sm" style="font-size:22px;gap:8px;">
+      <li>JF<ruby>航空<rt>こうくう</rt></ruby>115<ruby>便<rt>びん</rt></ruby>を（<span class="pre">① f ご<ruby>利用<rt>りよう</rt></ruby></span>）のお<ruby>客様<rt>きゃくさま</rt></ruby>にお<ruby>知<rt>し</rt></ruby>らせします。</li>
+      <li>JF<ruby>航空<rt>こうくう</rt></ruby>パリ（②　　　）115<ruby>便<rt>びん</rt></ruby>は、キャンセルになりました。</li>
+      <li>105<ruby>便<rt>びん</rt></ruby>は、（③　　　）20<ruby>分<rt>ぷん</rt></ruby>ほどで、チェックインの<ruby>手続<rt>てつづ</rt></ruby>きをかいしします。</li>
+      <li>205<ruby>便<rt>びん</rt></ruby>は、1<ruby>時間<rt>じかん</rt></ruby>おくれて<ruby>出発<rt>しゅっぱつ</rt></ruby>します。<ruby>午後<rt>ごご</rt></ruby>2<ruby>時<rt>じ</rt></ruby>30<ruby>分<rt>ぷん</rt></ruby>になる（④　　　）です。</li>
+      <li>305<ruby>便<rt>びん</rt></ruby>は、<ruby>出発<rt>しゅっぱつ</rt></ruby>ゲートが（⑤　　　）になりました。</li>
+      <li>115<ruby>便<rt>びん</rt></ruby>は、エンジンの（⑥　　　）のため、キャンセルになりました。</li>
+    </ol>
+    <div class="bank sm2" style="font-size:19px;">a あと　b こしょう　c <ruby>行<rt>ゆ</rt></ruby>き　d <ruby>予定<rt>よてい</rt></ruby>　e <ruby>変更<rt>へんこう</rt></ruby>　f ご<ruby>利用<rt>りよう</rt></ruby>　　<span class="gl">＊20分ほど＝ぐらい／かいしする = to start</span></div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 145 ことばのかくにん</span><span class="asub">聞いて、答えをチェックしましょう</span></div><audio controls preload="none" src="145_8_1_2.mp3"></audio></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>C. かんけいを<ruby>考<rt>かんが</rt></ruby>えて、ことばを<ruby>選<rt>えら</rt></ruby>びましょう <span class="gl">（じゅんび③・p.97）</span></h2></header>
+  <div class="body">
+    <div class="map" style="flex:0 0 auto;margin-top:20px;">
+      <div class="root">トラブル</div>
+      <div class="rows">
+        <div class="row"><span class="mbox"><ruby>飛行機<rt>ひこうき</rt></ruby></span><span class="marr">が →</span><span class="mbox blank"><span class="pre">① a おくれる</span></span><span class="mbox">キャンセルになる</span><span class="mbox">こしょうする</span><span class="mbox">とばない</span></div>
+        <div class="row"><span class="mbox blank">②（　　　　）</span>／<span class="mbox"><ruby>出発<rt>しゅっぱつ</rt></ruby>ゲート</span><span class="marr">が →</span><span class="mbox"><ruby>変更<rt>へんこう</rt></ruby>になる</span></div>
+        <div class="row"><span class="mbox">パスポート</span>／<span class="mbox"><ruby>荷物<rt>にもつ</rt></ruby></span>／<span class="mbox blank">③（　　　　）</span><span class="marr">を →</span><span class="mbox"><ruby>忘<rt>わす</rt></ruby>れる</span><span class="mbox blank">④（　　　　）</span></div>
+      </div>
+    </div>
+    <div class="bank sm2">a おくれる　　b スーツケース　　c まちがえる　　d <ruby>到着時間<rt>とうちゃくじかん</rt></ruby></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">2. きく / LISTENING</span><h2>A. <ruby>今<rt>いま</rt></ruby>のアナウンス、<ruby>何<rt>なん</rt></ruby>て<ruby>言<rt>い</rt></ruby>ってましたか <span class="gl">（2-①・p.98）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <p class="lead"><ruby>空港<rt>くうこう</rt></ruby>にいる<ruby>人<rt>ひと</rt></ruby>たちが<ruby>日本語<rt>にほんご</rt></ruby>のアナウンスを<ruby>聞<rt>き</rt></ruby>いて<ruby>話<rt>はな</rt></ruby>しています。</p>
+    <ul class="qs sm" style="font-size:20px;">
+      <li>(1) どんなアナウンスでしたか。　(2) もう<ruby>一度聞<rt>いちどき</rt></ruby>いて、ことばを<ruby>書<rt>か</rt></ruby>きましょう。（♪151–154・<ruby>教科書<rt>きょうかしょ</rt></ruby> p.98）</li>
+    </ul>
+    <table class="tbl">
+      <tr><th class="rowlab"></th><th class="conv">① ♪147（例）</th><th class="conv">② ♪148</th><th class="conv">③ ♪149</th><th class="conv">④ ♪150</th></tr>
+      <tr><td class="rowlab">(1)</td><td class="ans">c</td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+    </table>
+    <div class="bank sm2" style="font-size:19px;">a <ruby>出発時間<rt>しゅっぱつじかん</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる　b ゲートが<ruby>変更<rt>へんこう</rt></ruby>になる　c チェックインが<ruby>始<rt>はじ</rt></ruby>まる　d <ruby>飛行機<rt>ひこうき</rt></ruby>がとばない</div>
+    <div class="arow"><div class="audio"><div class="ahead"><span class="alabel">♪ 147 会話①</span></div><audio controls preload="none" src="147_8_2_1%281%29%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 148 会話②</span></div><audio controls preload="none" src="148_8_2_1%281%29%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 149 会話③</span></div><audio controls preload="none" src="149_8_2_1%281%29%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 150 会話④</span></div><audio controls preload="none" src="150_8_2_1%281%29%5B4%5D.mp3"></audio></div></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">2. きく / LISTENING</span><h2>B. あった、あった <span class="gl">（3-①・p.100）</span></h2></header>
+  <div class="body" style="gap:9px;">
+    <p class="lead"><ruby>石川<rt>いしかわ</rt></ruby>さんは<ruby>帰国<rt>きこく</rt></ruby>するので、<ruby>見送<rt>みおく</rt></ruby>りのタイラーさんと<ruby>空港<rt>くうこう</rt></ruby>に<ruby>来<rt>き</rt></ruby>ました。（　）に<ruby>入<rt>はい</rt></ruby>る<ruby>文<rt>ぶん</rt></ruby>を<ruby>選<rt>えら</rt></ruby>びましょう。</p>
+    <div class="bank sm2" style="font-size:18px;">a とりに<ruby>行<rt>い</rt></ruby>きましょう　b どうでしたか　c どうしたんですか　d よく<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>してください</div>
+    <div class="dlg" style="column-count:2;column-gap:28px;font-size:16.5px;">
+      <p><span class="sp">石川</span>：あ、しまった！</p>
+      <p><span class="sp">タイラー</span>：（<span class="blank">① c どうしたんですか</span>）。</p>
+      <p><span class="sp">石川</span>：どうしよう！ かばんが1つない。どこかに<ruby>忘<rt>わす</rt></ruby>れたかな。</p>
+      <p><span class="sp">タイラー</span>：どこに？（<span class="blank">②　　　　　　</span>）。</p>
+      <p><span class="sp">石川</span>：ええと、チェックインしたときは、あった。チェックインした<ruby>後<rt>あと</rt></ruby>で、カフェでお<ruby>茶<rt>ちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んだ。お<ruby>金<rt>かね</rt></ruby>をはらうときも、あった。それからトイレに<ruby>入<rt>はい</rt></ruby>った。あ、<ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>うとき、そばにおいて、そのあと？ わかった、たぶんトイレです。</p>
+      <p><span class="sp">タイラー</span>：（<span class="blank">③　　　　　　</span>）。</p>
+      <p><span class="sp">石川</span>：あるかなあ。</p>
+      <p><span class="sp">タイラー</span>：あるかもしれませんよ。とにかく<ruby>行<rt>い</rt></ruby>ってみましょう。</p>
+      <p><span class="sp">タイラー</span>：（<span class="blank">④　　　　　　</span>）。</p>
+      <p><span class="sp">石川</span>：あった、あった。ありました。よかった！</p>
+      <p><span class="sp">タイラー</span>：よかったですね。さあ、<ruby>行<rt>い</rt></ruby>きましょう。</p>
+    </div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 155 空港の会話</span><span class="asub">ヒント：「Vた後で」「とにかく」</span></div><audio controls preload="none" src="155_8_3_1_kaiwa.mp3"></audio></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. 「〜そうです」（<ruby>伝聞<rt>でんぶん</rt></ruby>） <span class="gl">（2-②・p.99）</span></h2></header>
+  <div class="body">
+    <div class="exbox"><span class="ex">例)</span> A：<ruby>今<rt>いま</rt></ruby>のアナウンス、<ruby>何<rt>なん</rt></ruby>て<ruby>言<rt>い</rt></ruby>って(い)ましたか。　B：もうすぐ<ruby>飛行機<rt>ひこうき</rt></ruby>に<ruby>乗<rt>の</rt></ruby>る<u>そうです</u>。</div>
+    <ol class="drill sm">
+      <li>あと20<ruby>分<rt>ぷん</rt></ruby>ほどで、<ruby>手続<rt>てつづ</rt></ruby>きが（<ruby>始<rt>はじ</rt></ruby>まります → <span class="pre">はじまるそうです</span>）。</li>
+      <li><ruby>飛行機<rt>ひこうき</rt></ruby>の<ruby>出発<rt>しゅっぱつ</rt></ruby>が1<ruby>時間<rt>じかん</rt></ruby>（おくれます →　　　　　　）。</li>
+      <li><ruby>出発<rt>しゅっぱつ</rt></ruby>ゲートが（<ruby>変<rt>か</rt></ruby>わりました →　　　　　　）。</li>
+      <li><ruby>今日<rt>きょう</rt></ruby>は<ruby>天気<rt>てんき</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>くて、<ruby>飛行機<rt>ひこうき</rt></ruby>が（とびません →　　　　　　）。</li>
+    </ol>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. トラブルのときのことば <span class="gl">（4・p.101）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <p class="lead">いろいろなトラブルのとき、<ruby>日本語<rt>にほんご</rt></ruby>でどう<ruby>言<rt>い</rt></ruby>いますか。</p>
+    <ol class="drill sm">
+      <li><ruby>空港<rt>くうこう</rt></ruby>で<ruby>人<rt>ひと</rt></ruby>がたおれた（<span class="pre">b</span>）</li>
+      <li>どろぼうにかばんをとられた（　　）</li>
+      <li>ホテルが<ruby>火事<rt>かじ</rt></ruby>になった（　　）</li>
+      <li>こんでいる<ruby>電車<rt>でんしゃ</rt></ruby>でおりたい（　　）</li>
+      <li><ruby>川<rt>かわ</rt></ruby>でおぼれている<ruby>人<rt>ひと</rt></ruby>がいる（　　）</li>
+    </ol>
+    <div class="bank sm2" style="font-size:18px;">a <ruby>助<rt>たす</rt></ruby>けて！／<ruby>助<rt>たす</rt></ruby>けてくれ！　b すみません、だれか！　c どろぼう！　d <ruby>火事<rt>かじ</rt></ruby>だ、にげろ！／<ruby>火事<rt>かじ</rt></ruby>です、にげてください！　e すみません、おります！</div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 156 トラブルのときのことば</span></div><audio controls preload="none" src="156_8_4_1.mp3"></audio></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">4. はなす / SPEAKING</span><h2>ロールプレイ ＆ <ruby>練習<rt>れんしゅう</rt></ruby></h2></header>
+  <div class="body two">
+    <div class="panel blue">
+      <h3>A. アナウンス、<ruby>何<rt>なん</rt></ruby>て<ruby>言<rt>い</rt></ruby>ってましたか</h3>
+      <p>A: すみません。あのう、<ruby>同<rt>おな</rt></ruby>じフライトですか。</p>
+      <p>B: はい。</p>
+      <p>A: <ruby>今<rt>いま</rt></ruby>のアナウンス、<ruby>何<rt>なん</rt></ruby>て<ruby>言<rt>い</rt></ruby>ってましたか。</p>
+      <p>B: もうすぐ<ruby>乗<rt>の</rt></ruby>れるそうです。あと20<ruby>分<rt>ぷん</rt></ruby>ほどで、<ruby>手続<rt>てつづ</rt></ruby>きが<ruby>始<rt>はじ</rt></ruby>まるそうです。</p>
+      <p>A: そうですか。ありがとうございました。</p>
+    </div>
+    <div class="panel orange">
+      <h3>B. <ruby>忘<rt>わす</rt></ruby>れ<ruby>物<rt>もの</rt></ruby>！</h3>
+      <ul>
+        <li>「あ、しまった！」「どうしたんですか。」</li>
+        <li>どこで<ruby>何<rt>なに</rt></ruby>をしていたか、<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>して<ruby>言<rt>い</rt></ruby>いましょう。（〜したときは、あった。〜した<ruby>後<rt>あと</rt></ruby>で、…）</li>
+        <li>ペアで、ことばや<ruby>文<rt>ぶん</rt></ruby>をかえて<ruby>練習<rt>れんしゅう</rt></ruby>しましょう。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="slide cando">
+  <div class="rail"></div>
+  <p class="kick">ふりかえり / CAN-DO CHECK</p>
+  <h2 class="cdh">できるようになりましたか？</h2>
+  <ul class="cdlist"><li><span class="box"></span><ruby>空港<rt>くうこう</rt></ruby>でアナウンスがわからないときに、ほかの<ruby>人<rt>ひと</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたり<ruby>答<rt>こた</rt></ruby>えたりできる。</li><li><span class="box"></span><ruby>自分<rt>じぶん</rt></ruby>がどこで<ruby>何<rt>なに</rt></ruby>をしていたか、<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>して<ruby>言<rt>い</rt></ruby>える。／<ruby>忘<rt>わす</rt></ruby>れ<ruby>物<rt>もの</rt></ruby>をした<ruby>友<rt>とも</rt></ruby>だちを<ruby>助<rt>たす</rt></ruby>けられる。</li><li><span class="box"></span>だれかに<ruby>助<rt>たす</rt></ruby>けをもとめることができる。</li></ul>
+  <p class="bye">おつかれさまでした！</p>
+</section>
+<section class="slide index">
+  <header><span class="tag">♪ おんせい / AUDIO</span><h2><ruby>音声<rt>おんせい</rt></ruby>リンク集</h2></header>
+  <div class="body idxbody"><div class="idxgroup"><h4>じゅんび / Preparation</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 145 ことば</span></div><audio controls preload="none" src="145_8_1_2.mp3"></audio></div></div></div><div class="idxgroup"><h4>アナウンス (8-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 147 会話①</span></div><audio controls preload="none" src="147_8_2_1%281%29%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 148 会話②</span></div><audio controls preload="none" src="148_8_2_1%281%29%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 149 会話③</span></div><audio controls preload="none" src="149_8_2_1%281%29%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 150 会話④</span></div><audio controls preload="none" src="150_8_2_1%281%29%5B4%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 151–154 アナウンス</span></div><audio controls preload="none" src="151_8_2_1%282%29%5B1%5D.mp3"></audio></div></div></div><div class="idxgroup"><h4>あった、あった (8-3/8-4)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 155 会話</span></div><audio controls preload="none" src="155_8_3_1_kaiwa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 156 トラブルのことば</span></div><audio controls preload="none" src="156_8_4_1.mp3"></audio></div></div></div></div>
+</section>
+</div></div>
+<div id="nav"><button id="prev">‹</button><span id="count"></span><button id="next">›</button></div>
+<script>
+const deck=document.querySelector('.deck');
+function fit(){const s=Math.min(window.innerWidth/1280,window.innerHeight/720);document.documentElement.style.setProperty('--s',s);}
+window.addEventListener('resize',fit);fit();
+const slides=[...document.querySelectorAll('.slide')];let i=0;const N=slides.length;
+const count=document.getElementById('count'),bar=document.getElementById('bar');
+const prev=document.getElementById('prev'),next=document.getElementById('next');
+function show(n){i=Math.max(0,Math.min(N-1,n));slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+count.textContent=(i+1)+' / '+N;bar.style.width=((i+1)/N*100)+'%';prev.disabled=i===0;next.disabled=i===N-1;}
+prev.onclick=()=>show(i-1);next.onclick=()=>show(i+1);
+document.addEventListener('keydown',e=>{
+  const t=document.activeElement;const isMedia=t&&t.tagName==='AUDIO';
+  if(e.key==='ArrowRight'||e.key==='PageDown'){show(i+1);}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1);}
+  else if(e.key===' '&&!isMedia){e.preventDefault();show(i+1);}
+  else if(e.key==='Home'){show(0);}else if(e.key==='End'){show(N-1);}
+  else if(e.key==='f'){const d=document.documentElement;if(!document.fullscreenElement)d.requestFullscreen&&d.requestFullscreen();else document.exitFullscreen();}
+});
+show(0);
+</script>
+</body></html>

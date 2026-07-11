@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>まるごと トピック9 仕事をさがす — エクスプレス練習</title>
+<style>
+:root{--navy:#1A2B49;--blue:#1F6FB2;--orange:#F08A24;--light:#F2F6FA;--ink:#23303F;--grey:#7A8794;--s:1;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0d1622;font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);}
+ruby{ruby-align:center;}
+ruby rt{font-size:.45em;font-weight:400;line-height:1;letter-spacing:-.05em;}
+#stage{position:fixed;inset:0;overflow:hidden;}
+/* fixed 1280x720 stage scaled by JS -> works on every browser */
+.deck{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform:translate(-50%,-50%) scale(var(--s));transform-origin:center center;background:#fff;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.5);}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .25s;display:flex;flex-direction:column;}
+.slide.active{opacity:1;visibility:visible;}
+.rail{position:absolute;left:0;top:0;width:20px;height:100%;background:var(--orange);}
+header{background:var(--navy);padding:16px 40px 16px 54px;}
+header .tag{color:var(--orange);font-weight:700;font-size:18px;letter-spacing:.12em;}
+header h2{color:#fff;font-size:40px;margin-top:4px;}
+.body{flex:1;padding:26px 52px 18px 54px;display:flex;flex-direction:column;gap:14px;overflow:hidden;}
+.body.two{flex-direction:row;gap:36px;}
+.col{flex:1;display:flex;flex-direction:column;gap:12px;}
+.note{color:var(--blue);font-size:21px;margin-top:auto;}
+.en{display:block;color:var(--grey);font-style:italic;font-size:16px;margin-top:2px;}
+.gl{color:var(--grey);font-size:.78em;}
+ol.big{list-style:none;display:flex;flex-direction:column;gap:22px;counter-reset:b;}
+ol.big li{counter-increment:b;font-size:33px;font-weight:700;color:var(--ink);padding-left:62px;position:relative;}
+ol.big li::before{content:counter(b);position:absolute;left:0;top:-2px;width:46px;height:46px;background:var(--blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:16px 10px;text-align:center;display:flex;flex-direction:column;gap:4px;}
+.card .jp{font-size:33px;font-weight:700;color:var(--navy);}
+.card .gl{font-size:16px;color:var(--grey);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;}
+.card.sm{display:block;font-size:24px;font-weight:700;color:var(--navy);text-align:left;border:none;padding:18px;white-space:nowrap;}
+.bank{background:var(--navy);color:#fff;border-radius:9px;padding:14px 22px;text-align:center;font-size:24px;}
+ol.drill{list-style:none;display:flex;flex-direction:column;gap:13px;font-size:27px;}
+ul.qs{list-style:none;display:flex;flex-direction:column;gap:16px;font-size:27px;}
+ul.qs.spaced{gap:30px;}
+ul.opts{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:24px;padding-left:42px;margin-top:4px;}
+.lead{color:var(--blue);font-weight:700;font-size:25px;}
+.exbox{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:20px 22px;font-size:27px;color:var(--navy);line-height:1.5;}
+.exbox .ex{color:var(--orange);font-weight:700;}
+.arr{color:var(--grey);padding:0 6px;}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:8px 0;}
+.slot{background:var(--light);border:1.5px solid var(--orange);border-radius:10px;height:64px;display:flex;align-items:center;padding-left:18px;font-size:38px;color:var(--orange);font-weight:700;}
+/* textbook-faithful blocks */
+.pre{color:var(--orange);font-weight:700;}
+.bank.sm2{font-size:20px;padding:10px 16px;line-height:1.7;}
+ol.drill.sm{font-size:24px;gap:10px;}
+ul.qs.sm{font-size:22px;gap:8px;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;}
+.tbl th,.tbl td{border:1.5px solid var(--blue);padding:3px 4px;text-align:center;font-size:18px;color:var(--navy);}
+.tbl th{background:var(--light);font-weight:700;}
+.tbl th.conv{background:var(--blue);color:#fff;font-size:16px;}
+.tbl td.ans{height:38px;font-size:21px;color:var(--orange);font-weight:700;}
+.tbl .rowlab{background:var(--light);font-weight:700;white-space:nowrap;font-size:17px;text-align:left;padding:3px 8px;}
+.map{flex:1;display:flex;gap:22px;align-items:center;}
+.map .root{background:var(--navy);color:#fff;font-size:30px;font-weight:700;border-radius:10px;padding:26px 14px;flex:none;}
+.map .rows{flex:1;display:flex;flex-direction:column;gap:12px;}
+.map .row{display:flex;align-items:center;gap:10px;font-size:21px;}
+.mbox{background:#fff;border:1.5px solid var(--blue);border-radius:8px;padding:5px 14px;color:var(--navy);font-weight:700;text-align:center;}
+.mbox.blank{border-color:var(--orange);color:var(--orange);min-width:150px;}
+.marr{color:var(--grey);font-size:22px;}
+.mcol{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.arow{display:flex;gap:10px;}
+.arow .audio{flex:1;padding:6px 10px;}
+.arow .alabel{font-size:16px;}
+.arow audio{height:28px;}
+.dlg{background:var(--light);border:1px solid var(--blue);border-radius:10px;padding:10px 18px;font-size:19px;line-height:1.55;color:var(--ink);}
+.dlg p{margin:3px 0;break-inside:avoid;}
+.dlg .sp{color:var(--blue);font-weight:700;}
+.dlg .blank{color:var(--orange);font-weight:700;}
+/* audio */
+.audio{background:var(--light);border-left:6px solid var(--orange);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:6px;}
+.audio .ahead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+.audio .alabel{font-weight:700;color:var(--navy);font-size:22px;}
+.audio .asub{color:var(--grey);font-size:16px;}
+.audio audio{width:100%;height:34px;}
+.audio.missing{color:#b23a2e;font-size:18px;}
+.audios{gap:12px;justify-content:center;}
+/* panels */
+.panel{flex:1;background:var(--light);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;}
+.panel h3{color:#fff;padding:14px 18px;font-size:24px;}
+.panel.blue h3{background:var(--blue);}
+.panel.orange h3{background:var(--orange);}
+.panel p,.panel ul{padding:0 18px;font-size:22px;margin:12px 0;line-height:1.55;}
+.panel ul{padding-left:40px;display:flex;flex-direction:column;gap:10px;}
+.panel .hl{color:var(--orange);font-weight:700;}
+.panel .hl2{color:var(--blue);}
+/* title + cando + index */
+.slide.title,.slide.cando{background:var(--navy);color:#fff;justify-content:center;padding:0 70px;}
+.slide.index{background:#fff;color:var(--ink);justify-content:flex-start;}
+.slide.title .kick{color:var(--orange);font-weight:700;font-size:26px;}
+.slide.title h1{font-size:88px;margin:14px 0;}
+.slide.title .sub{font-size:32px;color:#CADCFC;}
+.slide.title .meta{font-size:22px;color:#9FB0C4;margin-top:16px;}
+.slide.title .hint{position:absolute;bottom:34px;left:70px;color:#6b7d92;font-size:17px;}
+.slide.title::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:14px;background:var(--orange);}
+.slide.cando{padding-left:70px;}
+.slide.cando .kick{color:var(--orange);font-weight:700;font-size:20px;letter-spacing:.1em;}
+.slide.cando .cdh{font-size:52px;margin:16px 0 34px;}
+.cdlist{list-style:none;display:flex;flex-direction:column;gap:26px;}
+.cdlist li{display:flex;align-items:center;gap:22px;font-size:24px;white-space:nowrap;}
+.cdlist .box{width:38px;height:38px;border:2px solid var(--orange);border-radius:5px;background:#fff;flex:none;}
+.slide.cando .bye{position:absolute;bottom:40px;color:#CADCFC;font-style:italic;font-size:22px;}
+/* index */
+.idxbody{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;overflow-y:auto;}
+.idxgroup h4{color:var(--blue);font-size:21px;margin-bottom:8px;border-bottom:2px solid var(--light);padding-bottom:4px;}
+.idxrows{display:flex;flex-direction:column;gap:8px;}
+.idxrows .audio{padding:7px 12px;}
+.idxrows .alabel{font-size:17px;}
+.idxrows audio{height:30px;}
+/* nav */
+#nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;background:rgba(20,30,46,.85);color:#fff;padding:8px 16px;border-radius:30px;font-size:14px;z-index:10;}
+#nav button{background:var(--orange);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer;}
+#nav button:disabled{opacity:.35;cursor:default;}
+#count{min-width:54px;text-align:center;font-variant-numeric:tabular-nums;}
+#bar{position:fixed;top:0;left:0;height:4px;background:var(--orange);z-index:11;transition:width .25s;}
+</style></head>
+<body>
+<div id="bar"></div>
+<div id="stage"><div class="deck">
+<section class="slide title">
+  <div class="rail"></div>
+  <p class="kick">まるごと <ruby>初中級<rt>しょちゅうきゅう</rt></ruby>  (A2/B1)</p>
+  <h1>トピック9「<ruby>仕事<rt>しごと</rt></ruby>をさがす」</h1>
+  <p class="sub">エクスプレス<ruby>練習<rt>れんしゅう</rt></ruby> &nbsp;·&nbsp; Express Practice — Topic 9: Looking for a Job</p>
+  <p class="meta"><ruby>教科書<rt>きょうかしょ</rt></ruby> pp.106–111 &nbsp;·&nbsp; <ruby>音声<rt>おんせい</rt></ruby> 171–181</p>
+  <p class="hint">← / → でスライドを移動 &nbsp;|&nbsp; arrow keys to move</p>
+</section>
+<section class="slide">
+  <header><span class="tag">ウォームアップ / WARM-UP</span><h2><ruby>話<rt>はな</rt></ruby>してみましょう</h2></header>
+  <div class="body">
+    <ol class="big">
+      <li>あなたはどんな<ruby>会社<rt>かいしゃ</rt></ruby>・ところで<ruby>働<rt>はたら</rt></ruby>いていますか。<span class="en">Where do you work (or want to work)?</span></li>
+      <li>どんな<ruby>職場<rt>しょくば</rt></ruby>がいいですか。<span class="en">What kind of workplace is good?</span></li>
+      <li><ruby>会社<rt>かいしゃ</rt></ruby>の<ruby>受付<rt>うけつけ</rt></ruby>で、<ruby>何<rt>なん</rt></ruby>と<ruby>言<rt>い</rt></ruby>いますか。<span class="en">What do you say at a company reception desk?</span></li>
+    </ol>
+    <p class="note">ペアで<ruby>話<rt>はな</rt></ruby>しましょう。 (Talk with a partner, ~2 min)</p>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>A. いろいろな<ruby>会社<rt>かいしゃ</rt></ruby> <span class="gl">（じゅんび①・p.106）</span></h2></header>
+  <div class="body">
+    <p class="lead">①〜⑤は、どんな<ruby>会社<rt>かいしゃ</rt></ruby>ですか。</p>
+    <ol class="drill sm">
+      <li>（<span class="pre">b きかい</span>）をつくっています。</li>
+      <li>（　　　　　）<ruby>関係<rt>かんけい</rt></ruby>の<ruby>会社<rt>かいしゃ</rt></ruby>です。</li>
+      <li>（　　　　　）<ruby>会社<rt>がいしゃ</rt></ruby>です。</li>
+      <li>（　　　　　）を<ruby>輸出<rt>ゆしゅつ</rt></ruby>したり、<ruby>輸入<rt>ゆにゅう</rt></ruby>したりしています。</li>
+      <li>（　　　　　）<ruby>関係<rt>かんけい</rt></ruby>の<ruby>会社<rt>かいしゃ</rt></ruby>です。</li>
+    </ol>
+    <div class="bank sm2">a しょくひん　　b きかい　　c きんゆう　　d けんせつ　　e ぶつりゅう</div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 172 かくにん</span><span class="asub">聞いて、答えをチェックしましょう（ことば：♪171）</span></div><audio controls preload="none" src="172_9_1_1.mp3"></audio></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>B. <ruby>正<rt>ただ</rt></ruby>しいことばを<ruby>選<rt>えら</rt></ruby>びましょう <span class="gl">（じゅんび③・p.107）</span></h2></header>
+  <div class="body">
+    <ol class="drill sm">
+      <li><ruby>会議<rt>かいぎ</rt></ruby>が<ruby>終<rt>お</rt></ruby>わって、<ruby>話<rt>はな</rt></ruby>し<ruby>合<rt>あ</rt></ruby>ったことをじょうしに（<span class="pre">① c ほうこく</span>）しました。</li>
+      <li>「かぜをひいたので、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みます」と、<ruby>会社<rt>かいしゃ</rt></ruby>に（②　　　　）しました。</li>
+      <li>いつつぎの<ruby>会議<rt>かいぎ</rt></ruby>をするか、じょうしに（③　　　　）して<ruby>決<rt>き</rt></ruby>めます。</li>
+      <li>うちの<ruby>会社<rt>かいしゃ</rt></ruby>は<ruby>今<rt>いま</rt></ruby>、ひしょを（④　　　　）しています。</li>
+      <li><ruby>私<rt>わたし</rt></ruby>は<ruby>会社<rt>かいしゃ</rt></ruby>で<ruby>食品<rt>しょくひん</rt></ruby>の<ruby>輸入<rt>ゆにゅう</rt></ruby>を（⑤　　　　）しています。</li>
+    </ol>
+    <div class="bank sm2">a そうだん　　b たんとう　　c ほうこく　　d ぼしゅう　　e れんらく</div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 173 ことばのかくにん</span><span class="asub">聞いて、答えをチェックしましょう</span></div><audio controls preload="none" src="173_9_1_3.mp3"></audio></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">1. ことば / VOCABULARY</span><h2>C. どんな<ruby>職場<rt>しょくば</rt></ruby>がいいですか <span class="gl">（じゅんび②・p.107）</span></h2></header>
+  <div class="body" style="gap:12px;">
+    <div class="exbox"><span class="ex">例)</span> （<b><ruby>休<rt>やす</rt></ruby>み</b>）が（<b><ruby>多<rt>おお</rt></ruby>い</b>）<ruby>職場<rt>しょくば</rt></ruby></div>
+    <p class="lead">（ア）と（イ）のことばを<ruby>使<rt>つか</rt></ruby>って、<ruby>文<rt>ぶん</rt></ruby>を5つ<ruby>作<rt>つく</rt></ruby>りましょう。</p>
+    <div class="bank sm2" style="font-size:19px;">（ア）　a <ruby>仕事<rt>しごと</rt></ruby>　b <ruby>休<rt>やす</rt></ruby>み　c <ruby>人間関係<rt>にんげんかんけい</rt></ruby>　d じょうし　e <ruby>給料<rt>きゅうりょう</rt></ruby>　f ざんぎょう　g <ruby>社員<rt>しゃいん</rt></ruby>　h ふんいき</div>
+    <div class="bank sm2" style="font-size:19px;">（イ）　i いい　j <ruby>高<rt>たか</rt></ruby>い　k <ruby>少<rt>すく</rt></ruby>ない　l <ruby>明<rt>あか</rt></ruby>るい　m おもしろい　n <ruby>多<rt>おお</rt></ruby>い　o しんらいできる　p よく<ruby>協力<rt>きょうりょく</rt></ruby>する</div>
+    <div class="slots"><div class="slot" style="font-size:24px;">（　　）が（　　）</div><div class="slot" style="font-size:24px;">（　　）が（　　）</div><div class="slot" style="font-size:24px;">（　　）が（　　）</div><div class="slot" style="font-size:24px;">（　　）が（　　）</div></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">2. きく / LISTENING</span><h2>A. <ruby>少々<rt>しょうしょう</rt></ruby>お<ruby>待<rt>ま</rt></ruby>ちください <span class="gl">（2-①・p.108）</span></h2></header>
+  <div class="body" style="gap:10px;">
+    <p class="lead">カーラさんは、<ruby>留学<rt>りゅうがく</rt></ruby>が<ruby>終<rt>お</rt></ruby>わったら、<ruby>日本<rt>にほん</rt></ruby>の<ruby>会社<rt>かいしゃ</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>きたいと<ruby>思<rt>おも</rt></ruby>っています。<ruby>友<rt>とも</rt></ruby>だちの<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>話<rt>はなし</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きに<ruby>来<rt>き</rt></ruby>ました。</p>
+    <ul class="qs sm" style="font-size:20px;">
+      <li>(1) カーラさんは、だれに<ruby>会<rt>あ</rt></ruby>いに<ruby>来<rt>き</rt></ruby>ましたか。　(2) その<ruby>人<rt>ひと</rt></ruby>は<ruby>今<rt>いま</rt></ruby>すぐ<ruby>来<rt>こ</rt></ruby>られますか。（はい ○、いいえ ×）　<span class="gl">＊ただいま＝今</span></li>
+    </ul>
+    <table class="tbl">
+      <tr><th class="rowlab"></th><th class="conv">① ♪175（例）</th><th class="conv">② ♪176</th><th class="conv">③ ♪177</th><th class="conv">④ ♪178</th></tr>
+      <tr><td class="rowlab">(1)</td><td class="ans">a</td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+      <tr><td class="rowlab">(2)</td><td class="ans">○</td><td class="ans"></td><td class="ans"></td><td class="ans"></td></tr>
+    </table>
+    <div class="bank sm2" style="font-size:19px;">a <ruby>中村<rt>なかむら</rt></ruby>さん　b パクさん　c <ruby>山田<rt>やまだ</rt></ruby>さん　d <ruby>木山<rt>きやま</rt></ruby>さん　e ワンさん</div>
+    <div class="arow"><div class="audio"><div class="ahead"><span class="alabel">♪ 175 会話①</span></div><audio controls preload="none" src="175_9_2_1%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 176 会話②</span></div><audio controls preload="none" src="176_9_2_1%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 177 会話③</span></div><audio controls preload="none" src="177_9_2_1%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 178 会話④</span></div><audio controls preload="none" src="178_9_2_1%5B4%5D.mp3"></audio></div></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">2. きく / LISTENING</span><h2>B. <ruby>働<rt>はたら</rt></ruby>きやすいですよ <span class="gl">（3-①・p.110）</span></h2></header>
+  <div class="body" style="gap:9px;">
+    <p class="lead">カーラさんはパクさんの<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>来<rt>き</rt></ruby>ています。（　）に<ruby>入<rt>はい</rt></ruby>ることばや<ruby>文<rt>ぶん</rt></ruby>を<ruby>選<rt>えら</rt></ruby>びましょう。</p>
+    <div class="bank sm2" style="font-size:18px;">a はじめに　b お<ruby>忙<rt>いそが</rt></ruby>しいところ　c <ruby>職場<rt>しょくば</rt></ruby>のふんいきはどうですか　d <ruby>大<rt>おお</rt></ruby>きな<ruby>会社<rt>かいしゃ</rt></ruby>なんですね</div>
+    <div class="dlg" style="column-count:2;column-gap:28px;font-size:16.5px;">
+      <p><span class="sp">カーラ</span>：パクさん、（<span class="blank">① b お忙しいところ</span>）、どうもすみません。</p>
+      <p><span class="sp">パク</span>：いいえ、だいじょうぶですよ。</p>
+      <p><span class="sp">カーラ</span>：（<span class="blank">②　　　　　　</span>）、パクさんの<ruby>会社<rt>かいしゃ</rt></ruby>のこと、<ruby>教<rt>おし</rt></ruby>えてもらえませんか。</p>
+      <p><span class="sp">パク</span>：いいですよ。うちの<ruby>会社<rt>かいしゃ</rt></ruby>は、いろいろな<ruby>機械<rt>きかい</rt></ruby>をつくって<ruby>輸出<rt>ゆしゅつ</rt></ruby>してます。<ruby>世界中<rt>せかいじゅう</rt></ruby>に<ruby>支社<rt>ししゃ</rt></ruby>があるんですよ。</p>
+      <p><span class="sp">カーラ</span>：（<span class="blank">③　　　　　　</span>）。パクさんは、どのぐらいこの<ruby>会社<rt>かいしゃ</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>いてるんですか。</p>
+      <p><span class="sp">パク</span>：<ruby>勤<rt>つと</rt></ruby>めてもう3<ruby>年<rt>ねん</rt></ruby>になります。</p>
+      <p><span class="sp">カーラ</span>：3<ruby>年<rt>ねん</rt></ruby>。<ruby>今<rt>いま</rt></ruby>のお<ruby>仕事<rt>しごと</rt></ruby>は？</p>
+      <p><span class="sp">パク</span>：ぼくは、おもにアジアの<ruby>支社<rt>ししゃ</rt></ruby>との<ruby>連絡<rt>れんらく</rt></ruby>を<ruby>担当<rt>たんとう</rt></ruby>してます。あと2、3<ruby>年<rt>ねん</rt></ruby>したら、<ruby>海外<rt>かいがい</rt></ruby>の<ruby>支社<rt>ししゃ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいと<ruby>思<rt>おも</rt></ruby>ってるんです。</p>
+      <p><span class="sp">カーラ</span>：へえ、いいですね。（<span class="blank">④　　　　　　</span>）。</p>
+      <p><span class="sp">パク</span>：とてもいいですよ。<ruby>人間関係<rt>にんげんかんけい</rt></ruby>がよくて、<ruby>上司<rt>じょうし</rt></ruby>が<ruby>信頼<rt>しんらい</rt></ruby>できる<ruby>人<rt>ひと</rt></ruby>なんです。だから、<ruby>働<rt>はたら</rt></ruby>きやすいですよ。</p>
+    </div>
+    <div class="audio"><div class="ahead"><span class="alabel">♪ 180 パクさんの会社で</span><span class="asub">＊教えてもらえませんか＝教えてくださいませんか</span></div><audio controls preload="none" src="180_9_3_1_kaiwa.mp3"></audio></div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>A. ていねいな<ruby>言<rt>い</rt></ruby>い<ruby>方<rt>かた</rt></ruby> <span class="gl">（2-②・p.108）</span></h2></header>
+  <div class="body" style="gap:11px;">
+    <p class="lead"><ruby>受付<rt>うけつけ</rt></ruby>のことばは、どんな<ruby>意味<rt>いみ</rt></ruby>だと<ruby>思<rt>おも</rt></ruby>いますか。</p>
+    <ol class="drill sm">
+      <li>もうしわけございません。／もうしわけありません。（<span class="pre">c</span>）</li>
+      <li>ただいまおよびします。（　　）</li>
+      <li><ruby>少々<rt>しょうしょう</rt></ruby>お<ruby>待<rt>ま</rt></ruby>ちください。（　　）</li>
+      <li>ただいままいります。（　　）</li>
+      <li><ruby>山田<rt>やまだ</rt></ruby>さん、いらっしゃいますか。（　　）</li>
+    </ol>
+    <div class="bank sm2" style="font-size:19px;">a <ruby>今<rt>いま</rt></ruby>、<ruby>来<rt>き</rt></ruby>ます。　b <ruby>今<rt>いま</rt></ruby>、よびます。　c すみません。　d <ruby>少<rt>すこ</rt></ruby>し<ruby>待<rt>ま</rt></ruby>ってください。　e <ruby>山田<rt>やまだ</rt></ruby>さん、いますか。</div>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">3. ぶんけい / GRAMMAR</span><h2>B. 「〜たら、〜と<ruby>思<rt>おも</rt></ruby>って(い)るんです」 <span class="gl">（3-②・p.110）</span></h2></header>
+  <div class="body">
+    <div class="exbox" style="font-size:24px;"><span class="ex">例)</span> あと2、3<ruby>年<rt>ねん</rt></ruby><u>したら</u>、<ruby>海外<rt>かいがい</rt></ruby>の<ruby>支社<rt>ししゃ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたい<u>と<ruby>思<rt>おも</rt></ruby>って(い)るんです</u>。</div>
+    <ol class="drill sm">
+      <li><ruby>留学<rt>りゅうがく</rt></ruby>が（<ruby>終<rt>お</rt></ruby>わります →　　　　）、<ruby>日本<rt>にほん</rt></ruby>の<ruby>会社<rt>かいしゃ</rt></ruby>で（<ruby>働<rt>はたら</rt></ruby>きます →　　　　　　）。</li>
+      <li><ruby>大学<rt>だいがく</rt></ruby>を（<ruby>卒業<rt>そつぎょう</rt></ruby>します →　　　　）、つうやくに（なります →　　　　　　）。</li>
+      <li>5<ruby>年<rt>ねん</rt></ruby>ぐらい<ruby>会社<rt>かいしゃ</rt></ruby>で（<ruby>働<rt>はたら</rt></ruby>きます →　　　　）、<ruby>自分<rt>じぶん</rt></ruby>で<ruby>会社<rt>かいしゃ</rt></ruby>を（<ruby>作<rt>つく</rt></ruby>ります →　　　　　　）。</li>
+    </ol>
+  </div>
+</section>
+<section class="slide">
+  <header><span class="tag">4. はなす / SPEAKING</span><h2>ロールプレイ ＆ <ruby>発表<rt>はっぴょう</rt></ruby></h2></header>
+  <div class="body two">
+    <div class="panel blue">
+      <h3>A. <ruby>会社<rt>かいしゃ</rt></ruby>の<ruby>受付<rt>うけつけ</rt></ruby>で（♪179）</h3>
+      <p>A: すみません。＿＿ともうします。<ruby>総務課<rt>そうむか</rt></ruby>の＿＿さん、お<ruby>願<rt>ねが</rt></ruby>いしたいんですが。</p>
+      <p>B: ＿＿ですね。おやくそくですか。ただいまおよびします。</p>
+      <p>B: もうしわけございません。＿＿は、ただいま<ruby>電話中<rt>でんわちゅう</rt></ruby>です。<ruby>少々<rt>しょうしょう</rt></ruby>お<ruby>待<rt>ま</rt></ruby>ちください。</p>
+      <p class="hl"><ruby>部署<rt>ぶしょ</rt></ruby>：<ruby>営業<rt>えいぎょう</rt></ruby>・<ruby>企画<rt>きかく</rt></ruby>・<ruby>経理<rt>けいり</rt></ruby>・<ruby>広報<rt>こうほう</rt></ruby>・<ruby>総務<rt>そうむ</rt></ruby>・<ruby>海外事業<rt>かいがいじぎょう</rt></ruby></p>
+    </div>
+    <div class="panel orange">
+      <h3>B. どんなところで<ruby>働<rt>はたら</rt></ruby>いていますか（♪181）</h3>
+      <ul>
+        <li><ruby>私<rt>わたし</rt></ruby>は＿＿＿で<ruby>働<rt>はたら</rt></ruby>いています。</li>
+        <li>この<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>勤<rt>つと</rt></ruby>めて＿＿になります。</li>
+        <li>＿＿＿を<ruby>担当<rt>たんとう</rt></ruby>しています。</li>
+        <li><ruby>私<rt>わたし</rt></ruby>の<ruby>職場<rt>しょくば</rt></ruby>は、＿＿＿。</li>
+      </ul>
+      <p class="hl2"><ruby>文<rt>ぶん</rt></ruby>を2つ<ruby>以上<rt>いじょう</rt></ruby>ならべて、<ruby>少<rt>すこ</rt></ruby>し<ruby>長<rt>なが</rt></ruby>く<ruby>話<rt>はな</rt></ruby>しましょう。</p>
+    </div>
+  </div>
+</section>
+<section class="slide cando">
+  <div class="rail"></div>
+  <p class="kick">ふりかえり / CAN-DO CHECK</p>
+  <h2 class="cdh">できるようになりましたか？</h2>
+  <ul class="cdlist"><li><span class="box"></span><ruby>会社<rt>かいしゃ</rt></ruby>の<ruby>受付<rt>うけつけ</rt></ruby>で、<ruby>会<rt>あ</rt></ruby>いたい<ruby>人<rt>ひと</rt></ruby>にとりついでもらうことができる。</li><li><span class="box"></span><ruby>勤<rt>つと</rt></ruby>めている<ruby>会社<rt>かいしゃ</rt></ruby>と<ruby>自分<rt>じぶん</rt></ruby>の<ruby>仕事<rt>しごと</rt></ruby>について<ruby>話<rt>はな</rt></ruby>せる。</li></ul>
+  <p class="bye">おつかれさまでした！</p>
+</section>
+<section class="slide index">
+  <header><span class="tag">♪ おんせい / AUDIO</span><h2><ruby>音声<rt>おんせい</rt></ruby>リンク集</h2></header>
+  <div class="body idxbody"><div class="idxgroup"><h4>じゅんび / Preparation</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 171 ことば</span></div><audio controls preload="none" src="171_9_1.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 172 かくにん</span></div><audio controls preload="none" src="172_9_1_1.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 173 ことば</span></div><audio controls preload="none" src="173_9_1_3.mp3"></audio></div></div></div><div class="idxgroup"><h4>少々お待ちください (9-2)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 175 会話①</span></div><audio controls preload="none" src="175_9_2_1%5B1%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 176 会話②</span></div><audio controls preload="none" src="176_9_2_1%5B2%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 177 会話③</span></div><audio controls preload="none" src="177_9_2_1%5B3%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 178 会話④</span></div><audio controls preload="none" src="178_9_2_1%5B4%5D.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 179 受付で</span></div><audio controls preload="none" src="179_9_2_3_eigyoo_kikaku-c.mp3"></audio></div></div></div><div class="idxgroup"><h4>働きやすいですよ (9-3)</h4><div class="idxrows"><div class="audio"><div class="ahead"><span class="alabel">♪ 180 会話</span></div><audio controls preload="none" src="180_9_3_1_kaiwa.mp3"></audio></div><div class="audio"><div class="ahead"><span class="alabel">♪ 181 話すじゅんび</span></div><audio controls preload="none" src="181_9_3_3.mp3"></audio></div></div></div></div>
+</section>
+</div></div>
+<div id="nav"><button id="prev">‹</button><span id="count"></span><button id="next">›</button></div>
+<script>
+const deck=document.querySelector('.deck');
+function fit(){const s=Math.min(window.innerWidth/1280,window.innerHeight/720);document.documentElement.style.setProperty('--s',s);}
+window.addEventListener('resize',fit);fit();
+const slides=[...document.querySelectorAll('.slide')];let i=0;const N=slides.length;
+const count=document.getElementById('count'),bar=document.getElementById('bar');
+const prev=document.getElementById('prev'),next=document.getElementById('next');
+function show(n){i=Math.max(0,Math.min(N-1,n));slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+count.textContent=(i+1)+' / '+N;bar.style.width=((i+1)/N*100)+'%';prev.disabled=i===0;next.disabled=i===N-1;}
+prev.onclick=()=>show(i-1);next.onclick=()=>show(i+1);
+document.addEventListener('keydown',e=>{
+  const t=document.activeElement;const isMedia=t&&t.tagName==='AUDIO';
+  if(e.key==='ArrowRight'||e.key==='PageDown'){show(i+1);}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1);}
+  else if(e.key===' '&&!isMedia){e.preventDefault();show(i+1);}
+  else if(e.key==='Home'){show(0);}else if(e.key==='End'){show(N-1);}
+  else if(e.key==='f'){const d=document.documentElement;if(!document.fullscreenElement)d.requestFullscreen&&d.requestFullscreen();else document.exitFullscreen();}
+});
+show(0);
+</script>
+</body></html>
